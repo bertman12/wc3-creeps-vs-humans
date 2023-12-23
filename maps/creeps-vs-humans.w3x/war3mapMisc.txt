@@ -1,0 +1,10 @@
+[Misc]
+BuildingKillsGiveExp=1
+HeroExpRange=100000.0
+HeroMaxAwakenCostGold=300
+HeroMaxAwakenCostLumber=0
+HeroMaxReviveCostGold=100
+HeroMaxReviveCostLumber=0
+HeroMaxReviveTime=20.0
+MaxHeroLevel=50
+

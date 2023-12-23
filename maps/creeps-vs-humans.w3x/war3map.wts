@@ -23,11 +23,6 @@ STRING 5
 Player 1
 }
 
-STRING 6
-{
-Force 1
-}
-
 STRING 7
 {
 Creep Wars - alpha v0.01
@@ -39,5 +34,76 @@ Destroy all other players to win.
 
 
 Made by JediMindTrix/NihilismIsDeath
+}
+
+STRING 9
+{
+Player 2
+}
+
+STRING 10
+{
+Player 3
+}
+
+STRING 11
+{
+Player 4
+}
+
+STRING 12
+{
+Player 5
+}
+
+STRING 13
+{
+Player 6
+}
+
+STRING 32
+{
+Creep Forces
+}
+
+STRING 33
+{
+Creeps
+}
+
+STRING 35
+// Units: h000 (Murloc Camp), Name (Name)
+{
+Murloc Camp
+}
+
+STRING 37
+// Units: h001 (Gold Mine), Name (Name)
+{
+Gold Mine
+}
+
+STRING 38
+// Units: H002 (Creep Warlord), Propernames (Proper Names)
+{
+King of Murlocs
+}
+
+STRING 40
+// Units: H002 (Creep Warlord), Name (Name)
+{
+Creep Warlord
+}
+
+STRING 41
+// Abilities: A000 (Multishot), Name (Name)
+{
+Multishot
+}
+
+STRING 42
+// Abilities: A000 (Multishot), EditorSuffix (Editor Suffix)
+{
+(Base)
 }
 

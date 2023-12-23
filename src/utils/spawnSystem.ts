@@ -3,38 +3,16 @@
 // import { RoundManager } from "src/shared/round-manager";
 // import { primaryCapturableHumanTargets } from "src/towns";
 import { MinimapIconPath, primaryCaptureTargets } from "src/shared/enums";
-import { forEachAlliedPlayer, forEachPlayer, forEachUnitTypeOfPlayer, isPlayingUser } from "src/utils/players";
-import { Effect, MapPlayer, Point, Rectangle, Timer, Trigger, Unit } from "w3ts";
+import { adjustGold, forEachAlliedPlayer, forEachPlayer, forEachUnitTypeOfPlayer, isPlayingUser } from "src/utils/players";
+import { Effect, FogModifier, Item, MapPlayer, Point, Rectangle, Timer, Trigger, Unit } from "w3ts";
 import { OrderId, Players } from "w3ts/globals";
-
-const UNDEAD_PLAYERS = [Players[10], Players[12], Players[13], Players[14], Players[15], Players[16], Players[17], Players[19], Players[20], Players[21], Players[22], Players[23]];
-const defaultAttackX = -1200;
-const defaultAttackY = -15500;
-let currentUndeadPlayerIndex = 0;
-let isUndeadHeroSoundAlreadyPlaying = false;
-
-/**
- * Cycles all players from the undead player array then restarts once it goes through all players
- */
-function getNextUndeadPlayer() {
-    let player = UNDEAD_PLAYERS[currentUndeadPlayerIndex];
-
-    if (currentUndeadPlayerIndex >= UNDEAD_PLAYERS.length) {
-        currentUndeadPlayerIndex = 0;
-        player = UNDEAD_PLAYERS[currentUndeadPlayerIndex];
-    } else {
-        currentUndeadPlayerIndex++;
-    }
-
-    return player;
-}
+import { playerRGBMap } from "./color";
+import { notifyPlayer, tColor, useTempEffect } from "./misc";
 
 //30 seconds being the hard spawn, 15 second intervals being the normal spawn difficulty; maybe fr
-const waveIntervalOptions = [15, 30];
+const waveIntervalOptions = [10];
 
-const MAX_ZOMBIE_COUNT = 200 as const;
-
-let currentZombieCount = 0;
+let computerPlayerPool: MapPlayer[] = [];
 
 let playerSpawns: SpawnData[] = [];
 
@@ -80,72 +58,33 @@ let playerSpawns: SpawnData[] = [];
 //     });
 // }
 
-export function setup_createCreepSpawns() {
-    playerSpawns.forEach((spawn) => spawn.cleanupSpawn());
+export function setup_playerCreepSpawns() {
+    Players.forEach((p, index) => {
+        if (index > 5) {
+            computerPlayerPool.push(p);
+        }
+    });
 
-    playerSpawns = [];
+    forEachPlayer((p) => {
+        if (isPlayingUser(p)) {
+            const spawnRec = Rectangle.create(p.startLocationX, p.startLocationY, p.startLocationX, p.startLocationY);
 
-    // const validUndeadSpawns = [gg_rct_zombieSpawn2, gg_rct_zNorthSpawn1, gg_rct_ZombieSpawn1, gg_rct_zWestSpawn1, gg_rct_zEastCapitalSpawn];
-    const spawns: rect[] = [];
+            if (spawnRec) {
+                const newSpawn = new SpawnData(spawnRec.handle, p);
+                const murlocKing = Unit.create(p, FourCC("H002"), p.startLocationX, p.startLocationY);
+                const tp = Item.create(FourCC("stel"), 0, 0);
 
-    // [MIN_SPAWN_AMOUNT, validUndeadSpawns.length] spawns will be chosen
-    // const spawnCount = Math.ceil(Math.random() * validUndeadSpawns.length);
+                if (tp) {
+                    murlocKing?.addItem(tp);
+                }
 
-    //If the chosen amount is less than the minimum then set to min amount
-    // if (spawnCount < MIN_SPAWN_AMOUNT) {
-    //     spawnCount = MIN_SPAWN_AMOUNT;
-    // }
+                playerSpawns.push(newSpawn);
+                newSpawn.startSpawning();
+            }
+        }
+    });
 
-    // const tempSet = new Set<rect>();
-
-    // while (tempSet.size !== spawnCount) {
-    //     const randomIndex = Math.floor(Math.random() * validUndeadSpawns.length);
-    //     const chosenSpawn = validUndeadSpawns[randomIndex];
-
-    //     if (!tempSet.has(chosenSpawn)) {
-    //         tempSet.add(chosenSpawn);
-    //     }
-    // }
-
-    // spawns = [...tempSet];
-    // //On the 14th night, all spawns are active
-    // if (RoundManager.currentRound >= 14) {
-    //     spawns = validUndeadSpawns;
-    // }
-    // //Every 5th night, all spawns are active
-    // else if (RoundManager.currentRound % 5 === 0) {
-    //     spawns = validUndeadSpawns;
-    // }
-
-    // const spawnBoss = RoundManager.currentRound % 3 === 0;
-
-    // const spawnConfigs = spawns.map((zone, index) => {
-    //     if (index === 0 && spawnBoss) {
-    //         return new SpawnData(zone, false, spawnBoss);
-    //     }
-    //     return new SpawnData(zone);
-    // });
-
-    /**
-     * @SIMPLIFIED
-     */
-    // const spawnConfigs = validUndeadSpawns.map((zone, index) => {
-    //     if (index === 0 && spawnBoss) {
-    //         return new SpawnData(zone, false, spawnBoss);
-    //     }
-
-    //     return new SpawnData(zone);
-    // });
-
-    // spawnConfigs.forEach((config) => {
-    //     const newTarget = config.chooseForceAttackTarget(Point.create(config.spawnRec?.centerX ?? 0, config.spawnRec?.centerY ?? 0));
-
-    //     if (newTarget) {
-    //         config.applyAttackTargetEffects(newTarget);
-    //     }
-    // });
-
-    // currentSpawns = spawnConfigs;
+    notifyPlayer(`${tColor("Objective", "goldenrod")} - Kill enemy player bases.`);
 }
 
 type UnitCategory = "infantry" | "missile" | "caster" | "siege" | "hero";
@@ -166,7 +105,6 @@ class SpawnData {
     //This will determine the wave interval timer, which thus determines units spawned per wave
     public spawnDifficulty = 0;
     //random number from the array;
-    public waveIntervalTime = 15;
     private spawnAmountPerWave = 1;
 
     /**
@@ -196,27 +134,39 @@ class SpawnData {
         ["siege", 1],
         ["hero", 1],
     ]);
-    private greatestUnitCountFromAllUnitCategories = 1;
+
     private units: Unit[] = [];
     public waveTimer: Timer | undefined;
     public currentAttackTarget: Unit | undefined;
     private trig_chooseNextTarget: Trigger | undefined;
     private lastCreatedWaveUnits: Unit[] = [];
-    private spawnBoss: boolean = false;
     //Special Effects and Icons
     private spawnIcon: minimapicon | undefined;
     private currentTargetSpecialEffect: Effect | undefined;
     private currentTargetMinimapIcon: minimapicon | undefined;
-    private spawnPortalDisplay: Unit | undefined;
+    private spawnBase: Unit | undefined;
     private preSpawnFunctions: ((...args: any) => void)[] = [];
     private onCleanupFunctions: ((...args: any) => void)[] = [];
-    private pathFinderAttackPoint: Point | undefined;
     private spawnUnitCount: number = 0;
     private waveIntervalSeconds = 10;
     private defaultSpawnTargetX = 0;
     private defaultSpawnTargetY = 0;
     private spawnOwner: MapPlayer = Players[0];
+    private MAX_SPAWN_COUNT = 100;
+    private spawnedUnitTypeConfig: Map<
+        UnitCategory,
+        {
+            tierI: number[];
+            tierII: number[];
+            tierIII: number[];
+        }
+    > | null = null;
 
+    /**
+     * A pool of players to use when creating units
+     * Should be initialized at the start of the game.
+     */
+    private alliedPlayerPool: MapPlayer[] = [];
     /**
      * Used to adjust the difficulty of the night
      */
@@ -228,28 +178,16 @@ class SpawnData {
      * Allows for certain things to happen after a certain number of waves being sent.
      */
     private wavesCreated: number = 0;
+    private lastUsedPlayerIndex = 0;
 
-    constructor(spawn: rect, hideUI: boolean = false, spawnBoss: boolean = false) {
+    constructor(spawn: rect, owner: MapPlayer, hideUI: boolean = false, spawnBoss: boolean = false) {
         this.hideUI = hideUI;
-        this.spawnBoss = spawnBoss;
-
-        forEachPlayer((p) => {
-            if (p.isPlayerAlly(Players[0]) && isPlayingUser(p)) {
-                this.playersPlaying++;
-            }
-        });
+        this.spawnOwner = owner;
 
         this.spawnRec = Rectangle.fromHandle(spawn);
 
-        const difficulty = Math.floor(Math.random() * 2);
-        //its currently 50/50 chance for hard or normal spawns
-        const isHardDiff = difficulty === SpawnDifficulty.hard;
-        this.spawnDifficulty = difficulty;
-
-        this.waveIntervalTime = waveIntervalOptions[difficulty];
-
         //Maybe would use?
-        this.spawnAmountPerWave = calcBaseAmountPerWave();
+        this.spawnAmountPerWave = this.calculateUnitCountSpawnedPerWave();
         // this.baseTier2Chance = 0.08 + 0.04 * RoundManager.currentRound + (isHardDiff ? 0.08 : 0);
         // this.currentTier2Chance = this.baseTier2Chance;
         // this.baseTier3Chance = 0.05 + 0.02 * RoundManager.currentRound + (isHardDiff ? 0.05 : 0);
@@ -265,21 +203,99 @@ class SpawnData {
         }
 
         this.unitCompData = new Map<UnitCategory, number>([
-            ["infantry", Math.ceil(0.775 * this.spawnAmountPerWave)],
+            ["infantry", Math.ceil(1 * this.spawnAmountPerWave)],
             ["missile", Math.ceil(0.108 * this.spawnAmountPerWave)],
             ["caster", Math.ceil(0.108 * this.spawnAmountPerWave)],
             ["siege", Math.ceil(0.025 * this.spawnAmountPerWave)],
-            // ["hero", Math.ceil(0.015 * this.spawnAmountPerWave)],
         ]);
 
-        /**
-         * @todo needs to be calculated in the future
-         */
-        this.greatestUnitCountFromAllUnitCategories = Math.ceil(0.775 * this.spawnAmountPerWave);
         const { red, green, blue } = this.getMinimapRGB();
-        this.spawnIcon = CreateMinimapIcon(this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0, red, green, blue, "UI\\Minimap\\MiniMap-Boss.mdl", FOG_OF_WAR_FOGGED);
 
-        // this.spawnPortalDisplay = Unit.create(Players[15], UNITS.undeadSpawn, this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0, 305);
+        this.spawnIcon = CreateMinimapIcon(
+            this.spawnRec?.centerX ?? 0,
+            this.spawnRec?.centerY ?? 0,
+            playerRGBMap.get(this.spawnOwner.id)?.r ?? 0,
+            playerRGBMap.get(this.spawnOwner.id)?.g ?? 0,
+            playerRGBMap.get(this.spawnOwner.id)?.b ?? 0,
+            "UI\\Minimap\\MiniMap-Boss.mdl",
+            FOG_OF_WAR_FOGGED
+        );
+
+        this.spawnBase = Unit.create(this.spawnOwner, FourCC("h000"), this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0, 305);
+
+        const t = Trigger.create();
+
+        if (this.spawnBase) {
+            t.registerUnitEvent(this.spawnBase, EVENT_UNIT_DEATH);
+            t.addAction(() => {
+                this.cleanupSpawn();
+                notifyPlayer(`${this.spawnOwner.name} has been ${tColor("defeated", "red")}`);
+                const clearFogState = FogModifier.create(this.spawnOwner, FOG_OF_WAR_VISIBLE, 0, 0, 25000, true, true);
+                clearFogState?.start();
+            });
+
+            const trig = Trigger.create();
+
+            trig.registerUnitStateEvent(this.spawnBase, UNIT_STATE_MANA, GREATER_THAN_OR_EQUAL, this.spawnBase.maxMana);
+
+            trig.addAction(() => {
+                if (this.spawnBase) {
+                    useTempEffect(Effect.createAttachment("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", this.spawnBase, "overhead"), 3);
+
+                    const goldAwarded = 50;
+
+                    adjustGold(this.spawnBase.owner, goldAwarded);
+                    this.spawnBase.mana = 0;
+                }
+            });
+        }
+
+        this.setup_removeDeadUnitFromSpawnCount();
+
+        //Setup allied player spawn pool
+        //Iterate through the spawn pool and check to see if that player is already in another player's spawn pool, if not then add it to our until we reach 3 players in our pool
+        computerPlayerPool.forEach((comp) => {
+            //Should also check the owner is different from this spawn
+            const alreadyUsed = playerSpawns.find((spawn) => spawn.alliedPlayerPool.find((p) => p === comp));
+
+            //Add to our pool if its no used yet
+            if (!alreadyUsed && this.alliedPlayerPool.length < 3) {
+                this.alliedPlayerPool.push(comp);
+            }
+        });
+
+        this.alliedPlayerPool.forEach((comp) => {
+            SetPlayerAllianceStateAllyBJ(this.spawnOwner.handle, comp.handle, true);
+            SetPlayerAllianceStateAllyBJ(comp.handle, this.spawnOwner.handle, true);
+            this.spawnOwner.setAlliance(comp, ALLIANCE_SHARED_VISION, true);
+            comp.setAlliance(this.spawnOwner, ALLIANCE_SHARED_VISION, true);
+
+            this.alliedPlayerPool.forEach((p) => {
+                if (p !== comp) {
+                    SetPlayerAllianceStateAllyBJ(p.handle, comp.handle, true);
+                    SetPlayerAllianceStateAllyBJ(comp.handle, p.handle, true);
+                    p.setAlliance(comp, ALLIANCE_SHARED_VISION, true);
+                    comp.setAlliance(p, ALLIANCE_SHARED_VISION, true);
+                }
+            });
+        });
+    }
+
+    private calculateUnitCountSpawnedPerWave() {
+        return 4;
+    }
+
+    private getNextAlliedComputerPlayer() {
+        let player = this.alliedPlayerPool[this.lastUsedPlayerIndex];
+
+        if (this.lastUsedPlayerIndex >= this.alliedPlayerPool.length) {
+            this.lastUsedPlayerIndex = 0;
+            player = this.alliedPlayerPool[this.lastUsedPlayerIndex];
+        } else {
+            this.lastUsedPlayerIndex++;
+        }
+
+        return player;
     }
 
     private getMinimapRGB() {
@@ -297,14 +313,14 @@ class SpawnData {
         }
     }
 
-    private trig_removeDeadUnitFromSpawnCount() {
+    private setup_removeDeadUnitFromSpawnCount() {
         const t = Trigger.create();
         t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH);
         t.addAction(() => {
             const u = Unit.fromEvent();
 
             if (u && !u.owner.isPlayerAlly(Players[0])) {
-                currentZombieCount--;
+                this.spawnUnitCount--;
             }
         });
     }
@@ -367,8 +383,8 @@ class SpawnData {
             this.trig_chooseNextTarget.destroy();
         }
 
-        this.spawnPortalDisplay?.destroy();
-        isUndeadHeroSoundAlreadyPlaying = false;
+        this.spawnBase?.destroy();
+
         this.onCleanupFunctions.forEach((cb) => {
             cb();
         });
@@ -427,7 +443,7 @@ class SpawnData {
 
         this.currentTargetSpecialEffect = effect;
 
-        const icon = CreateMinimapIcon(target.x, target.y, 255, 100, 50, MinimapIconPath.ping, FOG_OF_WAR_FOGGED);
+        const icon = CreateMinimapIcon(target.x, target.y, playerRGBMap.get(this.spawnOwner.id)?.r ?? 0, playerRGBMap.get(this.spawnOwner.id)?.g ?? 0, playerRGBMap.get(this.spawnOwner.id)?.b ?? 0, MinimapIconPath.ping, FOG_OF_WAR_FOGGED);
         if (this.currentTargetMinimapIcon) {
             DestroyMinimapIcon(this.currentTargetMinimapIcon);
         }
@@ -450,16 +466,14 @@ class SpawnData {
                 const sampledValue = Math.sin(randomTheta);
 
                 //will always spawn tier 3 units on the last 2 nights
-                if (this.spawnDifficulty === SpawnDifficulty.final || (this.spawnDifficulty >= SpawnDifficulty.hard && sampledValue <= this.currentTier3Chance)) {
+                if (sampledValue <= this.currentTier3Chance) {
                     //spawn tier 3 unit
                     const u = this.spawnSingleUnit(category, 2);
                     if (u) {
                         unitsCreatedThisWave.push(u);
                     }
                     this.currentTier3Chance = this.baseTier3Chance;
-                } else if (this.spawnDifficulty === SpawnDifficulty.boss || sampledValue <= this.currentTier2Chance) {
-                    //For boss spawns, the weakest enemy type will be tier 2 and higher
-
+                } else if (sampledValue <= this.currentTier2Chance) {
                     //Tier 3 was not selected, so we must increase the chance to be chosen
                     this.currentTier3Chance += this.tier3ChanceModifier;
 
@@ -489,7 +503,7 @@ class SpawnData {
     }
 
     private spawnSingleUnit(category: UnitCategory, tier: number) {
-        if (currentZombieCount >= MAX_ZOMBIE_COUNT) {
+        if (this.spawnUnitCount >= this.MAX_SPAWN_COUNT) {
             return undefined;
         }
 
@@ -522,12 +536,13 @@ class SpawnData {
             return undefined;
         }
 
-        const u = Unit.create(getNextUndeadPlayer(), unitTypeId, this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0);
+        const u = Unit.create(this.getNextAlliedComputerPlayer(), unitTypeId, this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0);
 
         if (u) {
-            this.spawnUnitCount;
+            this.spawnUnitCount++;
+            u.color = this.spawnOwner.color;
 
-            this.scaleUnitDifficulty(u);
+            // this.scaleUnitDifficulty(u);
             u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_BASE, 25);
             u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_NUMBER_OF_DICE, 1);
             u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_SIDES_PER_DIE, 2);
@@ -607,7 +622,7 @@ class SpawnData {
         //If y is greater than r*sin(theta) or x is greater than r*cos(theta) then
         primaryCaptureTargets.forEach((unitTypeId) => {
             forEachPlayer((p) => {
-                if (p.isPlayerAlly(Players[0])) {
+                if (!p.isPlayerAlly(this.spawnOwner)) {
                     forEachUnitTypeOfPlayer(unitTypeId, p, (u) => {
                         if (u && u.isAlive()) {
                             closestCapturableStructure = u;
@@ -647,11 +662,11 @@ const unitCategoryData = new Map<UnitCategory, { tierI: number[]; tierII: number
                 // UNITS.zombie,
                 // UNITS.skeletalOrc,
                 //mini overlord
-                FourCC("nfgu"),
+                FourCC("nmrl"),
                 //giant skeletal warrior
-                FourCC("nsgk"),
+                // FourCC("nsgk"),
                 //ghouls
-                FourCC("ugho"),
+                // FourCC("ugho"),
                 //
             ],
             tierII: [

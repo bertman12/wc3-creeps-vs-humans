@@ -1,7 +1,11 @@
 import { W3TS_HOOK, addScriptHook } from "w3ts/hooks";
+import { setup_capture } from "./triggers/capture";
+import { setup_GoldMineEco } from "./triggers/goldMineEconomy";
 import { trig_setCameraDistance } from "./utils/camera";
 import { trig_itemRecipeSystem } from "./utils/item";
 import { setup_quests } from "./utils/quests";
+import { setup_playerCreepSpawns } from "./utils/spawnSystem";
+import { delayedTimer } from "./utils/timer";
 
 const BUILD_DATE = compiletime(() => new Date().toUTCString());
 const TS_VERSION = compiletime(() => require("typescript").version);
@@ -28,6 +32,9 @@ function tsMain() {
         trig_itemRecipeSystem();
         trig_setCameraDistance();
         setup_quests();
+        setup_capture();
+        setup_GoldMineEco();
+        delayedTimer(1, setup_playerCreepSpawns);
     } catch (e) {
         print(e);
     }

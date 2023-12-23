@@ -1,7 +1,10 @@
 export enum UNITS {
     dummyCaster = FourCC("h00V"),
     dummyCaster_cenariusGhost = FourCC("h011"),
+    murlocBase = FourCC("h000"),
+    goldMine = FourCC("h001"),
 }
+
 export enum PlayerIndices {
     KingdomOfAlexandria = 9,
     HumanDefenders = 18,
@@ -46,5 +49,4 @@ export const minimapIconPathsSet = new Set<MINIMAP_ICONS>([
     "UI\\Minimap\\Minimap-QuestTurnIn.mdl",
 ]);
 
-
-export const primaryCaptureTargets = new Set([FourCC("hcas")]);
+export const primaryCaptureTargets = new Set([UNITS.murlocBase, UNITS.goldMine]);
