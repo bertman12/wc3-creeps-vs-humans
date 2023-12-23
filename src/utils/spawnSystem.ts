@@ -148,7 +148,7 @@ class SpawnData {
     private preSpawnFunctions: ((...args: any) => void)[] = [];
     private onCleanupFunctions: ((...args: any) => void)[] = [];
     private spawnUnitCount: number = 0;
-    private waveIntervalSeconds = 10;
+    private waveIntervalSeconds = 15;
     private defaultSpawnTargetX = 0;
     private defaultSpawnTargetY = 0;
     private spawnOwner: MapPlayer = Players[0];
@@ -282,7 +282,7 @@ class SpawnData {
     }
 
     private calculateUnitCountSpawnedPerWave() {
-        return 4;
+        return 3;
     }
 
     private getNextAlliedComputerPlayer() {

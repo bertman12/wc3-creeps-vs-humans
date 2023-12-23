@@ -9,3 +9,5 @@ players can set traps for enemy heroes which when spring (via land mine trickery
 gold mines give gold every 10 seconds ; 100gold
 
 if you have no gold mines, then you are eliminated or subjugated by the killing player of your last mine
+
+Make it so creeps will find a new random valid target every 90 seconds if it hasnt changed, to prevent rushing player bases

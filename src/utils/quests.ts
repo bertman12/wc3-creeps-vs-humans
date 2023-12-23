@@ -15,14 +15,12 @@ export function setup_quests() {
             "Commands",
             `
             \n${tColor("-cam ####", "goldenrod")}: Sets the camera distance.
-            \n${tColor("-start", "goldenrod")}: Only use if the next round hasn't started and it is night and you see no timer.
-            \n${tColor("-heromode", "goldenrod")}: Experimental - Sets the game mode to hero mode. Must be used before preparation timer at the beginning has ended.
         `,
             "ReplaceableTextures\\WorldEditUI\\Doodad-Cinematic.blp",
             false
         );
 
-        addQuest("|cffffcc00Creeps vs Humans - alpha|r", "Created by JediMindTrix/NihilismIsDeath", "ReplaceableTextures\\CommandButtons\\BTNClayFigurine.blp", false);
+        addQuest("|cffffcc00Creeps vs Humans - alpha v0.01|r", "Created by JediMindTrix/NihilismIsDeath", "ReplaceableTextures\\CommandButtons\\BTNClayFigurine.blp", false);
     });
 }
 

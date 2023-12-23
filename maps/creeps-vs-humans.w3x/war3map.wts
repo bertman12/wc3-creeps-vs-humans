@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-Creep Wars - alpha v0.01
+Creep Wars - alpha
 }
 
 STRING 2
@@ -10,7 +10,12 @@ STRING 2
 
 STRING 3
 {
-Nondescript
+Capture Gold Mines to increase your income.
+
+Build towers to defend your mines.
+
+Fight with creeps to attack players.
+
 }
 
 STRING 4
@@ -25,7 +30,7 @@ Player 1
 
 STRING 7
 {
-Creep Wars - alpha v0.01
+Creep Wars - alpha
 }
 
 STRING 8
