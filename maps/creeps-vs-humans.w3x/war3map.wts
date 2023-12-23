@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-Creep Wars - alpha
+Creep Wars - alpha 02
 }
 
 STRING 2
@@ -16,6 +16,7 @@ Build towers to defend your mines.
 
 Fight with creeps to attack players.
 
+Allied creeps are controlled by computer.
 }
 
 STRING 4
@@ -30,13 +31,18 @@ Player 1
 
 STRING 7
 {
-Creep Wars - alpha
+Creep Wars - alpha 02
 }
 
 STRING 8
 {
 Destroy all other players to win.
 
+Gold mines give 25 gold every 10 seconds.
+
+Your base gives 50 gold.
+
+Creeps will choose attack targets randomly most of the time and every 90 seconds.
 
 Made by JediMindTrix/NihilismIsDeath
 }
@@ -110,5 +116,11 @@ STRING 42
 // Abilities: A000 (Multishot), EditorSuffix (Editor Suffix)
 {
 (Base)
+}
+
+STRING 43
+// Items: infs (Inferno Stone), Ubertip (Tooltip - Extended)
+{
+Calls an Infernal down from the sky, dealing <AIin,DataA1> damage and stunning enemy land units for <AIin,Dur1> seconds in an area. The Infernal lasts <AIin,DataB1> seconds.|n|N|Cffffcc00Stackable.|R
 }
 

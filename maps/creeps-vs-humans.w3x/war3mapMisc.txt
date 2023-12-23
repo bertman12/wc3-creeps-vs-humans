@@ -6,5 +6,6 @@ HeroMaxAwakenCostLumber=0
 HeroMaxReviveCostGold=100
 HeroMaxReviveCostLumber=0
 HeroMaxReviveTime=20.0
+ItemStackingEnabled=1
 MaxHeroLevel=50
 

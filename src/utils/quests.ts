@@ -20,7 +20,7 @@ export function setup_quests() {
             false
         );
 
-        addQuest("|cffffcc00Creeps vs Humans - alpha v0.01|r", "Created by JediMindTrix/NihilismIsDeath", "ReplaceableTextures\\CommandButtons\\BTNClayFigurine.blp", false);
+        addQuest("|cffffcc00Creeps vs Humans - alpha v0.02|r", "Created by JediMindTrix/NihilismIsDeath", "ReplaceableTextures\\CommandButtons\\BTNClayFigurine.blp", false);
     });
 }
 

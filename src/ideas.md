@@ -11,3 +11,11 @@ gold mines give gold every 10 seconds ; 100gold
 if you have no gold mines, then you are eliminated or subjugated by the killing player of your last mine
 
 Make it so creeps will find a new random valid target every 90 seconds if it hasnt changed, to prevent rushing player bases
+
+add fortified mines upgrade which gives mines multishot
+
+give 2nd attack to base that only targets heros and deos alot of chaos dmg
+
+maybe also let players choose their inital units spawned
+
+add some units tehy can spawn that last 30 seconds to help push ut from base

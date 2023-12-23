@@ -148,11 +148,11 @@ class SpawnData {
     private preSpawnFunctions: ((...args: any) => void)[] = [];
     private onCleanupFunctions: ((...args: any) => void)[] = [];
     private spawnUnitCount: number = 0;
-    private waveIntervalSeconds = 15;
+    private waveIntervalSeconds = 10;
     private defaultSpawnTargetX = 0;
     private defaultSpawnTargetY = 0;
     private spawnOwner: MapPlayer = Players[0];
-    private MAX_SPAWN_COUNT = 100;
+    private MAX_SPAWN_COUNT = 110;
     private spawnedUnitTypeConfig: Map<
         UnitCategory,
         {
@@ -279,10 +279,20 @@ class SpawnData {
                 }
             });
         });
+
+        this.setup_orderAttackOnRandomTarget();
     }
 
     private calculateUnitCountSpawnedPerWave() {
         return 3;
+    }
+
+    private setup_orderAttackOnRandomTarget() {
+        const timer = Timer.create();
+
+        timer.start(90, true, () => {
+            this.orderNewAttack(this.units);
+        });
     }
 
     private getNextAlliedComputerPlayer() {
@@ -624,26 +634,48 @@ class SpawnData {
             forEachPlayer((p) => {
                 if (!p.isPlayerAlly(this.spawnOwner)) {
                     forEachUnitTypeOfPlayer(unitTypeId, p, (u) => {
-                        if (u && u.isAlive()) {
+                        if (u && u.isAlive() && math.random(0, 100) < 25) {
                             closestCapturableStructure = u;
                         }
 
                         //Dont check neutral units
-                        const locU = Location(u.x, u.y);
-                        const dist = DistanceBetweenPoints(currLoc, locU);
+                        // const locU = Location(u.x, u.y);
+                        // const dist = DistanceBetweenPoints(currLoc, locU);
 
-                        // //Choose the point closest to the current attack point
-                        if (dist < shortestDistance) {
-                            shortestDistance = dist;
-                            closestCapturableStructure = u;
-                        }
+                        // // //Choose the point closest to the current attack point
+                        // if (dist < shortestDistance) {
+                        //     shortestDistance = dist;
+                        //     closestCapturableStructure = u;
+                        // }
                     });
                 }
             });
         });
 
         if (closestCapturableStructure === undefined) {
-            print("Unable to find next undead attack target.");
+            primaryCaptureTargets.forEach((unitTypeId) => {
+                forEachPlayer((p) => {
+                    if (!p.isPlayerAlly(this.spawnOwner)) {
+                        forEachUnitTypeOfPlayer(unitTypeId, p, (u) => {
+                            if (u && u.isAlive() && math.random(0, 100) < 25) {
+                                closestCapturableStructure = u;
+                            }
+
+                            //Dont check neutral units
+                            const locU = Location(u.x, u.y);
+                            const dist = DistanceBetweenPoints(currLoc, locU);
+
+                            // //Choose the point closest to the current attack point
+                            if (dist < shortestDistance) {
+                                shortestDistance = dist;
+                                closestCapturableStructure = u;
+                            }
+                        });
+                    }
+                });
+            });
+
+            print("Restarted search for attack target.");
         }
 
         return closestCapturableStructure;
@@ -664,9 +696,9 @@ const unitCategoryData = new Map<UnitCategory, { tierI: number[]; tierII: number
                 //mini overlord
                 FourCC("nmrl"),
                 //giant skeletal warrior
-                // FourCC("nsgk"),
+                FourCC("nsgk"),
                 //ghouls
-                // FourCC("ugho"),
+                FourCC("ugho"),
                 //
             ],
             tierII: [
@@ -706,7 +738,7 @@ const unitCategoryData = new Map<UnitCategory, { tierI: number[]; tierII: number
                 //void walker
                 FourCC("nska"),
                 //void walker
-                // FourCC("nvdw"),
+                FourCC("nvdw"),
                 //basic skeleton marksman?
             ],
             tierII: [
