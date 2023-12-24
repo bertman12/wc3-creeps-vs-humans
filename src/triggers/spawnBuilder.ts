@@ -1,8 +1,9 @@
 import { ABILITIES, UNITS } from "src/shared/enums";
 import { getPlayerState, playerStates } from "src/shared/playerState";
-import { adjustGold, adjustLumber, forEachPlayer, isPlayingUser } from "src/utils/players";
+import { adjustFoodUsed, adjustGold, adjustLumber, forEachPlayer, isPlayingUser } from "src/utils/players";
 import { createUnits } from "src/utils/units";
-import { MapPlayer, Rectangle, Trigger, Unit } from "w3ts";
+import { MapPlayer, Rectangle, Region, Trigger, Unit } from "w3ts";
+import { OrderId } from "w3ts/globals";
 
 export function createSpawnBuilder() {
     const player1Area = Rectangle.fromHandle(gg_rct_Player1SpawnBuilder);
@@ -32,6 +33,7 @@ export function createSpawnBuilder() {
     });
 
     setup_spawnBuilderTracker();
+    setup_spawnBuilderUnitCancelled();
     removeUnitFromSpawn();
 }
 
@@ -72,6 +74,34 @@ function setup_spawnBuilderTracker() {
     });
 }
 
+function setup_spawnBuilderUnitCancelled() {
+    const t = Trigger.create();
+
+    t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_ISSUED_ORDER);
+
+    t.addAction(() => {
+        const p = MapPlayer.fromEvent();
+        const u = Unit.fromEvent();
+        const orderId = GetIssuedOrderId();
+
+        if (!p || !u) return;
+
+        const rectangles = getPlayerSpawnBuilderRegionMap();
+        const playerRect = rectangles.get(u.owner.id);
+
+        if (!playerRect) return;
+
+        const region = Region.create();
+        region.addRect(playerRect);
+
+        if (!region) return;
+
+        if (orderId === OrderId.Cancel && IsUnitInRegion(region.handle, u.handle)) {
+            adjustFoodUsed(p, -u.foodUsed);
+        }
+    });
+}
+
 function removeUnitFromSpawn() {
     const t = Trigger.create();
     t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST);
@@ -81,7 +111,6 @@ function removeUnitFromSpawn() {
         const caster = Unit.fromHandle(GetSpellAbilityUnit());
         const victim = Unit.fromHandle(GetSpellTargetUnit());
         if (spellNumber === ABILITIES.removeUnitFromSpawn && victim && caster) {
-            print("Refunded cost for spawn unit.");
             adjustGold(caster.owner, GetUnitGoldCost(victim.typeId));
             adjustLumber(caster.owner, GetUnitGoldCost(victim.typeId));
             const state = getPlayerState(caster.owner);

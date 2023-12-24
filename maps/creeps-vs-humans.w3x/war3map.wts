@@ -772,96 +772,6 @@ STRING 154
 (NULL UPGRADE)
 }
 
-STRING 156
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
-{
-This will increase the amount units spawned per wave by 1. |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
-}
-
-STRING 157
-// Upgrades: R001 (Chaos), Name (Name)
-{
-Units Count Per Wave +1
-}
-
-STRING 158
-// Upgrades: R001 (Chaos), Tip (Tooltip)
-{
-Research Increase Units Count Per Wave +1
-}
-
-STRING 159
-// Upgrades: R001 (Chaos), Name (Name)
-{
-Units Count Per Wave +2
-}
-
-STRING 160
-// Upgrades: R001 (Chaos), Name (Name)
-{
-Units Count Per Wave +3
-}
-
-STRING 161
-// Upgrades: R001 (Chaos), Name (Name)
-{
-Units Count Per Wave +4
-}
-
-STRING 162
-// Upgrades: R001 (Chaos), Name (Name)
-{
-Units Count Per Wave +5
-}
-
-STRING 163
-// Upgrades: R001 (Chaos), Tip (Tooltip)
-{
-Research Increase Units Count Per Wave +2
-}
-
-STRING 164
-// Upgrades: R001 (Chaos), Tip (Tooltip)
-{
-Research Increase Units Count Per Wave +3
-}
-
-STRING 165
-// Upgrades: R001 (Chaos), Tip (Tooltip)
-{
-Research Increase Units Count Per Wave +4
-}
-
-STRING 166
-// Upgrades: R001 (Chaos), Tip (Tooltip)
-{
-Research Increase Units Count Per Wave +5
-}
-
-STRING 167
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
-{
-This will increase the amount units spawned per wave by 2. |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
-}
-
-STRING 168
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
-{
-This will increase the amount units spawned per wave by 3. |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
-}
-
-STRING 169
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
-{
-This will increase the amount units spawned per wave by 4. |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
-}
-
-STRING 170
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
-{
-This will increase the amount units spawned per wave by 5. |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
-}
-
 STRING 172
 // Abilities: A004 (Remove Unit From Spawn), Name (Name)
 {
@@ -896,5 +806,95 @@ STRING 177
 // Units: u002 (Spawn Builder Tier 3), Name (Name)
 {
 Spawn Builder Tier 3
+}
+
+STRING 178
+// Upgrades: R001 (Chaos), Name (Name)
+{
+Increase Food +1
+}
+
+STRING 179
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Food +1
+}
+
+STRING 180
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
++1 Food |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+}
+
+STRING 181
+// Upgrades: R001 (Chaos), Name (Name)
+{
+Increase Food +2
+}
+
+STRING 182
+// Upgrades: R001 (Chaos), Name (Name)
+{
+Increase Food +3
+}
+
+STRING 183
+// Upgrades: R001 (Chaos), Name (Name)
+{
+Increase Food +4
+}
+
+STRING 184
+// Upgrades: R001 (Chaos), Name (Name)
+{
+Increase Food +5
+}
+
+STRING 185
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Food +2
+}
+
+STRING 186
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Food +3
+}
+
+STRING 187
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Food +4
+}
+
+STRING 188
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Food +5
+}
+
+STRING 189
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
++2 Food |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+}
+
+STRING 190
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
++3 Food |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+}
+
+STRING 191
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
++4 Food |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+}
+
+STRING 192
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
++5 Food |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
 }
 

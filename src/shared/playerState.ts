@@ -1,5 +1,5 @@
 import { notifyPlayer, ptColor, tColor } from "src/utils/misc";
-import { forEachPlayer, forEachUnitOfPlayer, isPlayingUser } from "src/utils/players";
+import { adjustLumber, forEachPlayer, forEachUnitOfPlayer, isPlayingUser } from "src/utils/players";
 import { SpawnData } from "src/utils/spawnSystem";
 import { FogModifier, MapPlayer, Trigger, Unit } from "w3ts";
 import { UNITS } from "./enums";
@@ -64,6 +64,7 @@ export function setupPlayerStateInstances() {
     forEachPlayer((p) => {
         if (isPlayingUser(p)) {
             playerStates.set(p.id, new PlayerState(p));
+            adjustLumber(p, 10000);
         }
     });
 }

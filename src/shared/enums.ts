@@ -20,6 +20,10 @@ export enum ABILITIES {
     removeUnitFromSpawn = FourCC("A004"),
 }
 
+export enum UPGRADES {
+    foodCapIncrease = FourCC("R001"),
+}
+
 export enum PlayerIndices {
     NeutralHostile = 24,
     NeutralPassive = 25,

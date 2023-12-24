@@ -499,8 +499,6 @@ export class SpawnData {
      * Makes use of the simple unit spawn pool instead of the tiered unit configuration
      */
     private spawnUnitsSimple() {
-        print("Used simple spawner.");
-
         this.wavesCreated++;
 
         const unitsCreatedThisWave: Unit[] = [];
