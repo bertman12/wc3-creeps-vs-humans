@@ -42,3 +42,6 @@ so when an upgrade finishes we will upgrade the spawn for the player, also make 
 add a stun ability on your base that will let you stun heroes to help prevent cheese
 
 make +10 armor and weapons the max upgrades you can get
+
+if a player leaves then add their hero to their spawn's units array so it can be moved
+and transfer ownership of spawn to the computer

@@ -1,6 +1,6 @@
 import { PlayerIndices, UNITS } from "src/shared/enums";
 import { useTempEffect } from "src/utils/misc";
-import { adjustGold, forEachUnitOfPlayer, forEachUnitTypeOfPlayer } from "src/utils/players";
+import { adjustGold, forEachUnitTypeOfPlayer } from "src/utils/players";
 import { Effect, Trigger } from "w3ts";
 import { Players } from "w3ts/globals";
 

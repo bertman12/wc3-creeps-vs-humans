@@ -1,5 +1,5 @@
 export class GameConfig {
-    static heroPreparationTime = 60;
+    static heroPreparationTime = 10;
     static heroStartItems: number[] = [FourCC("stel")];
 }
 

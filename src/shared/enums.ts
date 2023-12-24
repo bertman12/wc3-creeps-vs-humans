@@ -5,6 +5,12 @@ export enum UNITS {
     goldMine = FourCC("h001"),
     murloc_baseUnit = FourCC("nmrl"),
     heroChooser = FourCC("e000"),
+    itemShop = FourCC("h003"),
+    upgradeShop = FourCC("h004"),
+}
+
+export enum ABILITIES {
+    invulnerable = FourCC("Avul"),
 }
 
 export enum PlayerIndices {

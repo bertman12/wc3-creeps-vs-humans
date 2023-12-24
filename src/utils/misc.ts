@@ -1,6 +1,7 @@
-import { Effect, Timer, Unit } from "w3ts";
+import { Effect, MapPlayer, Timer, Unit } from "w3ts";
+import { playerHexColorMap } from "./color";
 
-type ProperColors = "goldenrod" | "gold" | "green" | "yellow" | "red";
+type ProperColors = "goldenrod" | "gold" | "green" | "yellow" | "red" | "player1-red" | "player2-blue" | "player3-teal" | "player4-purple" | "player5-yellow" | "player6-orange";
 
 export function tColor(text: string | number, color?: ProperColors, hex?: string, alpha?: string) {
     if (color) {
@@ -12,11 +13,21 @@ export function tColor(text: string | number, color?: ProperColors, hex?: string
     return String(text);
 }
 
+export function ptColor(player: MapPlayer, text: string) {
+    return `${tColor(text, undefined, playerHexColorMap.get(player.id))}`;
+}
+
 const properColorHexes = new Map<ProperColors, string>([
     ["goldenrod", "E0A526"],
     ["green", "00FF00"],
     ["yellow", "FFFF00"],
     ["red", "FF0000"],
+    ["player1-red", "ff0303"],
+    ["player2-blue", "0042ff"],
+    ["player3-teal", "1ce6b9"],
+    ["player4-purple", "540081"],
+    ["player5-yellow", "fffc00"],
+    ["player6-orange", "fe8a0e"],
 ]);
 
 export function notifyPlayer(msg: string) {

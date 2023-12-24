@@ -2,6 +2,16 @@ gg_rct_HeroSpawnArea = nil
 function InitGlobals()
 end
 
+function CreateBuildingsForPlayer1()
+local p = Player(1)
+local u
+local unitID
+local t
+local life
+
+u = BlzCreateUnitWithSkin(p, FourCC("h000"), -1664.0, 4928.0, 270.000, FourCC("h000"))
+end
+
 function CreateNeutralHostileBuildings()
 local p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
 local u
@@ -42,6 +52,7 @@ SetUnitColor(u, ConvertPlayerColor(0))
 end
 
 function CreatePlayerBuildings()
+CreateBuildingsForPlayer1()
 end
 
 function CreatePlayerUnits()

@@ -82,22 +82,10 @@ STRING 33
 Creeps
 }
 
-STRING 35
-// Units: h000 (Murloc Camp), Name (Name)
-{
-Murloc Camp
-}
-
 STRING 37
 // Units: h001 (Gold Mine), Name (Name)
 {
 Gold Mine
-}
-
-STRING 38
-// Units: H002 (Creep Warlord), Propernames (Proper Names)
-{
-King of Murlocs
 }
 
 STRING 40
@@ -125,7 +113,7 @@ Calls an Infernal down from the sky, dealing <AIin,DataA1> damage and stunning e
 }
 
 STRING 44
-// Units: h003 (Arcane Vault), Tip (Tooltip - Basic)
+// Units: h003 (Item Shop), Tip (Tooltip - Basic)
 {
 Item Shop
 }
@@ -356,5 +344,311 @@ STRING 82
 // Units: e000 (Hero Chooser), Name (Name)
 {
 Hero Chooser
+}
+
+STRING 83
+// Units: H002 (Creep Warlord), Tip (Tooltip - Basic)
+{
+Summon the Murloc King
+}
+
+STRING 84
+// Units: H002 (Creep Warlord), Awakentip (Tooltip - Awaken)
+{
+Revive Murloc King
+}
+
+STRING 85
+// Units: H002 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |Cffffcc00Bash|r, |Cffffcc00Mana Shield|R, |Cffffcc00Forked Lightning|r, and |Cffffcc00Volcano|r.
+}
+
+STRING 86
+// Units: H002 (Creep Warlord), Revivetip (Tooltip - Revive)
+{
+Revive Murloc King
+}
+
+STRING 87
+// Units: h000 (Creep Camp), Name (Name)
+{
+Creep Camp
+}
+
+STRING 88
+// Units: h004 (Upgrade Shop), Name (Name)
+{
+Upgrade Shop
+}
+
+STRING 89
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+P
+}
+
+STRING 90
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+P
+}
+
+STRING 91
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+P
+}
+
+STRING 92
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+P
+}
+
+STRING 93
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+P
+}
+
+STRING 94
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+P
+}
+
+STRING 95
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+P
+}
+
+STRING 96
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Name (Name)
+{
+Iron Plating 1
+}
+
+STRING 97
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Name (Name)
+{
+Iron Plating 2
+}
+
+STRING 98
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Name (Name)
+{
+Iron Plating 3
+}
+
+STRING 99
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Name (Name)
+{
+Iron Plating 4
+}
+
+STRING 100
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Name (Name)
+{
+Iron Plating 5
+}
+
+STRING 101
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Name (Name)
+{
+Iron Plating 6
+}
+
+STRING 102
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Name (Name)
+{
+Iron Plating 7
+}
+
+STRING 103
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Name (Name)
+{
+Iron Plating 8
+}
+
+STRING 104
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Name (Name)
+{
+Iron Plating 9
+}
+
+STRING 105
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Name (Name)
+{
+Iron Plating 10
+}
+
+STRING 106
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Tip (Tooltip)
+{
+Upgrade to Iron Plating 1
+}
+
+STRING 107
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Tip (Tooltip)
+{
+Upgrade to Iron Plating 2
+}
+
+STRING 108
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Tip (Tooltip)
+{
+Upgrade to Iron Plating 3
+}
+
+STRING 109
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Tip (Tooltip)
+{
+Upgrade to Iron Plating 4
+}
+
+STRING 110
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Tip (Tooltip)
+{
+Upgrade to Iron Plating 5
+}
+
+STRING 111
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Tip (Tooltip)
+{
+Upgrade to Iron Plating 6
+}
+
+STRING 112
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Tip (Tooltip)
+{
+Upgrade to Iron Plating 7
+}
+
+STRING 113
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Tip (Tooltip)
+{
+Upgrade to Iron Plating 8
+}
+
+STRING 114
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Tip (Tooltip)
+{
+Upgrade to Iron Plating 9
+}
+
+STRING 115
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Tip (Tooltip)
+{
+Upgrade to Iron Plating 10
+}
+
+STRING 116
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00armor|r of all allied creep units.
+}
+
+STRING 117
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00armor|r of all allied creep units.
+}
+
+STRING 118
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00armor|r of all allied creep units.
+}
+
+STRING 119
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00armor|r of all allied creep units.
+}
+
+STRING 120
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00armor|r of all allied creep units.
+}
+
+STRING 121
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00armor|r of all allied creep units.
+}
+
+STRING 122
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00armor|r of all allied creep units.
+}
+
+STRING 123
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00armor|r of all allied creep units.
+}
+
+STRING 124
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00armor|r of all allied creep units.
+}
+
+STRING 125
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00armor|r of all allied creep units.
+}
+
+STRING 126
+// Units: h003 (Item Shop), Name (Name)
+{
+Item Shop
+}
+
+STRING 127
+// Units: H002 (Creep Warlord), Propernames (Proper Names)
+{
+Murloc King
+}
+
+STRING 128
+// Abilities: A001 (Info Ability Base), Name (Name)
+{
+Info Ability Base
+}
+
+STRING 129
+// Abilities: A001 (Info Ability Base), EditorSuffix (Editor Suffix)
+{
+(INFO ABILITY BASE)
+}
+
+STRING 130
+// Abilities: A002 (Gold Mine), Name (Name)
+{
+Gold Mine
+}
+
+STRING 131
+// Abilities: A002 (Gold Mine), EditorSuffix (Editor Suffix)
+{
+(INFO ABILITY BASE)
+}
+
+STRING 132
+// Abilities: A002 (Gold Mine), Tip (Tooltip - Normal)
+{
+Gold Mine
+}
+
+STRING 133
+// Abilities: A002 (Gold Mine), Ubertip (Tooltip - Normal - Extended)
+{
+|cffffff00+25 Gold|r every 10 seconds.
 }
 

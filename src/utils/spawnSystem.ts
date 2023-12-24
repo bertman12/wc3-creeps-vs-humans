@@ -1,10 +1,10 @@
-import { MinimapIconPath, primaryCaptureTargets } from "src/shared/enums";
+import { MinimapIconPath, UNITS, primaryCaptureTargets } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
 import { adjustGold, forEachPlayer, forEachUnitTypeOfPlayer, isPlayingUser } from "src/utils/players";
-import { Effect, FogModifier, MapPlayer, Point, Rectangle, Timer, Trigger, Unit } from "w3ts";
+import { Effect, MapPlayer, Point, Rectangle, Timer, Trigger, Unit } from "w3ts";
 import { OrderId, Players } from "w3ts/globals";
 import { playerRGBMap } from "./color";
-import { notifyPlayer, tColor, useTempEffect } from "./misc";
+import { notifyPlayer, ptColor, tColor, useTempEffect } from "./misc";
 
 //30 seconds being the hard spawn, 15 second intervals being the normal spawn difficulty; maybe fr
 let computerPlayerPool: MapPlayer[] = [];
@@ -24,13 +24,6 @@ export function setup_playerCreepSpawns() {
 
             if (spawnRec) {
                 const newSpawn = new SpawnData(spawnRec.handle, p);
-                // const murlocKing = Unit.create(p, FourCC("H002"), p.startLocationX, p.startLocationY);
-                // const tp = Item.create(FourCC("stel"), 0, 0);
-
-                // if (tp) {
-                //     murlocKing?.addItem(tp);
-                // }
-
                 playerSpawns.push(newSpawn);
                 newSpawn.startSpawning();
                 const playerState = playerStates.get(p.id);
@@ -38,6 +31,9 @@ export function setup_playerCreepSpawns() {
                 if (playerState) {
                     playerState.ownedSpawn = newSpawn;
                 }
+
+                Unit.create(p, UNITS.itemShop, p.startLocationX - 300, p.startLocationY);
+                Unit.create(p, UNITS.upgradeShop, p.startLocationX + 300, p.startLocationY);
             }
         }
     });
@@ -102,14 +98,14 @@ export class SpawnData {
     private spawnIcon: minimapicon | undefined;
     private currentTargetSpecialEffect: Effect | undefined;
     private currentTargetMinimapIcon: minimapicon | undefined;
-    private spawnBase: Unit | undefined;
+    public spawnBase: Unit | undefined;
     private preSpawnFunctions: ((...args: any) => void)[] = [];
     private onCleanupFunctions: ((...args: any) => void)[] = [];
     private spawnUnitCount: number = 0;
     private waveIntervalSeconds = 10;
     private defaultSpawnTargetX = 0;
     private defaultSpawnTargetY = 0;
-    private spawnOwner: MapPlayer = Players[0];
+    public spawnOwner: MapPlayer = Players[0];
     private MAX_SPAWN_COUNT = 110;
 
     private spawnedUnitTypeConfig: Map<
@@ -125,7 +121,7 @@ export class SpawnData {
      * A pool of players to use when creating units
      * Should be initialized at the start of the game.
      */
-    private alliedPlayerPool: MapPlayer[] = [];
+    public alliedPlayerPool: MapPlayer[] = [];
     /**
      * Used to adjust the difficulty of the night
      */
@@ -185,13 +181,11 @@ export class SpawnData {
         const t = Trigger.create();
 
         if (this.spawnBase) {
-            t.registerUnitEvent(this.spawnBase, EVENT_UNIT_DEATH);
-            t.addAction(() => {
-                this.cleanupSpawn();
-                notifyPlayer(`${this.spawnOwner.name} has been ${tColor("defeated", "red")}`);
-                const clearFogState = FogModifier.create(this.spawnOwner, FOG_OF_WAR_VISIBLE, 0, 0, 25000, true, true);
-                clearFogState?.start();
-            });
+            const playerState = playerStates.get(this.spawnOwner.id);
+
+            if (playerState) {
+                playerState.setup_defeatPlayer(this.spawnBase);
+            }
 
             const trig = Trigger.create();
 
@@ -226,6 +220,9 @@ export class SpawnData {
         this.alliedPlayerPool.forEach((comp) => {
             SetPlayerAllianceStateAllyBJ(this.spawnOwner.handle, comp.handle, true);
             SetPlayerAllianceStateAllyBJ(comp.handle, this.spawnOwner.handle, true);
+            //Colorize computer name to match the player's
+            comp.name = ptColor(this.spawnOwner, this.spawnOwner.name);
+
             this.spawnOwner.setAlliance(comp, ALLIANCE_SHARED_VISION, true);
             comp.setAlliance(this.spawnOwner, ALLIANCE_SHARED_VISION, true);
 
@@ -509,6 +506,7 @@ export class SpawnData {
 
         if (u) {
             this.spawnUnitCount++;
+            u.owner.name = ptColor(this.spawnOwner, this.spawnOwner.name);
             u.color = this.spawnOwner.color;
 
             // this.scaleUnitDifficulty(u);
@@ -650,10 +648,12 @@ const unitCategoryData = new Map<UnitCategory, { tierI: number[]; tierII: number
             tierI: [
                 //murloc
                 FourCC("nmrl"),
-                //giant skeletal warrior
-                FourCC("nsgk"),
-                //ghouls
-                FourCC("ugho"),
+                //satyr
+                FourCC("nsty"),
+                //spider
+                FourCC("nspr"),
+                //wolf
+                FourCC("nwlt"),
                 //
             ],
             tierII: [
@@ -672,7 +672,7 @@ const unitCategoryData = new Map<UnitCategory, { tierI: number[]; tierII: number
                 // UNITS.skeletalArcher,
                 //ice troll
                 FourCC("nitr"),
-                //void walker
+                //skeleton archer
                 FourCC("nska"),
                 //void walker
                 FourCC("nvdw"),
@@ -702,6 +702,8 @@ const unitCategoryData = new Map<UnitCategory, { tierI: number[]; tierII: number
                 FourCC("nkog"),
                 //poison treant
                 FourCC("nenp"),
+                //shadow troll priest
+                FourCC("ndtp"),
             ],
             tierII: [
                 //stormreaver necrolyte

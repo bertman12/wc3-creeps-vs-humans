@@ -1,10 +1,10 @@
 import { GameConfig } from "src/shared/GameConfig";
-import { UNITS } from "src/shared/enums";
+import { ABILITIES, UNITS } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
 import { notifyPlayer, tColor } from "src/utils/misc";
 import { forEachAlliedPlayer, forEachPlayer, isPlayingUser } from "src/utils/players";
 import { delayedTimer } from "src/utils/timer";
-import { MapPlayer, Rectangle, Region, Timer, Trigger, Unit } from "w3ts";
+import { MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts";
 
 /**
  * Must occur after player states have been setup
@@ -15,6 +15,7 @@ export function setup_heroPurchasing(onPrepTimeEnd: (...args: any[]) => any) {
         const prepTimer = Timer.create();
         const prepTimerDialog = CreateTimerDialogBJ(prepTimer.handle, "Preparation Time...");
         const PREP_TIME_SECONDS = GameConfig.heroPreparationTime;
+
         notifyPlayer(`You have ${PREP_TIME_SECONDS} seconds to prepare. You may still pick your hero after preparation time has ended.`);
         print(tColor("Choose your hero...", "red"));
 
@@ -38,6 +39,7 @@ export function setup_heroPurchasing(onPrepTimeEnd: (...args: any[]) => any) {
         });
 
         //Create hero choosers for player
+        createHeroChoosers();
     });
 }
 
@@ -51,7 +53,7 @@ function trig_heroPurchasedAfterPrepTime() {
 
     t.addCondition(() => {
         const u = Unit.fromHandle(GetBuyingUnit());
-        if (u && u.typeId === FourCC("nshe")) {
+        if (u && u.typeId === UNITS.heroChooser) {
             return true;
         }
 
@@ -91,7 +93,7 @@ function trig_heroPurchasedDuringPrepTime() {
 
     t.addCondition(() => {
         const u = Unit.fromHandle(GetBuyingUnit());
-        if (u && u.typeId === FourCC("nshe")) {
+        if (u && u.typeId === UNITS.heroChooser) {
             return true;
         }
 
@@ -114,7 +116,7 @@ function trig_heroPurchasedDuringPrepTime() {
             playerState.playerHero = purchasedHero;
         }
 
-        purchasedHero.addAbility(FourCC("Avul"));
+        purchasedHero.addAbility(ABILITIES.invulnerable);
 
         SelectUnitForPlayerSingle(purchasedHero.handle, purchasedHero.owner.handle);
         SelectUnitRemoveForPlayer(seller?.handle, purchasedHero.owner.handle);
@@ -163,18 +165,23 @@ function moveSingleHeroToStartLocationAndGiveItems(player: MapPlayer) {
 
             SetCameraPositionForPlayer(player.handle, startX, startY);
             purchasedHero.x = startX;
-            purchasedHero.y = startY;
-            purchasedHero.removeAbility(FourCC("Avul"));
+            purchasedHero.y = startY - 300;
+
+            purchasedHero.removeAbility(ABILITIES.invulnerable);
         }
     }
 }
 
 function createHeroChoosers() {
-    const previewRegion = Region.create();
     const previewRectangle = Rectangle.fromHandle(gg_rct_HeroSpawnArea);
+
     forEachPlayer((p) => {
         if (isPlayingUser(p) && previewRectangle) {
-            Unit.create(p, UNITS.heroChooser, previewRectangle.centerX, previewRectangle.centerY);
+            const unit = Unit.create(p, UNITS.heroChooser, previewRectangle.centerX, previewRectangle.centerY);
+
+            if (unit) {
+                SetCameraPositionForPlayer(p.handle, unit.x, unit.y);
+            }
         }
     });
 }
