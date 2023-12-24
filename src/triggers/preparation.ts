@@ -5,6 +5,7 @@ import { notifyPlayer, tColor } from "src/utils/misc";
 import { forEachAlliedPlayer, forEachPlayer, isPlayingUser } from "src/utils/players";
 import { delayedTimer } from "src/utils/timer";
 import { MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts";
+import { createSpawnBuilder } from "./spawnBuilder";
 
 /**
  * Must occur after player states have been setup
@@ -40,6 +41,7 @@ export function setup_heroPurchasing(onPrepTimeEnd: (...args: any[]) => any) {
 
         //Create hero choosers for player
         createHeroChoosers();
+        createSpawnBuilder();
     });
 }
 

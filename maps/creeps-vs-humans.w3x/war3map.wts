@@ -652,3 +652,249 @@ STRING 133
 |cffffff00+25 Gold|r every 10 seconds.
 }
 
+STRING 134
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Hotkey (Hotkey)
+{
+M
+}
+
+STRING 135
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Hotkey (Hotkey)
+{
+M
+}
+
+STRING 136
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Improved Masonry 1
+}
+
+STRING 137
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Improved Masonry 2
+}
+
+STRING 138
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Improved Masonry 3
+}
+
+STRING 139
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Improved Masonry 4
+}
+
+STRING 140
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Improved Masonry 5
+}
+
+STRING 141
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Upgrade to Improved Masonry 1
+}
+
+STRING 142
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Upgrade to Improved Masonry 2
+}
+
+STRING 143
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Upgrade to Improved Masonry 3
+}
+
+STRING 144
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Upgrade to Improved Masonry 4
+}
+
+STRING 145
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Upgrade to Improved Masonry 5
+}
+
+STRING 146
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r of |Cffffcc00buildings|R.
+}
+
+STRING 147
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r of |Cffffcc00buildings|R.
+}
+
+STRING 148
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r of |Cffffcc00buildings|R.
+}
+
+STRING 149
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r of |Cffffcc00buildings|R.
+}
+
+STRING 150
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r of |Cffffcc00buildings|R.
+}
+
+STRING 151
+// Upgrades: R000 (Chaos), Name (Name)
+{
+Null Upgrade
+}
+
+STRING 152
+// Upgrades: R000 (Chaos), EditorSuffix (Editor Suffix)
+{
+(NULL UPGRADE)
+}
+
+STRING 154
+// Upgrades: R001 (Chaos), EditorSuffix (Editor Suffix)
+{
+(NULL UPGRADE)
+}
+
+STRING 156
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+This will increase the amount units spawned per wave by 1. |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+}
+
+STRING 157
+// Upgrades: R001 (Chaos), Name (Name)
+{
+Units Count Per Wave +1
+}
+
+STRING 158
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Units Count Per Wave +1
+}
+
+STRING 159
+// Upgrades: R001 (Chaos), Name (Name)
+{
+Units Count Per Wave +2
+}
+
+STRING 160
+// Upgrades: R001 (Chaos), Name (Name)
+{
+Units Count Per Wave +3
+}
+
+STRING 161
+// Upgrades: R001 (Chaos), Name (Name)
+{
+Units Count Per Wave +4
+}
+
+STRING 162
+// Upgrades: R001 (Chaos), Name (Name)
+{
+Units Count Per Wave +5
+}
+
+STRING 163
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Units Count Per Wave +2
+}
+
+STRING 164
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Units Count Per Wave +3
+}
+
+STRING 165
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Units Count Per Wave +4
+}
+
+STRING 166
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Units Count Per Wave +5
+}
+
+STRING 167
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+This will increase the amount units spawned per wave by 2. |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+}
+
+STRING 168
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+This will increase the amount units spawned per wave by 3. |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+}
+
+STRING 169
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+This will increase the amount units spawned per wave by 4. |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+}
+
+STRING 170
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+This will increase the amount units spawned per wave by 5. |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+}
+
+STRING 172
+// Abilities: A004 (Remove Unit From Spawn), Name (Name)
+{
+Remove Unit From Spawn
+}
+
+STRING 173
+// Abilities: A004 (Remove Unit From Spawn), Tip (Tooltip - Normal)
+{
+Remove Unit From Spawn
+}
+
+STRING 174
+// Abilities: A004 (Remove Unit From Spawn), Ubertip (Tooltip - Normal - Extended)
+{
+Removes the unit from your spawn. |n|N|cff80ff80Refunds 100% unit cost.|r
+}
+
+STRING 175
+// Units: u000 (Spawn Builder Tier 1), Name (Name)
+{
+Spawn Builder Tier 1
+}
+
+STRING 176
+// Units: u001 (Spawn Builder Tier 2), Name (Name)
+{
+Spawn Builder Tier 2
+}
+
+STRING 177
+// Units: u002 (Spawn Builder Tier 3), Name (Name)
+{
+Spawn Builder Tier 3
+}
+

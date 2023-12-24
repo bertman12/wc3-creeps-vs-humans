@@ -1,4 +1,4 @@
-import { Group, MapPlayer, Unit } from "w3ts";
+import { Group, MapPlayer, Rectangle, Unit } from "w3ts";
 import { Players } from "w3ts/globals";
 
 /**
@@ -73,6 +73,26 @@ export function forEachUnitOfPlayer(player: MapPlayer, cb: (unit: Unit) => void)
         if (!unit) {
             print("Enumerating over a unit that doesn't exist!");
         }
+        if (unit) {
+            cb(unit);
+        }
+
+        return true;
+    });
+
+    g?.destroy();
+}
+
+/**
+ * Executes the callback function for each unit matching the unit type for the player
+ * @param unitType Unit Type Id or the Unit Type String "hcas", etc
+ */
+export function forEachUnitInRectangle(rectangle: Rectangle, cb: (unit: Unit) => void) {
+    const g = Group.create();
+
+    g?.enumUnitsInRect(rectangle, () => {
+        const unit = Group.getFilterUnit();
+
         if (unit) {
             cb(unit);
         }

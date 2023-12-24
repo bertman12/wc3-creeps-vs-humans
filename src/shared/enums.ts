@@ -1,16 +1,23 @@
 export enum UNITS {
     dummyCaster = FourCC("h00V"),
     dummyCaster_cenariusGhost = FourCC("h011"),
-    murlocBase = FourCC("h000"),
+    playerMainBase = FourCC("h000"),
     goldMine = FourCC("h001"),
+
     murloc_baseUnit = FourCC("nmrl"),
+
     heroChooser = FourCC("e000"),
     itemShop = FourCC("h003"),
     upgradeShop = FourCC("h004"),
+
+    spawnBuilder_tier1 = FourCC("u000"),
+    spawnBuilder_tier2 = FourCC("u001"),
+    spawnBuilder_tier3 = FourCC("u002"),
 }
 
 export enum ABILITIES {
     invulnerable = FourCC("Avul"),
+    removeUnitFromSpawn = FourCC("A004"),
 }
 
 export enum PlayerIndices {
@@ -55,4 +62,4 @@ export const minimapIconPathsSet = new Set<MINIMAP_ICONS>([
     "UI\\Minimap\\Minimap-QuestTurnIn.mdl",
 ]);
 
-export const primaryCaptureTargets = new Set([UNITS.murlocBase, UNITS.goldMine]);
+export const primaryCaptureTargets = new Set([UNITS.playerMainBase, UNITS.goldMine]);

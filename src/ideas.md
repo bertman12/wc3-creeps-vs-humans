@@ -45,3 +45,17 @@ make +10 armor and weapons the max upgrades you can get
 
 if a player leaves then add their hero to their spawn's units array so it can be moved
 and transfer ownership of spawn to the computer
+
+when a player researches their first tier 2 unit it will make it so they now have a 20% chance to spawn tier 2 units
+every tier 2 unit they buy will increase tier 2 spawn chance
+buying tier 3 will increase tier 3 spawn chance
+
+without unit categories it will not be busted, since they will be evenly distributed.
+
+max tier 3 spawn chance will be 25%
+max tier 2 spawn chance will be 50%
+
+set all players allied to neutral player and then give the neutral player shop share ally ability so players can see the unit's spells.
+
+
+what i will do is create a region for the player where they can summon or unsummon units, each will take 1 food ; the units here will then be used to determine what units you will be spawning

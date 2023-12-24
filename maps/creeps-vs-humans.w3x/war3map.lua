@@ -1,15 +1,17 @@
 gg_rct_HeroSpawnArea = nil
+gg_snd_PH1 = ""
+gg_rct_Player1SpawnBuilder = nil
+gg_rct_Player2SpawnBuilder = nil
+gg_rct_Player3SpawnBuilder = nil
+gg_rct_Player4SpawnBuilder = nil
+gg_rct_Player5SpawnBuilder = nil
+gg_rct_Player6SpawnBuilder = nil
+gg_rct_AllSpawnBuilderRegions = nil
 function InitGlobals()
 end
 
-function CreateBuildingsForPlayer1()
-local p = Player(1)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("h000"), -1664.0, 4928.0, 270.000, FourCC("h000"))
+function InitSounds()
+gg_snd_PH1 = "PH1"
 end
 
 function CreateNeutralHostileBuildings()
@@ -52,7 +54,6 @@ SetUnitColor(u, ConvertPlayerColor(0))
 end
 
 function CreatePlayerBuildings()
-CreateBuildingsForPlayer1()
 end
 
 function CreatePlayerUnits()
@@ -69,6 +70,15 @@ function CreateRegions()
 local we
 
 gg_rct_HeroSpawnArea = Rect(-7392.0, -7680.0, -5248.0, -6144.0)
+gg_rct_Player1SpawnBuilder = Rect(-4704.0, -7712.0, -3712.0, -6656.0)
+gg_rct_Player2SpawnBuilder = Rect(-3520.0, -7712.0, -2528.0, -6656.0)
+gg_rct_Player3SpawnBuilder = Rect(-2336.0, -7712.0, -1344.0, -6656.0)
+gg_rct_Player4SpawnBuilder = Rect(-1152.0, -7712.0, -160.0, -6656.0)
+gg_rct_Player5SpawnBuilder = Rect(64.0, -7712.0, 1056.0, -6656.0)
+gg_rct_Player6SpawnBuilder = Rect(1280.0, -7712.0, 2272.0, -6656.0)
+gg_rct_AllSpawnBuilderRegions = Rect(-4832.0, -7808.0, 2624.0, -6592.0)
+we = AddWeatherEffect(gg_rct_AllSpawnBuilderRegions, FourCC("MEds"))
+EnableWeatherEffect(we, true)
 end
 
 function InitCustomPlayerSlots()
@@ -761,6 +771,7 @@ NewSoundEnvironment("Default")
 SetAmbientDaySound("AshenvaleDay")
 SetAmbientNightSound("AshenvaleNight")
 SetMapMusic("Music", true, 0)
+InitSounds()
 CreateRegions()
 CreateAllUnits()
 InitBlizzard()

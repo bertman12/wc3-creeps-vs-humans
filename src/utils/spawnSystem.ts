@@ -1,6 +1,7 @@
 import { MinimapIconPath, UNITS, primaryCaptureTargets } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
-import { adjustGold, forEachPlayer, forEachUnitTypeOfPlayer, isPlayingUser } from "src/utils/players";
+import { getPlayerSpawnBuilderRegionMap } from "src/triggers/spawnBuilder";
+import { adjustGold, forEachPlayer, forEachUnitInRectangle, forEachUnitTypeOfPlayer, isPlayingUser } from "src/utils/players";
 import { Effect, MapPlayer, Point, Rectangle, Timer, Trigger, Unit } from "w3ts";
 import { OrderId, Players } from "w3ts/globals";
 import { playerRGBMap } from "./color";
@@ -23,8 +24,10 @@ export function setup_playerCreepSpawns() {
             const spawnRec = Rectangle.create(p.startLocationX, p.startLocationY, p.startLocationX, p.startLocationY);
 
             if (spawnRec) {
-                const newSpawn = new SpawnData(spawnRec.handle, p);
+                const newSpawn = new SpawnData(spawnRec.handle, p, false, false, "simple");
                 playerSpawns.push(newSpawn);
+
+                newSpawn.addUnitsInSpawnBuilderRegionToSimplePool();
                 newSpawn.startSpawning();
                 const playerState = playerStates.get(p.id);
 
@@ -41,7 +44,7 @@ export function setup_playerCreepSpawns() {
     notifyPlayer(`${tColor("Objective", "goldenrod")} - Kill enemy player bases.`);
 }
 
-type UnitCategory = "infantry" | "missile" | "caster" | "siege" | "hero";
+type UnitCategory = "infantry" | "missile" | "caster" | "siege" | "hero" | "all";
 
 enum SpawnDifficulty {
     normal,
@@ -107,7 +110,8 @@ export class SpawnData {
     private defaultSpawnTargetY = 0;
     public spawnOwner: MapPlayer = Players[0];
     private MAX_SPAWN_COUNT = 110;
-
+    public simpleUnitSpawnPool: Unit[] = [];
+    public spawnType: "simple" | "tiered" = "simple";
     private spawnedUnitTypeConfig: Map<
         UnitCategory,
         {
@@ -115,7 +119,7 @@ export class SpawnData {
             tierII: number[];
             tierIII: number[];
         }
-    > | null = unitCategoryData;
+    > | null = simpleCategoryData;
 
     /**
      * A pool of players to use when creating units
@@ -135,10 +139,10 @@ export class SpawnData {
     private wavesCreated: number = 0;
     private lastUsedPlayerIndex = 0;
 
-    constructor(spawn: rect, owner: MapPlayer, hideUI: boolean = false, spawnBoss: boolean = false) {
+    constructor(spawn: rect, owner: MapPlayer, hideUI: boolean = false, spawnBoss: boolean = false, spawnType: "simple" | "tiered") {
         this.hideUI = hideUI;
         this.spawnOwner = owner;
-
+        this.spawnType = spawnType;
         this.spawnRec = Rectangle.fromHandle(spawn);
 
         //Maybe would use?
@@ -148,14 +152,14 @@ export class SpawnData {
         // this.baseTier3Chance = 0.05 + 0.02 * RoundManager.currentRound + (isHardDiff ? 0.05 : 0);
         // this.currentTier3Chance = this.baseTier3Chance;
 
-        if (this.spawnDifficulty === SpawnDifficulty.normal) {
-            this.currentTier2Chance = -1;
-            this.currentTier3Chance = -1;
-            this.baseTier2Chance = -1;
-            this.baseTier3Chance = -1;
-            this.tier2ChanceModifier = 0;
-            this.tier3ChanceModifier = 0;
-        }
+        // if (this.spawnDifficulty === SpawnDifficulty.normal) {
+        //     this.currentTier2Chance = -1;
+        //     this.currentTier3Chance = -1;
+        //     this.baseTier2Chance = -1;
+        //     this.baseTier3Chance = -1;
+        //     this.tier2ChanceModifier = 0;
+        //     this.tier3ChanceModifier = 0;
+        // }
 
         this.unitCompData = new Map<UnitCategory, number>([
             ["infantry", Math.ceil(1 * this.spawnAmountPerWave)],
@@ -237,6 +241,23 @@ export class SpawnData {
         });
 
         this.setup_orderAttackOnRandomTarget();
+    }
+
+    /**
+     * Runs after spawn is constructed
+     */
+    public addUnitsInSpawnBuilderRegionToSimplePool() {
+        const regionMap = getPlayerSpawnBuilderRegionMap();
+        const playerSpawnBuilderRegion = regionMap.get(this.spawnOwner.id);
+
+        if (!playerSpawnBuilderRegion) return;
+
+        forEachUnitInRectangle(playerSpawnBuilderRegion, (u) => {
+            if (u.typeId !== UNITS.spawnBuilder_tier1) {
+                print(`${u.name} added to simple spawn pool!`);
+                this.simpleUnitSpawnPool.push(u);
+            }
+        });
     }
 
     private calculateUnitCountSpawnedPerWave() {
@@ -418,6 +439,11 @@ export class SpawnData {
     }
 
     public createWaveUnits() {
+        if (this.spawnType === "simple") {
+            this.spawnUnitsSimple();
+            return;
+        }
+
         this.wavesCreated++;
 
         const unitsCreatedThisWave: Unit[] = [];
@@ -438,10 +464,11 @@ export class SpawnData {
                     if (u) {
                         unitsCreatedThisWave.push(u);
                     }
+
                     this.currentTier3Chance = this.baseTier3Chance;
                 } else if (sampledValue <= this.currentTier2Chance) {
                     //Tier 3 was not selected, so we must increase the chance to be chosen
-                    this.currentTier3Chance += this.tier3ChanceModifier;
+                    // this.currentTier3Chance += this.tier3ChanceModifier;
 
                     //spawn tier 2 unit
                     const u = this.spawnSingleUnit(category, 1);
@@ -453,7 +480,7 @@ export class SpawnData {
                     this.currentTier2Chance = this.baseTier3Chance;
                 } else {
                     //Tier 2 was not selected, so we must increase the chance to be chosen
-                    this.currentTier2Chance += this.tier2ChanceModifier;
+                    // this.currentTier2Chance += this.tier2ChanceModifier;
 
                     //spawn a tier 1 unit
                     const u = this.spawnSingleUnit(category, 0);
@@ -468,6 +495,36 @@ export class SpawnData {
         });
     }
 
+    /**
+     * Makes use of the simple unit spawn pool instead of the tiered unit configuration
+     */
+    private spawnUnitsSimple() {
+        print("Used simple spawner.");
+
+        this.wavesCreated++;
+
+        const unitsCreatedThisWave: Unit[] = [];
+
+        this.simpleUnitSpawnPool.forEach((spawnUnit) => {
+            const u = Unit.create(this.getNextAlliedComputerPlayer(), spawnUnit.typeId, this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0);
+
+            if (u) {
+                this.spawnUnitCount++;
+                u.owner.name = ptColor(this.spawnOwner, this.spawnOwner.name);
+                u.color = this.spawnOwner.color;
+
+                u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_BASE, 25);
+                u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_NUMBER_OF_DICE, 1);
+                u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_SIDES_PER_DIE, 2);
+
+                this.units.push(u);
+                unitsCreatedThisWave.push(u);
+            }
+        });
+
+        this.lastCreatedWaveUnits = unitsCreatedThisWave;
+    }
+
     private spawnSingleUnit(category: UnitCategory, tier: number) {
         if (this.spawnUnitCount >= this.MAX_SPAWN_COUNT) {
             return undefined;
@@ -475,7 +532,7 @@ export class SpawnData {
 
         let unitTypeId = 0;
 
-        const categoryData = unitCategoryData.get(category);
+        const categoryData = simpleCategoryData.get(category);
 
         if (categoryData) {
             switch (tier) {
@@ -641,6 +698,50 @@ export class SpawnData {
     }
 }
 
+const simpleCategoryData = new Map<UnitCategory, { tierI: number[]; tierII: number[]; tierIII: number[] }>([
+    [
+        "infantry",
+        {
+            tierI: [
+                //murloc
+                FourCC("nmrl"),
+                //satyr
+                FourCC("nsty"),
+                //spider
+                FourCC("nspr"),
+                //wolf
+                FourCC("nwlt"),
+
+                //ice troll
+                FourCC("nitr"),
+                //skeleton archer
+                FourCC("nska"),
+                //void walker
+                FourCC("nvdw"),
+
+                //kobold geomancer
+                FourCC("nkog"),
+                //poison treant
+                FourCC("nenp"),
+                //shadow troll priest
+                FourCC("ndtp"),
+                //
+            ],
+            tierII: [
+                //overlord
+                // FourCC("nfov"),
+            ],
+            tierIII: [
+                //
+            ],
+        },
+    ],
+]);
+
+/**
+ * This spawn configuration which separates units into role can be nice but may not be necessary.
+ * We can create a simpler spawn data configuration by leaving them all in one category type but preserving the different tiers
+ */
 const unitCategoryData = new Map<UnitCategory, { tierI: number[]; tierII: number[]; tierIII: number[] }>([
     [
         "infantry",

@@ -42,13 +42,16 @@ export class PlayerState {
             let hasPlayerWon = true;
 
             playerStates.forEach((state) => {
-                if (state.ownedSpawn?.spawnOwner !== this.player && state.ownedSpawn?.spawnBase?.isAlive()) {
+                if (state.ownedSpawn?.spawnBase?.isAlive()) {
                     hasPlayerWon = false;
                 }
             });
 
             if (hasPlayerWon) {
                 notifyPlayer(`${ptColor(this.player, this.player.name)} has won!`);
+                ClearMapMusic();
+                StopMusic(false);
+                PlayMusic(gg_snd_PH1);
             }
         });
     }
@@ -63,4 +66,12 @@ export function setupPlayerStateInstances() {
             playerStates.set(p.id, new PlayerState(p));
         }
     });
+}
+
+export function getPlayerState(player: MapPlayer) {
+    const state = playerStates.get(player.id);
+
+    if (state) {
+        return state;
+    }
 }
