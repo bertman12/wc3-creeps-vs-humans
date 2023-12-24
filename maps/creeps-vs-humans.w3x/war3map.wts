@@ -124,3 +124,237 @@ STRING 43
 Calls an Infernal down from the sky, dealing <AIin,DataA1> damage and stunning enemy land units for <AIin,Dur1> seconds in an area. The Infernal lasts <AIin,DataB1> seconds.|n|N|Cffffcc00Stackable.|R
 }
 
+STRING 44
+// Units: h003 (Arcane Vault), Tip (Tooltip - Basic)
+{
+Item Shop
+}
+
+STRING 45
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 46
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 47
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 48
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 49
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 50
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 51
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 52
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Name (Name)
+{
+Iron Forged Swords 1
+}
+
+STRING 53
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Name (Name)
+{
+Iron Forged Swords 2
+}
+
+STRING 54
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Name (Name)
+{
+Iron Forged Swords 3
+}
+
+STRING 55
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Name (Name)
+{
+Iron Forged Swords 4
+}
+
+STRING 56
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Name (Name)
+{
+Iron Forged Swords 5
+}
+
+STRING 57
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Name (Name)
+{
+Iron Forged Swords 6
+}
+
+STRING 58
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Name (Name)
+{
+Iron Forged Swords 7
+}
+
+STRING 59
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Name (Name)
+{
+Iron Forged Swords 8
+}
+
+STRING 60
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Name (Name)
+{
+Iron Forged Swords 9
+}
+
+STRING 61
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Name (Name)
+{
+Iron Forged Swords 10
+}
+
+STRING 62
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Tip (Tooltip)
+{
+Upgrade to Iron Forged Swords 1
+}
+
+STRING 63
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Tip (Tooltip)
+{
+Upgrade to Iron Forged Swords 2
+}
+
+STRING 64
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Tip (Tooltip)
+{
+Upgrade to Iron Forged Swords 3
+}
+
+STRING 65
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Tip (Tooltip)
+{
+Upgrade to Iron Forged Swords 4
+}
+
+STRING 66
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Tip (Tooltip)
+{
+Upgrade to Iron Forged Swords 5
+}
+
+STRING 67
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Tip (Tooltip)
+{
+Upgrade to Iron Forged Swords 6
+}
+
+STRING 68
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Tip (Tooltip)
+{
+Upgrade to Iron Forged Swords 7
+}
+
+STRING 69
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Tip (Tooltip)
+{
+Upgrade to Iron Forged Swords 8
+}
+
+STRING 70
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Tip (Tooltip)
+{
+Upgrade to Iron Forged Swords 9
+}
+
+STRING 71
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Tip (Tooltip)
+{
+Upgrade to Iron Forged Swords 10
+}
+
+STRING 72
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00attack damage|r of all allied creep units.
+}
+
+STRING 73
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00attack damage|r of all allied creep units.
+}
+
+STRING 74
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00attack damage|r of all allied creep units.
+}
+
+STRING 75
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00attack damage|r of all allied creep units.
+}
+
+STRING 76
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00attack damage|r of all allied creep units.
+}
+
+STRING 77
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00attack damage|r of all allied creep units.
+}
+
+STRING 78
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00attack damage|r of all allied creep units.
+}
+
+STRING 79
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00attack damage|r of all allied creep units.
+}
+
+STRING 80
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00attack damage|r of all allied creep units.
+}
+
+STRING 81
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Ubertip (Tooltip - Extended)
+{
+Increases |cffffcc00attack damage|r of all allied creep units.
+}
+
+STRING 82
+// Units: e000 (Hero Chooser), Name (Name)
+{
+Hero Chooser
+}
+

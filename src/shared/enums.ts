@@ -3,11 +3,11 @@ export enum UNITS {
     dummyCaster_cenariusGhost = FourCC("h011"),
     murlocBase = FourCC("h000"),
     goldMine = FourCC("h001"),
+    murloc_baseUnit = FourCC("nmrl"),
+    heroChooser = FourCC("e000"),
 }
 
 export enum PlayerIndices {
-    KingdomOfAlexandria = 9,
-    HumanDefenders = 18,
     NeutralHostile = 24,
     NeutralPassive = 25,
     Items = 27,

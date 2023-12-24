@@ -1,3 +1,4 @@
+gg_rct_HeroSpawnArea = nil
 function InitGlobals()
 end
 
@@ -10,7 +11,7 @@ local life
 
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -64.0, 3328.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1984.0, 3008.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3264.0, 640.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3200.0, 192.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), 2112.0, -2240.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -896.0, -2496.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -3648.0, 1600.0, 270.000, FourCC("h001"))
@@ -26,6 +27,18 @@ u = BlzCreateUnitWithSkin(p, FourCC("h001"), 192.0, 1344.0, 270.000, FourCC("h00
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), 640.0, -1408.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1920.0, 1536.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -1856.0, -1280.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3520.0, 1472.0, 270.000, FourCC("h001"))
+end
+
+function CreateNeutralPassiveBuildings()
+local p = Player(PLAYER_NEUTRAL_PASSIVE)
+local u
+local unitID
+local t
+local life
+
+u = BlzCreateUnitWithSkin(p, FourCC("n000"), -6400.0, -7040.0, 270.000, FourCC("n000"))
+SetUnitColor(u, ConvertPlayerColor(0))
 end
 
 function CreatePlayerBuildings()
@@ -36,8 +49,15 @@ end
 
 function CreateAllUnits()
 CreateNeutralHostileBuildings()
+CreateNeutralPassiveBuildings()
 CreatePlayerBuildings()
 CreatePlayerUnits()
+end
+
+function CreateRegions()
+local we
+
+gg_rct_HeroSpawnArea = Rect(-7392.0, -7680.0, -5248.0, -6144.0)
 end
 
 function InitCustomPlayerSlots()
@@ -730,6 +750,7 @@ NewSoundEnvironment("Default")
 SetAmbientDaySound("AshenvaleDay")
 SetAmbientNightSound("AshenvaleNight")
 SetMapMusic("Music", true, 0)
+CreateRegions()
 CreateAllUnits()
 InitBlizzard()
 InitGlobals()

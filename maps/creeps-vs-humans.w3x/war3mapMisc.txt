@@ -1,3 +1,6 @@
+[HERO]
+DependencyOr=Hamg,Hblm,Hmkg,Hpal,Obla,Ofar,Oshd,Otch,Edem,Ekee,Emoo,Ewar,Ucrl,Udea,Udre,Ulic,Npbm,Nbrn,Nngs,Nplh,Nbst,H002
+
 [Misc]
 BuildingKillsGiveExp=1
 HeroExpRange=100000.0

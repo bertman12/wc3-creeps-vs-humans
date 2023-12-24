@@ -6,6 +6,8 @@ import { trig_itemRecipeSystem } from "./utils/item";
 import { setup_quests } from "./utils/quests";
 import { setup_playerCreepSpawns } from "./utils/spawnSystem";
 import { delayedTimer } from "./utils/timer";
+import { setup_heroPurchasing } from "./triggers/preparation";
+import { setupPlayerStateInstances } from "./shared/playerState";
 
 const BUILD_DATE = compiletime(() => new Date().toUTCString());
 const TS_VERSION = compiletime(() => require("typescript").version);
@@ -28,13 +30,14 @@ function tsMain() {
         print(`Build: ${BUILD_DATE}`);
         print(`Typescript: v${TS_VERSION}`);
         print(`Transpiler: v${TSTL_VERSION}`);
-
+        setupPlayerStateInstances()
         trig_itemRecipeSystem();
         trig_setCameraDistance();
         setup_quests();
         setup_capture();
         setup_GoldMineEco();
-        delayedTimer(1, setup_playerCreepSpawns);
+        // delayedTimer(1, setup_playerCreepSpawns);
+        setup_heroPurchasing(setup_playerCreepSpawns);
     } catch (e) {
         print(e);
     }
