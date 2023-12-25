@@ -71,10 +71,20 @@ function setup_spawnBuilderTracker() {
 
         if (!p || !u) return;
 
-        u.addAbility(ABILITIES.invulnerable);
+        const rectangles = getPlayerSpawnBuilderRegionMap();
+        const playerRect = rectangles.get(u.owner.id);
 
+        if (!playerRect) return;
+
+        const region = Region.create();
+        region.addRect(playerRect);
+
+        if (!region || !IsUnitInRegion(region.handle, u.handle)) return;
+
+        u.addAbility(ABILITIES.invulnerable);
         const state = playerStates.get(p.id);
-        print(`Player ${ptColor(p, p.name)} built ${tColor(u.name, "goldenrod")}`);
+
+        print(`${ptColor(p, p.name)} added ${tColor(u.name, "goldenrod")} to their spawn.`);
 
         if (state) {
             state.ownedSpawn?.simpleUnitSpawnPool.push(u);

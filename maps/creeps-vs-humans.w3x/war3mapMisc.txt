@@ -1,5 +1,5 @@
 [HERO]
-DependencyOr=H002,E001
+DependencyOr=H002,E001,E002,H005,H006,H007,O000,N002
 
 [Misc]
 BuildingKillsGiveExp=1

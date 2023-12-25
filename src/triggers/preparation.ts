@@ -2,9 +2,10 @@ import { GameConfig } from "src/shared/GameConfig";
 import { ABILITIES, UNITS, UPGRADES } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
 import { notifyPlayer, tColor } from "src/utils/misc";
-import { forEachAlliedPlayer, forEachPlayer, isPlayingUser } from "src/utils/players";
+import { adjustLumber, forEachAlliedPlayer, forEachPlayer, isPlayingUser } from "src/utils/players";
 import { delayedTimer } from "src/utils/timer";
 import { MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts";
+import { OrderId } from "w3ts/globals";
 import { createSpawnBuilder } from "./spawnBuilder";
 
 /**
@@ -173,7 +174,12 @@ function moveSingleHeroToStartLocationAndGiveItems(player: MapPlayer) {
             purchasedHero.x = startX;
             purchasedHero.y = startY - 300;
 
+            delayedTimer(3, () => {
+                adjustLumber(player, 99999);
+            });
+
             purchasedHero.removeAbility(ABILITIES.invulnerable);
+            purchasedHero.issueImmediateOrder(OrderId.Stop);
         }
     }
 }

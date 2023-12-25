@@ -503,6 +503,10 @@ export class SpawnData {
         const unitsCreatedThisWave: Unit[] = [];
 
         this.simpleUnitSpawnPool.forEach((spawnUnit) => {
+            if (this.spawnUnitCount >= this.MAX_SPAWN_COUNT) {
+                return undefined;
+            }
+
             const u = Unit.create(this.getNextAlliedComputerPlayer(), spawnUnit.typeId, this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0);
 
             if (u) {

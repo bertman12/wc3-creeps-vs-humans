@@ -38,12 +38,9 @@ STRING 8
 {
 |cff00ff00Objective|r - Destroy all other players to win.
 
-Gold mines give 25 gold every 10 seconds.
-
 |cffffff00Spawns|r - Add units to your spawn at the bottom of the map.
 
-Max 110 units at any given time.
-
+Max 110 units per player at any given time.
 
 |Cffffcc00Made by JediMindTrix/NihilismIsDeath|r
 }
@@ -639,36 +636,6 @@ STRING 145
 // Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
 {
 Upgrade to Improved Masonry 5
-}
-
-STRING 146
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
-{
-Increases the |cffffcc00armor|R and |Cffffcc00hit points|r of |Cffffcc00buildings|R.
-}
-
-STRING 147
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
-{
-Increases the |cffffcc00armor|R and |Cffffcc00hit points|r of |Cffffcc00buildings|R.
-}
-
-STRING 148
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
-{
-Increases the |cffffcc00armor|R and |Cffffcc00hit points|r of |Cffffcc00buildings|R.
-}
-
-STRING 149
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
-{
-Increases the |cffffcc00armor|R and |Cffffcc00hit points|r of |Cffffcc00buildings|R.
-}
-
-STRING 150
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
-{
-Increases the |cffffcc00armor|R and |Cffffcc00hit points|r of |Cffffcc00buildings|R.
 }
 
 STRING 151
@@ -1362,49 +1329,49 @@ Q
 }
 
 STRING 320
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Units: n001 (Tidal Guardian), Hotkey (Hotkey)
 {
 Q
 }
 
 STRING 321
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: ANfl (Forked Lightning), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
 
 STRING 322
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: ANfl (Forked Lightning), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 323
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AHfs (Flame Strike), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
 
 STRING 324
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AHfs (Flame Strike), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 325
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AHbz (Blizzard), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
 
 STRING 326
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AHbz (Blizzard), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 327
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AOcl (Chain Lightning), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
@@ -1416,55 +1383,55 @@ W
 }
 
 STRING 329
-// Abilities: A00A (Summon Inferno), Hotkey (Hotkey - Normal)
+// Abilities: AOcr (Critical Strike), Researchhotkey (Hotkey - Learn)
 {
 W
 }
 
 STRING 330
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AOcr (Critical Strike), Hotkey (Hotkey - Normal)
 {
 W
 }
 
 STRING 331
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: ANht (Howl of Terror), Researchhotkey (Hotkey - Learn)
 {
 W
 }
 
 STRING 332
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: ANht (Howl of Terror), Hotkey (Hotkey - Normal)
 {
 W
 }
 
 STRING 333
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AHds (Divine Shield), Hotkey (Hotkey - Normal)
 {
 W
 }
 
 STRING 334
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AHds (Divine Shield), Researchhotkey (Hotkey - Learn)
 {
 W
 }
 
 STRING 335
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AHtc (Thunder Clap), Researchhotkey (Hotkey - Learn)
 {
 W
 }
 
 STRING 336
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AHtc (Thunder Clap), Hotkey (Hotkey - Normal)
 {
 W
 }
 
 STRING 337
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AEmb (Mana Burn), Researchhotkey (Hotkey - Learn)
 {
 W
 }
@@ -1482,19 +1449,19 @@ R
 }
 
 STRING 340
-// Abilities: A004 (Remove Unit From Spawn), Hotkey (Hotkey - Normal)
+// Abilities: ANvc (Volcano), Researchhotkey (Hotkey - Learn)
 {
 R
 }
 
 STRING 341
-// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+// Abilities: ANvc (Volcano), Hotkey (Hotkey - Normal)
 {
 R
 }
 
 STRING 342
-// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+// Abilities: AEsf (Starfall), Researchhotkey (Hotkey - Learn)
 {
 R
 }
@@ -1524,49 +1491,49 @@ E
 }
 
 STRING 347
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: ANms (Mana Shield), Researchhotkey (Hotkey - Learn)
 {
 E
 }
 
 STRING 348
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: ANms (Mana Shield), Hotkey (Hotkey - Normal)
 {
 E
 }
 
 STRING 349
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: ANms (Mana Shield), Unhotkey (Hotkey - Turn Off)
 {
 E
 }
 
 STRING 350
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: AHfa (Searing Arrows), Researchhotkey (Hotkey - Learn)
 {
 E
 }
 
 STRING 351
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: AHfa (Searing Arrows), Hotkey (Hotkey - Normal)
 {
 E
 }
 
 STRING 352
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: AHfa (Searing Arrows), Unhotkey (Hotkey - Turn Off)
 {
 E
 }
 
 STRING 353
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: AHwe (Summon Water Elemental), Researchhotkey (Hotkey - Learn)
 {
 E
 }
 
 STRING 354
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: AHwe (Summon Water Elemental), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -1640,25 +1607,25 @@ STRING 362
 }
 
 STRING 363
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AOcl (Chain Lightning), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 364
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AEmb (Mana Burn), Hotkey (Hotkey - Normal)
 {
 W
 }
 
 STRING 365
-// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+// Abilities: AEsf (Starfall), Hotkey (Hotkey - Normal)
 {
 R
 }
 
 STRING 366
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: ANdr (Life Drain), Researchhotkey (Hotkey - Learn)
 {
 E
 }
@@ -1670,7 +1637,7 @@ D
 }
 
 STRING 368
-// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+// Abilities: AEtq (Tranquility), Researchhotkey (Hotkey - Learn)
 {
 R
 }
@@ -2090,13 +2057,13 @@ F
 }
 
 STRING 439
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AHtb (Storm Bolt), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
 
 STRING 440
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AOmi (Mirror Image), Researchhotkey (Hotkey - Learn)
 {
 W
 }
@@ -2108,7 +2075,7 @@ A
 }
 
 STRING 442
-// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+// Abilities: AEtq (Tranquility), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -2126,7 +2093,7 @@ X
 }
 
 STRING 445
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: ANdr (Life Drain), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -2153,5 +2120,431 @@ STRING 449
 // Units: H007 (Creep Warlord), Ubertip (Tooltip - Extended)
 {
 Can learn |cffffcc00Summon Water Elemental|R, |cffffcc00Blizzard|r, |cffffcc00Howl of Terror|r, and |cffffcc00Tranquility|r.       |N|N|cff8080ffIntelligence|r
+}
+
+STRING 450
+// Abilities: AHtb (Storm Bolt), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 451
+// Abilities: AUim (Impale), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 452
+// Abilities: AOmi (Mirror Image), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 453
+// Abilities: AOws (War Stomp), Researchhotkey (Hotkey - Learn)
+{
+W
+}
+
+STRING 454
+// Abilities: ANst (Stampede), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 455
+// Abilities: ANst (Stampede), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 456
+// Abilities: AUts (Spiked Carapace), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 457
+// Abilities: AUts (Spiked Carapace), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 458
+// Abilities: AHdr (Siphon Mana), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 459
+// Abilities: AOeq (Earthquake), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 460
+// Abilities: AOeq (Earthquake), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 461
+// Abilities: AUls (Locust Swarm), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 462
+// Abilities: AUim (Impale), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 463
+// Abilities: AOwk (Wind Walk), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 464
+// Abilities: AOwk (Wind Walk), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 465
+// Abilities: AEbl (Blink), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 466
+// Abilities: AEbl (Blink), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 467
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 468
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 469
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 470
+// Abilities: AOws (War Stomp), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 471
+// Abilities: AHbh (Bash), Researchhotkey (Hotkey - Learn)
+{
+W
+}
+
+STRING 472
+// Abilities: A00A (Summon Inferno), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 473
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 474
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 475
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 476
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 477
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 478
+// Abilities: AUls (Locust Swarm), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 479
+// Abilities: AHav (Avatar), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 480
+// Abilities: AHav (Avatar), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 481
+// Abilities: AHav (Avatar), Unhotkey (Hotkey - Turn Off)
+{
+R
+}
+
+STRING 482
+// Abilities: AUin (Inferno), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 483
+// Abilities: AHdr (Siphon Mana), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 484
+// Abilities: ANdb (Drunken Brawler), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 485
+// Abilities: ANdb (Drunken Brawler), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 486
+// Abilities: ANca (Cleaving Attack), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 487
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 488
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 489
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 490
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 491
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 492
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 493
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 494
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 495
+// Abilities: AUin (Inferno), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 496
+// Abilities: A004 (Remove Unit From Spawn), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 497
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 498
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 499
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 500
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 501
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 502
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 503
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 504
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 505
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 506
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 507
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 508
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 509
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 510
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 511
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 512
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 513
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 514
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 515
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 516
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R.
+}
+
+STRING 517
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R.
+}
+
+STRING 518
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R.
+}
+
+STRING 519
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R.
+}
+
+STRING 520
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R.
 }
 
