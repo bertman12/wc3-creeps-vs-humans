@@ -2,8 +2,9 @@ import { W3TS_HOOK, addScriptHook } from "w3ts/hooks";
 import { setupPlayerStateInstances } from "./shared/playerState";
 import { setup_preventMassTeleportGrief } from "./triggers/anti-grief";
 import { setup_capture } from "./triggers/capture";
+import { setup_fixSpawns } from "./triggers/fixSpawns";
 import { setup_GoldMineEco } from "./triggers/goldMineEconomy";
-import { setup_leaderBoard } from "./triggers/leaderboard";
+import { setup_multiBoard } from "./triggers/leaderboard";
 import { setup_heroPurchasing } from "./triggers/preparation";
 import { playerGetsUpgrade } from "./triggers/upgrades";
 import { trig_setCameraDistance } from "./utils/camera";
@@ -38,7 +39,7 @@ function tsMain() {
         delayedTimer(1, () => {
             ClearMapMusic();
             StopMusic(false);
-            PlayMusic(gg_snd_PH1);
+            PlayMusic(gg_snd_NightElfX1);
         });
 
         setupPlayerStateInstances();
@@ -48,9 +49,10 @@ function tsMain() {
         setup_capture();
         setup_GoldMineEco();
         playerGetsUpgrade();
-        setup_leaderBoard();
+        setup_multiBoard();
         setup_preventMassTeleportGrief();
         setup_heroPurchasing(setup_playerCreepSpawns);
+        setup_fixSpawns();
     } catch (e) {
         print(e);
     }

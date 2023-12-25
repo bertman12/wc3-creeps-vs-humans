@@ -15,6 +15,7 @@ export function setup_quests() {
             "Commands",
             `
             \n${tColor("-cam ####", "goldenrod")}: Sets the camera distance.
+            \n${tColor("-fixSpawns", "goldenrod")}: Player 1 can only use this. This will fix add all player's spawn units to their corresponding spawn pool. 
         `,
             "ReplaceableTextures\\WorldEditUI\\Doodad-Cinematic.blp",
             false

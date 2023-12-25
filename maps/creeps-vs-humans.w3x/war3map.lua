@@ -8,11 +8,13 @@ gg_rct_Player6SpawnBuilder = nil
 gg_rct_AllSpawnBuilderRegions = nil
 gg_snd_PH1 = ""
 gg_rct_IllegalTeleportRegion = nil
+gg_snd_NightElfX1 = ""
 function InitGlobals()
 end
 
 function InitSounds()
 gg_snd_PH1 = "PH1"
+gg_snd_NightElfX1 = "NightElfX1"
 end
 
 function CreateNeutralHostileBuildings()

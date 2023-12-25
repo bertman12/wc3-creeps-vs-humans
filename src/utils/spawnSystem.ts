@@ -250,10 +250,11 @@ export class SpawnData {
         const playerSpawnBuilderRegion = regionMap.get(this.spawnOwner.id);
 
         if (!playerSpawnBuilderRegion) return;
-
+        //Clears spawn pool
+        this.simpleUnitSpawnPool = [];
+        const illegalUnits = [UNITS.spawnBuilder_tier1, UNITS.upgradeShop, FourCC("efon")];
         forEachUnitInRectangle(playerSpawnBuilderRegion, (u) => {
-            if (u.typeId !== UNITS.spawnBuilder_tier1 && u.typeId !== UNITS.upgradeShop) {
-                print(`${u.name} added to simple spawn pool!`);
+            if (!illegalUnits.includes(u.typeId)) {
                 this.simpleUnitSpawnPool.push(u);
             }
         });

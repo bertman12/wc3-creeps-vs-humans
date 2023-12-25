@@ -782,37 +782,10 @@ STRING 202
 (10%)
 }
 
-STRING 203
-// Units: nmrl (Murloc Tiderunner), Ubertip (Tooltip - Extended)
-{
-10%|cff80ff80 Evasion|r      |N|N|Cffffcc00Armor|R: Unarmored |n|Cffffcc00Attack|r: Normal Attack
-}
-
 STRING 208
 // Abilities: A005 (Bash), EditorSuffix (Editor Suffix)
 {
  (5% - 15 Damage)
-}
-
-STRING 209
-// Units: nkob (Kobold), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Bash|r - 5% chance, 15 bonus damage, 2 second stun.   |n|N|Cffffcc00Armor|r: Medium Armor|N|cffffcc00Attack|r: Siege
-}
-
-STRING 210
-// Units: ngna (Gnoll Poacher), Ubertip (Tooltip - Extended)
-{
-|Cffffcc00Armor|r: Large Armor|N|cffffcc00Attack|r: Piercing
-}
-
-STRING 211
-// Units: nkog (Kobold Geomancer), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Slow
-
-|Cffffcc00Armor|r: Medium Armor
-|cffffcc00Attack|r: Piercing
 }
 
 STRING 212
@@ -825,12 +798,6 @@ STRING 213
 // Abilities: A006 (Slow Poison), Ubertip (Tooltip - Normal - Extended)
 {
 A poison attack that deals 4 damage per second, and slows the target enemy's movement by 20% and attack by 20% for 5 seconds.
-}
-
-STRING 216
-// Units: nspb (Black Spider), Ubertip (Tooltip - Extended)
-{
-|Cffffcc00Slow Poison|R: 20% attack and move slow. 4 damage per second.    |n |n|Cffffcc00Armor|r: Medium Armor|N|cffffcc00Attack|r: Piercing
 }
 
 STRING 217
@@ -879,15 +846,6 @@ STRING 224
 // Abilities: A007 (Spawn Info), Ubertip (Tooltip - Normal - Extended)
 {
 Units spawn every 10 seconds.|n|NMax of 110 units at any given time.
-}
-
-STRING 226
-// Units: nfgu (Felguard), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Cleaving Attack - 15%
-
-|Cffffcc00Armor|r: Medium
-|cffffcc00Attack|r: Normal
 }
 
 STRING 227
@@ -1547,24 +1505,6 @@ STRING 355
 |cffffcc00Attack|r: Magic
 }
 
-STRING 356
-// Units: nwlg (Giant Wolf), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Critical Strike
-
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Normal
-}
-
-STRING 357
-// Units: nubw (Unbroken Darkweaver), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Unholy Frenzy
-
-|Cffffcc00Armor|r: Unarmored
-|cffffcc00Attack|r: Normal
-}
-
 STRING 358
 // Units: nits (Ice Troll Berserker), Ubertip (Tooltip - Extended)
 {
@@ -1597,13 +1537,6 @@ STRING 361
 
 |Cffffcc00Armor|r: Unarmored
 |cffffcc00Attack|r: Piercing
-}
-
-STRING 362
-// Units: njga (Elder Jungle Stalker), Ubertip (Tooltip - Extended)
-{
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Normal
 }
 
 STRING 363
@@ -1648,91 +1581,10 @@ STRING 369
 F
 }
 
-STRING 370
-// Units: nsgb (Sea Giant Behemoth), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Pulverize, War Stomp, Hurl Boulder
-
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Chaos
-}
-
-STRING 371
-// Units: nggr (Granite Golem), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Slam, Hurl Boulder, Spell Immunity
-
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Chaos
-}
-
-STRING 372
-// Units: nfre (Furbolg Elder Shaman), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Rejuvination
-
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Chaos
-}
-
-STRING 373
-// Units: nhhr (Heretic), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Carrion Swarm
-
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Piercing
-}
-
 STRING 374
 // Units: nina (Infernal Juggernaut), Ubertip (Tooltip - Extended)
 {
 |cffffcc00Abilities|r: Inferno
-
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Chaos
-}
-
-STRING 375
-// Units: ndrs (Draenei Seer), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Brilliance Aura, Healing Wave
-
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Magic
-}
-
-STRING 376
-// Units: nerw (Eredar Warlock), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Bash, Finger of Pain, Mana Shield
-
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Chaos
-}
-
-STRING 377
-// Units: nmgd (Magnataur Destroyer), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Slam, Frost Bolt, Spell Immunity
-
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Chaos
-}
-
-STRING 378
-// Units: nsqa (Ancient Sasquatch), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Slam, Force of Nature, Reincarnation
-
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Chaos
-}
-
-STRING 379
-// Units: ntrd (Dragon Turtle), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Devour, Spiked Shell, Crushing Wave
 
 |Cffffcc00Armor|r: Heavy
 |cffffcc00Attack|r: Chaos
@@ -2225,19 +2077,19 @@ Q
 }
 
 STRING 467
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AEsh (Shadow Strike), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
 
 STRING 468
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AEsh (Shadow Strike), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 469
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AOhw (Healing Wave), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
@@ -2255,37 +2107,37 @@ W
 }
 
 STRING 472
-// Abilities: A00A (Summon Inferno), Hotkey (Hotkey - Normal)
+// Abilities: AHca (Cold Arrows), Researchhotkey (Hotkey - Learn)
 {
 W
 }
 
 STRING 473
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AHca (Cold Arrows), Hotkey (Hotkey - Normal)
 {
 W
 }
 
 STRING 474
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AHca (Cold Arrows), Unhotkey (Hotkey - Turn Off)
 {
 W
 }
 
 STRING 475
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: ANsi (Silence), Researchhotkey (Hotkey - Learn)
 {
 W
 }
 
 STRING 476
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: ANsi (Silence), Hotkey (Hotkey - Normal)
 {
 W
 }
 
 STRING 477
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AEim (Immolation), Researchhotkey (Hotkey - Learn)
 {
 W
 }
@@ -2345,49 +2197,49 @@ E
 }
 
 STRING 487
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: AOhx (Hex), Researchhotkey (Hotkey - Learn)
 {
 E
 }
 
 STRING 488
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: AOhx (Hex), Hotkey (Hotkey - Normal)
 {
 E
 }
 
 STRING 489
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: ANab (Acid Bomb), Researchhotkey (Hotkey - Learn)
 {
 E
 }
 
 STRING 490
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: ANab (Acid Bomb), Hotkey (Hotkey - Normal)
 {
 E
 }
 
 STRING 491
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AOhw (Healing Wave), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 492
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AEer (Entangling Roots), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
 
 STRING 493
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AEim (Immolation), Hotkey (Hotkey - Normal)
 {
 W
 }
 
 STRING 494
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: AEim (Immolation), Unhotkey (Hotkey - Turn Off)
 {
 W
 }
@@ -2399,73 +2251,73 @@ R
 }
 
 STRING 496
-// Abilities: A004 (Remove Unit From Spawn), Hotkey (Hotkey - Normal)
+// Abilities: AEsv (Vengeance), Researchhotkey (Hotkey - Learn)
 {
 R
 }
 
 STRING 497
-// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+// Abilities: AEsv (Vengeance), Hotkey (Hotkey - Normal)
 {
 R
 }
 
 STRING 498
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: AEfk (Fan of Knives), Researchhotkey (Hotkey - Learn)
 {
 E
 }
 
 STRING 499
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: AEfk (Fan of Knives), Hotkey (Hotkey - Normal)
 {
 E
 }
 
 STRING 500
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: AEer (Entangling Roots), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 501
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: ANbf (Breath of Fire), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
 
 STRING 502
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: ANhs (Healing Spray), Researchhotkey (Hotkey - Learn)
 {
 W
 }
 
 STRING 503
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: ANhs (Healing Spray), Hotkey (Hotkey - Normal)
 {
 W
 }
 
 STRING 504
-// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+// Abilities: AOww (Bladestorm), Researchhotkey (Hotkey - Learn)
 {
 R
 }
 
 STRING 505
-// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+// Abilities: AOww (Bladestorm), Hotkey (Hotkey - Normal)
 {
 R
 }
 
 STRING 506
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: AEah (Thorns Aura), Researchhotkey (Hotkey - Learn)
 {
 E
 }
 
 STRING 507
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Abilities: ANbf (Breath of Fire), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -2477,13 +2329,13 @@ Q
 }
 
 STRING 509
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: A00A (Summon Inferno), Hotkey (Hotkey - Normal)
 {
 W
 }
 
 STRING 510
-// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+// Abilities: A004 (Remove Unit From Spawn), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -2546,5 +2398,506 @@ STRING 520
 // Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
 {
 Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R.
+}
+
+STRING 521
+// Units: E003 (Creep Warlord), Name (Name)
+{
+Creep Warlord
+}
+
+STRING 522
+// Units: E003 (Creep Warlord), Propernames (Proper Names)
+{
+Shadow Demon
+}
+
+STRING 523
+// Units: E003 (Creep Warlord), Awakentip (Tooltip - Awaken)
+{
+Shadow Demon
+}
+
+STRING 524
+// Units: E003 (Creep Warlord), Tip (Tooltip - Basic)
+{
+Summon Shadow Demon
+}
+
+STRING 525
+// Units: E003 (Creep Warlord), Revivetip (Tooltip - Revive)
+{
+Revive Shadow Demon
+}
+
+STRING 527
+// Units: E003 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Hex|R, |cffffcc00Shadow Strike|r, |cffffcc00Cold Arrows|r, |cffffcc00Avatar of Vengance|r.    |N|N|cff00ff00Agility|r
+}
+
+STRING 528
+// Units: E003 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- Shadow Demon
+}
+
+STRING 529
+// Units: H008 (Creep Warlord), Propernames (Proper Names)
+{
+Makura Lord
+}
+
+STRING 530
+// Units: H008 (Creep Warlord), Name (Name)
+{
+Creep Warlord
+}
+
+STRING 531
+// Units: H008 (Creep Warlord), Awakentip (Tooltip - Awaken)
+{
+Revive Makura Lord
+}
+
+STRING 532
+// Units: H008 (Creep Warlord), Tip (Tooltip - Basic)
+{
+Summon Makura Lord
+}
+
+STRING 533
+// Units: H008 (Creep Warlord), Revivetip (Tooltip - Revive)
+{
+Revive Makura Lord
+}
+
+STRING 535
+// Units: H008 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- Makura Lord
+}
+
+STRING 536
+// Units: E004 (Creep Warlord), Propernames (Proper Names)
+{
+Spider Brood Master
+}
+
+STRING 537
+// Units: E004 (Creep Warlord), Awakentip (Tooltip - Awaken)
+{
+Revive Spider Brood Master
+}
+
+STRING 538
+// Units: E004 (Creep Warlord), Tip (Tooltip - Basic)
+{
+Summon Spider Brood Master
+}
+
+STRING 539
+// Units: E004 (Creep Warlord), Revivetip (Tooltip - Revive)
+{
+Revive Spider Brood Master
+}
+
+STRING 540
+// Units: E004 (Creep Warlord), Name (Name)
+{
+Creep Warlord
+}
+
+STRING 541
+// Units: E004 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- spider brood master
+}
+
+STRING 543
+// Units: E004 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Entangling Roots|r, |cffffcc00Immolation|r, |cffffcc00Fan of Knives|r, |cffffcc00Bladestorm|r.    |N|N|cff00ff00Agility|r
+}
+
+STRING 544
+// Units: H008 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Healing Wave|r, |cffffcc00Acid Bomb|r, |cffffcc00Silence|r and |cffffcc00Resurrection|r.    |N|N|cffff0000Strength|r
+}
+
+STRING 545
+// Units: O001 (Creep Warlord), Propernames (Proper Names)
+{
+Overlord Arachnathid
+}
+
+STRING 546
+// Units: O001 (Creep Warlord), Name (Name)
+{
+Creep Warlord
+}
+
+STRING 547
+// Units: O001 (Creep Warlord), Awakentip (Tooltip - Awaken)
+{
+Revive Overlord Arachnathid
+}
+
+STRING 548
+// Units: O001 (Creep Warlord), Tip (Tooltip - Basic)
+{
+Summon Overlord Arachnathid
+}
+
+STRING 549
+// Units: O001 (Creep Warlord), Revivetip (Tooltip - Revive)
+{
+Revive Overlord Arachnathid
+}
+
+STRING 551
+// Units: O001 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- Overlord Arachnathid
+}
+
+STRING 552
+// Units: nfgu (Felguard), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Cleaving Attack - 15%
+
+|Cffffcc00Armor|r: Large
+|cffffcc00Attack|r: Normal
+}
+
+STRING 553
+// Units: ninf (Infernal), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Immolation, Spell Immunity
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Chaos
+}
+
+STRING 554
+// Units: nhhr (Heretic), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Carrion Swarm
+
+|Cffffcc00Armor|r: Unarmored
+|cffffcc00Attack|r: Piercing
+}
+
+STRING 555
+// Units: nerw (Eredar Warlock), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Bash, Finger of Pain, Mana Shield
+
+|Cffffcc00Armor|r: Light
+|cffffcc00Attack|r: Magic
+}
+
+STRING 557
+// Units: nmgd (Magnataur Destroyer), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Slam, Frost Bolt, Spell Immunity
+
+|Cffffcc00Armor|r: Light
+|cffffcc00Attack|r: Chaos
+}
+
+STRING 559
+// Units: nggr (Granite Golem), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Slam, Hurl Boulder, Spell Immunity
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Normal
+}
+
+STRING 560
+// Units: ntrd (Dragon Turtle), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Devour, Spiked Shell, Crushing Wave
+
+|Cffffcc00Armor|r: Medium
+|cffffcc00Attack|r: Piercing
+}
+
+STRING 561
+// Units: nwlg (Giant Wolf), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Critical Strike
+
+|Cffffcc00Armor|r: Light
+|cffffcc00Attack|r: Normal
+}
+
+STRING 562
+// Units: nubw (Unbroken Darkweaver), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Unholy Frenzy
+
+|Cffffcc00Armor|r: Light
+|cffffcc00Attack|r: Normal
+}
+
+STRING 563
+// Units: ngna (Gnoll Poacher), Ubertip (Tooltip - Extended)
+{
+|Cffffcc00Armor|r: Light|N|cffffcc00Attack|r: Piercing
+}
+
+STRING 565
+// Units: nmrl (Murloc Tiderunner), Ubertip (Tooltip - Extended)
+{
+10%|cff80ff80 Evasion|r      |N|N|Cffffcc00Armor|R: Unarmored |n|Cffffcc00Attack|r: Normal
+}
+
+STRING 566
+// Units: nspb (Black Spider), Ubertip (Tooltip - Extended)
+{
+|Cffffcc00Slow Poison|R: 20% attack and move slow. 4 damage per second.    |n |n|Cffffcc00Armor|r: Light|N|cffffcc00Attack|r: Piercing
+}
+
+STRING 567
+// Units: nkob (Kobold), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Bash|r - 5% chance, 15 bonus damage, 2 second stun.   |n|N|Cffffcc00Armor|r: Medium|N|cffffcc00Attack|r: Normal
+}
+
+STRING 568
+// Units: nkog (Kobold Geomancer), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Slow
+
+|Cffffcc00Armor|r: Medium
+|cffffcc00Attack|r: Magic
+}
+
+STRING 569
+// Units: njga (Elder Jungle Stalker), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Abolish Magic
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Normal
+}
+
+STRING 570
+// Units: nfre (Furbolg Elder Shaman), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Rejuvination, Dispel Magic
+
+|Cffffcc00Armor|r: Medium
+|cffffcc00Attack|r: Normal
+}
+
+STRING 572
+// Units: nsqa (Ancient Sasquatch), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Slam, Force of Nature, Reincarnation
+
+|Cffffcc00Armor|r: Unarmored
+|cffffcc00Attack|r: Piercing
+}
+
+STRING 573
+// Units: nsgb (Sea Giant Behemoth), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Pulverize, War Stomp, Hurl Boulder
+
+|Cffffcc00Armor|r: Unarmored
+|cffffcc00Attack|r: Normal
+}
+
+STRING 574
+// Units: O001 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Breath of Fire|r, |cffffcc00Thorns Aura|r, |cffffcc00Healing Spray|r and |cffffcc00Reincarnation|r.   |N|N|cffff0000Strength|r
+}
+
+STRING 575
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 576
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 577
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 578
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 579
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 580
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 581
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 582
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 583
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 584
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 585
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 586
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 587
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 588
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 589
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 590
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 591
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 592
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 593
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 594
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 595
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 596
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 597
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 598
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 599
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 600
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 601
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 602
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 603
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 604
+// Units: ndrs (Draenei Seer), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Brilliance Aura, Healing Wave, Slow
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Magic
 }
 
