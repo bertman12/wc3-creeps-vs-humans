@@ -1106,6 +1106,12 @@ STRING 287
 W
 }
 
+STRING 288
+// Abilities: A004 (Remove Unit From Spawn), Ubertip (Tooltip - Normal - Extended)
+{
+Removes the unit from your spawn. |n|N|cff80ff80Refunds 100% unit cost.|r |n|N|cffffcc00Only usable after preparation time has ended.
+}
+
 STRING 289
 // Upgrades: R005 (Chaos), Name (Name)
 {
@@ -2688,6 +2694,15 @@ STRING 570
 |cffffcc00Attack|r: Normal
 }
 
+STRING 572
+// Units: nsqa (Ancient Sasquatch), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Slam, Force of Nature, Reincarnation
+
+|Cffffcc00Armor|r: Unarmored
+|cffffcc00Attack|r: Piercing
+}
+
 STRING 573
 // Units: nsgb (Sea Giant Behemoth), Ubertip (Tooltip - Extended)
 {
@@ -2884,20 +2899,5 @@ STRING 604
 
 |Cffffcc00Armor|r: Heavy
 |cffffcc00Attack|r: Magic
-}
-
-STRING 605
-// Abilities: A004 (Remove Unit From Spawn), Ubertip (Tooltip - Normal - Extended)
-{
-Removes the unit from your spawn. |n|N|cff80ff80Refunds 65% unit cost.|r |n|N|cffffcc00Only usable after preparation time has ended.
-}
-
-STRING 606
-// Units: nsqa (Ancient Sasquatch), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Slam, Force of Nature
-
-|Cffffcc00Armor|r: Unarmored
-|cffffcc00Attack|r: Piercing
 }
 

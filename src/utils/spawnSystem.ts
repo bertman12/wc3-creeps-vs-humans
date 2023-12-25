@@ -342,6 +342,10 @@ export class SpawnData {
     }
 
     public cleanupSpawn() {
+        // forEachUnitOfPlayerWithAbility(this.spawnOwner, FourCC("ACrn"), (u) => {
+        //     u.removeAbility(FourCC("ACrn"));
+        // });
+
         this.units.forEach((u, index) => {
             if (u) {
                 u.kill();

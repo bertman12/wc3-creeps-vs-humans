@@ -31,6 +31,7 @@ export class PlayerState {
         const t = Trigger.create();
 
         t.registerUnitEvent(playerBase, EVENT_UNIT_DEATH);
+
         t.addAction(() => {
             this.cleanupPlayer();
 
@@ -42,7 +43,12 @@ export class PlayerState {
             let hasPlayerWon = true;
 
             playerStates.forEach((state) => {
-                if (state.ownedSpawn?.spawnBase?.isAlive()) {
+                //Check each player's spawn beside your own
+                if (state.ownedSpawn?.spawnBase?.isAlive() && state.ownedSpawn.spawnOwner !== this.player) {
+                    hasPlayerWon = false;
+                }
+
+                if (!this.ownedSpawn?.spawnBase?.isAlive()) {
                     hasPlayerWon = false;
                 }
             });
@@ -52,6 +58,9 @@ export class PlayerState {
                 ClearMapMusic();
                 StopMusic(false);
                 PlayMusic(gg_snd_PH1);
+
+                const clearFogState = FogModifier.create(this.player, FOG_OF_WAR_VISIBLE, 0, 0, 25000, true, true);
+                clearFogState?.start();
             }
         });
     }
@@ -63,8 +72,11 @@ export class PlayerState {
 export function setupPlayerStateInstances() {
     forEachPlayer((p) => {
         if (isPlayingUser(p)) {
-            playerStates.set(p.id, new PlayerState(p));
+            print(`Player state setup for ${ptColor(p, p.name)}`);
+            const state = new PlayerState(p);
+            playerStates.set(p.id, state);
             adjustLumber(p, 1000);
+            SetPlayerHandicapXP(p.handle, 0.75);
         }
     });
 }

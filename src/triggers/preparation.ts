@@ -2,7 +2,7 @@ import { GameConfig } from "src/shared/GameConfig";
 import { ABILITIES, UNITS, UPGRADES } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
 import { notifyPlayer, tColor } from "src/utils/misc";
-import { adjustLumber, forEachAlliedPlayer, forEachPlayer, isPlayingUser } from "src/utils/players";
+import { adjustLumber, forEachPlayer, isPlayingUser } from "src/utils/players";
 import { delayedTimer } from "src/utils/timer";
 import { MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts";
 import { OrderId } from "w3ts/globals";
@@ -137,7 +137,7 @@ function trig_heroPurchasedDuringPrepTime() {
  * Logic can be used inside postPrep hero purchased trigger
  */
 function moveAllPrepHeroesToStartLocationAndGiveItems() {
-    forEachAlliedPlayer((p) => {
+    forEachPlayer((p) => {
         if (isPlayingUser(p)) {
             moveSingleHeroToStartLocationAndGiveItems(p);
         }

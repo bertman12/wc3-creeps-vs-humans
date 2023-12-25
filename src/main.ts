@@ -4,7 +4,6 @@ import { setup_preventMassTeleportGrief } from "./triggers/anti-grief";
 import { setup_capture } from "./triggers/capture";
 import { setup_fixSpawns } from "./triggers/fixSpawns";
 import { setup_GoldMineEco } from "./triggers/goldMineEconomy";
-import { setup_multiBoard } from "./triggers/leaderboard";
 import { setup_heroPurchasing } from "./triggers/preparation";
 import { playerGetsUpgrade } from "./triggers/upgrades";
 import { trig_setCameraDistance } from "./utils/camera";
@@ -12,6 +11,7 @@ import { trig_itemRecipeSystem } from "./utils/item";
 import { setup_quests } from "./utils/quests";
 import { setup_playerCreepSpawns } from "./utils/spawnSystem";
 import { delayedTimer } from "./utils/timer";
+import { setup_multiBoard } from "./triggers/leaderboard";
 
 const BUILD_DATE = compiletime(() => new Date().toUTCString());
 const TS_VERSION = compiletime(() => require("typescript").version);
@@ -35,6 +35,7 @@ function tsMain() {
         print(`Typescript: v${TS_VERSION}`);
         print(`Transpiler: v${TSTL_VERSION}`);
         SetGameDifficulty(MAP_DIFFICULTY_INSANE);
+        setupPlayerStateInstances();
 
         delayedTimer(1, () => {
             ClearMapMusic();
@@ -42,14 +43,15 @@ function tsMain() {
             PlayMusic(gg_snd_NightElfX1);
         });
 
-        setupPlayerStateInstances();
         trig_itemRecipeSystem();
         trig_setCameraDistance();
         setup_quests();
         setup_capture();
         setup_GoldMineEco();
         playerGetsUpgrade();
+
         setup_multiBoard();
+
         setup_preventMassTeleportGrief();
         setup_heroPurchasing(setup_playerCreepSpawns);
         setup_fixSpawns();

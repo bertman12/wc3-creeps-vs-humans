@@ -130,7 +130,7 @@ function removeUnitFromSpawn() {
         const victim = Unit.fromHandle(GetSpellTargetUnit());
 
         if (spellNumber === ABILITIES.removeUnitFromSpawn && victim && caster) {
-            adjustGold(caster.owner, GetUnitGoldCost(victim.typeId));
+            adjustGold(caster.owner, GetUnitGoldCost(victim.typeId) * 0.65);
             adjustLumber(caster.owner, GetUnitGoldCost(victim.typeId));
 
             const state = getPlayerState(caster.owner);

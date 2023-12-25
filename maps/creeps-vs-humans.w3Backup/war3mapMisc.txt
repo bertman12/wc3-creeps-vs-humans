@@ -1,0 +1,16 @@
+[HERO]
+DependencyOr=H007,H002,E001,O000,H005,N002,E002,H006,E003,O001,H008,E004
+
+[Misc]
+BuildingKillsGiveExp=1
+ConstructionRefundRate=1.0
+HeroExpRange=100000.0
+HeroMaxAwakenCostGold=300
+HeroMaxAwakenCostLumber=0
+HeroMaxReviveCostGold=100
+HeroMaxReviveCostLumber=0
+HeroMaxReviveTime=20.0
+ItemStackingEnabled=1
+MaxHeroLevel=50
+UpgradeRefundRate=1.0
+

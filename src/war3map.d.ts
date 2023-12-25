@@ -6,6 +6,6 @@ declare var gg_rct_Player4SpawnBuilder: rect;
 declare var gg_rct_Player5SpawnBuilder: rect;
 declare var gg_rct_Player6SpawnBuilder: rect;
 declare var gg_rct_AllSpawnBuilderRegions: rect;
-declare var gg_snd_PH1: string;
 declare var gg_rct_IllegalTeleportRegion: rect;
+declare var gg_snd_PH1: string;
 declare var gg_snd_NightElfX1: string;

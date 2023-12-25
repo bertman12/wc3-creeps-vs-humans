@@ -6,8 +6,8 @@ gg_rct_Player4SpawnBuilder = nil
 gg_rct_Player5SpawnBuilder = nil
 gg_rct_Player6SpawnBuilder = nil
 gg_rct_AllSpawnBuilderRegions = nil
-gg_rct_IllegalTeleportRegion = nil
 gg_snd_PH1 = ""
+gg_rct_IllegalTeleportRegion = nil
 gg_snd_NightElfX1 = ""
 function InitGlobals()
 end
@@ -25,23 +25,24 @@ local t
 local life
 
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -64.0, 3328.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1728.0, 2432.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 2560.0, -1920.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), -896.0, -3008.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), -3264.0, 1664.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), -1408.0, -768.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1728.0, 704.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1984.0, 3008.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3200.0, 192.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 2112.0, -2240.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), -896.0, -2496.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), -3648.0, 1600.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), -896.0, 64.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1472.0, 192.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -2880.0, -384.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), -2624.0, -2304.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1024.0, -3200.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3776.0, -448.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3712.0, 2624.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), -2624.0, -2688.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 640.0, -3648.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 4800.0, -192.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3584.0, 3200.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -1664.0, 2624.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), -1152.0, 704.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1664.0, -448.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 128.0, 1472.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 640.0, -1280.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3456.0, 1088.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 192.0, 1344.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 640.0, -1408.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1920.0, 1536.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), -1856.0, -1280.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3520.0, 1472.0, 270.000, FourCC("h001"))
 end
 
 function CreateNeutralPassiveBuildings()
@@ -71,7 +72,7 @@ end
 function CreateRegions()
 local we
 
-gg_rct_HeroSpawnArea = Rect(-7488.0, -7840.0, -5248.0, -6144.0)
+gg_rct_HeroSpawnArea = Rect(-7392.0, -7680.0, -5248.0, -6144.0)
 gg_rct_Player1SpawnBuilder = Rect(-4704.0, -7712.0, -3712.0, -6656.0)
 gg_rct_Player2SpawnBuilder = Rect(-3520.0, -7712.0, -2528.0, -6656.0)
 gg_rct_Player3SpawnBuilder = Rect(-2336.0, -7712.0, -1344.0, -6656.0)
@@ -788,11 +789,11 @@ SetPlayers(24)
 SetTeams(24)
 SetGamePlacement(MAP_PLACEMENT_TEAMS_TOGETHER)
 DefineStartLocation(0, 0.0, 4608.0)
-DefineStartLocation(1, -4352.0, 1984.0)
-DefineStartLocation(2, -3328.0, -3136.0)
-DefineStartLocation(3, 1280.0, -4352.0)
-DefineStartLocation(4, 4992.0, -832.0)
-DefineStartLocation(5, 4480.0, 3584.0)
+DefineStartLocation(1, -4480.0, 1984.0)
+DefineStartLocation(2, -3840.0, -2752.0)
+DefineStartLocation(3, 1152.0, -4480.0)
+DefineStartLocation(4, 4608.0, -1280.0)
+DefineStartLocation(5, 4608.0, 3264.0)
 DefineStartLocation(6, 6976.0, -7296.0)
 DefineStartLocation(7, 6976.0, -7296.0)
 DefineStartLocation(8, 6976.0, -7296.0)
