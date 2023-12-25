@@ -36,7 +36,6 @@ export function setup_playerCreepSpawns() {
                 }
 
                 Unit.create(p, UNITS.itemShop, p.startLocationX - 300, p.startLocationY);
-                Unit.create(p, UNITS.upgradeShop, p.startLocationX + 300, p.startLocationY);
             }
         }
     });
@@ -253,7 +252,7 @@ export class SpawnData {
         if (!playerSpawnBuilderRegion) return;
 
         forEachUnitInRectangle(playerSpawnBuilderRegion, (u) => {
-            if (u.typeId !== UNITS.spawnBuilder_tier1) {
+            if (u.typeId !== UNITS.spawnBuilder_tier1 && u.typeId !== UNITS.upgradeShop) {
                 print(`${u.name} added to simple spawn pool!`);
                 this.simpleUnitSpawnPool.push(u);
             }

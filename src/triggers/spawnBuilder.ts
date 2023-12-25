@@ -1,5 +1,6 @@
 import { ABILITIES, UNITS } from "src/shared/enums";
 import { getPlayerState, playerStates } from "src/shared/playerState";
+import { ptColor, tColor } from "src/utils/misc";
 import { adjustFoodUsed, adjustGold, adjustLumber, forEachPlayer, isPlayingUser } from "src/utils/players";
 import { createUnits } from "src/utils/units";
 import { MapPlayer, Rectangle, Region, Trigger, Unit } from "w3ts";
@@ -26,8 +27,11 @@ export function createSpawnBuilder() {
         if (isPlayingUser(p)) {
             const builderRect = playerSpawnBuilderMap.get(p.id);
             if (builderRect) {
-                Unit.create(p, UNITS.spawnBuilder_tier1, builderRect.centerX, builderRect.centerY);
-                createUnits(3, true, p, UNITS.murloc_baseUnit, builderRect.centerX, builderRect.centerY - 100);
+                Unit.create(p, UNITS.spawnBuilder_tier1, builderRect.centerX, builderRect.centerY + 150);
+                Unit.create(p, UNITS.upgradeShop, builderRect.centerX, builderRect.centerY);
+                const units = createUnits(3, true, p, UNITS.murloc_baseUnit, builderRect.centerX, builderRect.centerY - 200);
+
+                units.forEach((u) => u.addAbility(ABILITIES.invulnerable));
             }
         }
     });
@@ -64,10 +68,14 @@ function setup_spawnBuilderTracker() {
     t.addAction(() => {
         const p = MapPlayer.fromEvent();
         const u = Unit.fromEvent();
+
         if (!p || !u) return;
 
+        u.addAbility(ABILITIES.invulnerable);
+
         const state = playerStates.get(p.id);
-        print(`Player ${p.name} built ${u.name}`);
+        print(`Player ${ptColor(p, p.name)} built ${tColor(u.name, "goldenrod")}`);
+
         if (state) {
             state.ownedSpawn?.simpleUnitSpawnPool.push(u);
         }
@@ -104,16 +112,19 @@ function setup_spawnBuilderUnitCancelled() {
 
 function removeUnitFromSpawn() {
     const t = Trigger.create();
-    t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST);
+    t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT);
 
     t.addAction(() => {
         const spellNumber = GetSpellAbilityId();
         const caster = Unit.fromHandle(GetSpellAbilityUnit());
         const victim = Unit.fromHandle(GetSpellTargetUnit());
+
         if (spellNumber === ABILITIES.removeUnitFromSpawn && victim && caster) {
             adjustGold(caster.owner, GetUnitGoldCost(victim.typeId));
             adjustLumber(caster.owner, GetUnitGoldCost(victim.typeId));
+
             const state = getPlayerState(caster.owner);
+
             if (!state) {
                 return;
             }
@@ -124,7 +135,9 @@ function removeUnitFromSpawn() {
                 return;
             }
 
-            print(`Removed ${victim.name} from ${caster.owner.name}'s spawn pool.`);
+            victim.kill();
+
+            print(`Removed ${tColor(victim.name, "goldenrod")} from ${ptColor(caster.owner, caster.owner.name)}'s spawn pool.`);
 
             state.ownedSpawn?.simpleUnitSpawnPool.splice(removalIndex, 1);
         }

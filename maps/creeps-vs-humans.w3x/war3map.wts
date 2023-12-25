@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-Creep Wars - alpha 02
+Creep Warlords - 1.0
 }
 
 STRING 2
@@ -31,18 +31,19 @@ Player 1
 
 STRING 7
 {
-Creep Wars - alpha 02
+Creep Warlords - 1.0
 }
 
 STRING 8
 {
-Destroy all other players to win.
+|cff00ff00Objective|r - Destroy all other players to win.
 
 Gold mines give 25 gold every 10 seconds.
 
-Your base gives 50 gold.
+|cffffff00Spawns|r - Add units to your spawn at the bottom of the map.
 
-Creeps will choose attack targets randomly most of the time and every 90 seconds.
+Max 110 units at any given time.
+
 
 Made by JediMindTrix/NihilismIsDeath
 }
@@ -119,43 +120,19 @@ Item Shop
 }
 
 STRING 45
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Units: nspb (Black Spider), Hotkey (Hotkey)
 {
 S
 }
 
 STRING 46
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Units: nsrn (Stormreaver Necrolyte), Hotkey (Hotkey)
 {
 S
 }
 
 STRING 47
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
-{
-S
-}
-
-STRING 48
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
-{
-S
-}
-
-STRING 49
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
-{
-S
-}
-
-STRING 50
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
-{
-S
-}
-
-STRING 51
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Units: u000 (Spawn Builder Tier 1), Hotkey (Hotkey)
 {
 S
 }
@@ -380,48 +357,6 @@ STRING 88
 // Units: h004 (Upgrade Shop), Name (Name)
 {
 Upgrade Shop
-}
-
-STRING 89
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
-{
-P
-}
-
-STRING 90
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
-{
-P
-}
-
-STRING 91
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
-{
-P
-}
-
-STRING 92
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
-{
-P
-}
-
-STRING 93
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
-{
-P
-}
-
-STRING 94
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
-{
-P
-}
-
-STRING 95
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
-{
-P
 }
 
 STRING 96
@@ -652,18 +587,6 @@ STRING 133
 |cffffff00+25 Gold|r every 10 seconds.
 }
 
-STRING 134
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Hotkey (Hotkey)
-{
-M
-}
-
-STRING 135
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Hotkey (Hotkey)
-{
-M
-}
-
 STRING 136
 // Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
 {
@@ -784,12 +707,6 @@ STRING 173
 Remove Unit From Spawn
 }
 
-STRING 174
-// Abilities: A004 (Remove Unit From Spawn), Ubertip (Tooltip - Normal - Extended)
-{
-Removes the unit from your spawn. |n|N|cff80ff80Refunds 100% unit cost.|r
-}
-
 STRING 175
 // Units: u000 (Spawn Builder Tier 1), Name (Name)
 {
@@ -818,12 +735,6 @@ STRING 179
 // Upgrades: R001 (Chaos), Tip (Tooltip)
 {
 Research Increase Food +1
-}
-
-STRING 180
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
-{
-+1 Food |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
 }
 
 STRING 181
@@ -874,27 +785,1031 @@ STRING 188
 Research Increase Food +5
 }
 
-STRING 189
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+STRING 193
+// Units: E001 (Creep Warlord), Propernames (Proper Names)
 {
-+2 Food |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+Salamander King
 }
 
-STRING 190
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+STRING 194
+// Units: E001 (Creep Warlord), Name (Name)
 {
-+3 Food |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+Creep Warlord
 }
 
-STRING 191
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+STRING 195
+// Units: u000 (Spawn Builder Tier 1), Tip (Tooltip - Basic)
 {
-+4 Food |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+Spawn Builder |cffffcc00Tier 1|R
 }
 
-STRING 192
+STRING 198
+// Units: u001 (Spawn Builder Tier 2), Tip (Tooltip - Basic)
+{
+Spawn Builder |cffffcc00Tier 2|R
+}
+
+STRING 200
+// Units: u002 (Spawn Builder Tier 3), Tip (Tooltip - Basic)
+{
+Spawn Builder |cffffcc00Tier 3|R
+}
+
+STRING 202
+// Abilities: A003 (Evasion), EditorSuffix (Editor Suffix)
+{
+(10%)
+}
+
+STRING 203
+// Units: nmrl (Murloc Tiderunner), Ubertip (Tooltip - Extended)
+{
+10%|cff80ff80 Evasion|r      |N|N|Cffffcc00Armor|R: Unarmored |n|Cffffcc00Attack|r: Normal Attack
+}
+
+STRING 208
+// Abilities: A005 (Bash), EditorSuffix (Editor Suffix)
+{
+ (5% - 15 Damage)
+}
+
+STRING 209
+// Units: nkob (Kobold), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Bash|r - 5% chance, 15 bonus damage, 2 second stun.   |n|N|Cffffcc00Armor|r: Medium Armor|N|cffffcc00Attack|r: Siege
+}
+
+STRING 210
+// Units: ngna (Gnoll Poacher), Ubertip (Tooltip - Extended)
+{
+|Cffffcc00Armor|r: Large Armor|N|cffffcc00Attack|r: Piercing
+}
+
+STRING 211
+// Units: nkog (Kobold Geomancer), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Slow
+
+|Cffffcc00Armor|r: Medium Armor
+|cffffcc00Attack|r: Piercing
+}
+
+STRING 212
+// Abilities: A006 (Slow Poison), EditorSuffix (Editor Suffix)
+{
+(20%)
+}
+
+STRING 213
+// Abilities: A006 (Slow Poison), Ubertip (Tooltip - Normal - Extended)
+{
+A poison attack that deals 4 damage per second, and slows the target enemy's movement by 20% and attack by 20% for 5 seconds.
+}
+
+STRING 216
+// Units: nspb (Black Spider), Ubertip (Tooltip - Extended)
+{
+|Cffffcc00Slow Poison|R: 20% attack and move slow. 4 damage per second.    |n |n|Cffffcc00Armor|r: Medium Armor|N|cffffcc00Attack|r: Piercing
+}
+
+STRING 217
+// Upgrades: R002 (Chaos), Name (Name)
+{
+Unlock Tier 2 Units
+}
+
+STRING 218
+// Upgrades: R002 (Chaos), EditorSuffix (Editor Suffix)
+{
+(NULL UPGRADE)
+}
+
+STRING 219
+// Upgrades: R003 (Chaos), Name (Name)
+{
+Unlock Tier 3 Units
+}
+
+STRING 220
+// Upgrades: R003 (Chaos), EditorSuffix (Editor Suffix)
+{
+(NULL UPGRADE)
+}
+
+STRING 221
+// Abilities: A007 (Spawn Info), Name (Name)
+{
+Spawn Info
+}
+
+STRING 222
+// Abilities: A007 (Spawn Info), EditorSuffix (Editor Suffix)
+{
+(INFO ABILITY BASE)
+}
+
+STRING 223
+// Abilities: A007 (Spawn Info), Tip (Tooltip - Normal)
+{
+Spawn Info
+}
+
+STRING 224
+// Abilities: A007 (Spawn Info), Ubertip (Tooltip - Normal - Extended)
+{
+Units spawn every 10 seconds.|n|NMax of 110 units at any given time.
+}
+
+STRING 226
+// Units: nfgu (Felguard), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Cleaving Attack - 15%
+
+|Cffffcc00Armor|r: Medium
+|cffffcc00Attack|r: Normal
+}
+
+STRING 227
+// Abilities: A008 (Cleaving Attack), EditorSuffix (Editor Suffix)
+{
+(15%)
+}
+
+STRING 228
+// Abilities: A008 (Cleaving Attack), Ubertip (Tooltip - Normal - Extended)
+{
+The creature strikes with such force that 15% of their damage strikes through to enemies near the primary attacked unit.
+}
+
+STRING 229
+// Units: nmbg (Mur'gul Blood-Gill), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Heal |N|n|Cffffcc00Armor|r: Unarmored|N|cffffcc00Attack|r: Magic
+}
+
+STRING 230
+// Abilities: A009 (Guide), Name (Name)
+{
+Guide
+}
+
+STRING 231
+// Abilities: A009 (Guide), EditorSuffix (Editor Suffix)
+{
+(INFO ABILITY BASE)
+}
+
+STRING 232
+// Abilities: A009 (Guide), Ubertip (Tooltip - Normal - Extended)
+{
+Build units to add them to your spawn. |n|nResearch more food at the upgrade center to increase the number of units that are spawned every wave.|n|nRefund units with finger of death for 100% return.  |n|nMax food cap: 10
+}
+
+STRING 233
+// Units: nrzm (Razormane Medicine Man), Hotkey (Hotkey)
+{
+A
+}
+
+STRING 234
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Hotkey (Hotkey)
+{
+A
+}
+
+STRING 235
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Hotkey (Hotkey)
+{
+A
+}
+
+STRING 236
+// Abilities: A005 (Bash), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a 5% chance that an attack will do 15 bonus damage and stun an opponent for <ACbh,Dur1> seconds.
+}
+
+STRING 240
+// Upgrades: R004 (Animal War Training), effect1 (Effect 1)
+{
+rhpo
+}
+
+STRING 241
+// Upgrades: R002 (Chaos), Tip (Tooltip)
+{
+Unlock Tier 2 Units
+}
+
+STRING 242
+// Upgrades: R002 (Chaos), Ubertip (Tooltip - Extended)
+{
+Enables you to build |Cffffcc00Tier 2|r units.
+}
+
+STRING 243
+// Upgrades: R003 (Chaos), Ubertip (Tooltip - Extended)
+{
+Enables you to build |Cffffcc00Tier 3|r units.
+}
+
+STRING 244
+// Upgrades: R003 (Chaos), Tip (Tooltip)
+{
+Unlock Tier 3 Units
+}
+
+STRING 245
+// Abilities: A00A (Summon Inferno), EditorSuffix (Editor Suffix)
+{
+(Player Base)
+}
+
+STRING 246
+// Abilities: A00A (Summon Inferno), Name (Name)
+{
+Summon Inferno
+}
+
+STRING 247
+// Abilities: A00A (Summon Inferno), Tip (Tooltip - Normal)
+{
+Summon Inferno
+}
+
+STRING 248
+// Abilities: A00A (Summon Inferno), Ubertip (Tooltip - Normal - Extended)
+{
+Allows you to summon a defensive inferno for 20 seconds.
+}
+
+STRING 249
+// Upgrades: R004 (Animal War Training), Name (Name)
+{
+Unit Health 1
+}
+
+STRING 250
+// Upgrades: R004 (Animal War Training), Tip (Tooltip)
+{
+Research Unit Health 1
+}
+
+STRING 251
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Hotkey (Hotkey)
+{
+A
+}
+
+STRING 252
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Hotkey (Hotkey)
+{
+A
+}
+
+STRING 253
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Hotkey (Hotkey)
+{
+A
+}
+
+STRING 260
+// Upgrades: R004 (Animal War Training), Name (Name)
+{
+Unit Health 2
+}
+
+STRING 261
+// Upgrades: R004 (Animal War Training), Name (Name)
+{
+Unit Health 3
+}
+
+STRING 262
+// Upgrades: R004 (Animal War Training), Name (Name)
+{
+Unit Health 4
+}
+
+STRING 263
+// Upgrades: R004 (Animal War Training), Name (Name)
+{
+Unit Health 5
+}
+
+STRING 264
+// Upgrades: R004 (Animal War Training), Name (Name)
+{
+Unit Health 6
+}
+
+STRING 265
+// Upgrades: R004 (Animal War Training), Name (Name)
+{
+Unit Health 7
+}
+
+STRING 266
+// Upgrades: R004 (Animal War Training), Name (Name)
+{
+Unit Health 8
+}
+
+STRING 267
+// Upgrades: R004 (Animal War Training), Name (Name)
+{
+Unit Health 9
+}
+
+STRING 268
+// Upgrades: R004 (Animal War Training), Name (Name)
+{
+Unit Health 10
+}
+
+STRING 269
+// Upgrades: R004 (Animal War Training), Tip (Tooltip)
+{
+Research Unit Health 2
+}
+
+STRING 270
+// Upgrades: R004 (Animal War Training), Tip (Tooltip)
+{
+Research Unit Health 3
+}
+
+STRING 271
+// Upgrades: R004 (Animal War Training), Tip (Tooltip)
+{
+Research Unit Health 4
+}
+
+STRING 272
+// Upgrades: R004 (Animal War Training), Tip (Tooltip)
+{
+Research Unit Health 5
+}
+
+STRING 273
+// Upgrades: R004 (Animal War Training), Tip (Tooltip)
+{
+Research Unit Health 6
+}
+
+STRING 274
+// Upgrades: R004 (Animal War Training), Tip (Tooltip)
+{
+Research Unit Health 7
+}
+
+STRING 275
+// Upgrades: R004 (Animal War Training), Tip (Tooltip)
+{
+Research Unit Health 8
+}
+
+STRING 276
+// Upgrades: R004 (Animal War Training), Tip (Tooltip)
+{
+Research Unit Health 9
+}
+
+STRING 277
+// Upgrades: R004 (Animal War Training), Tip (Tooltip)
+{
+Research Unit Health 10
+}
+
+STRING 287
+// Units: nmbg (Mur'gul Blood-Gill), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 288
+// Abilities: A004 (Remove Unit From Spawn), Ubertip (Tooltip - Normal - Extended)
+{
+Removes the unit from your spawn. |n|N|cff80ff80Refunds 100% unit cost.|r |n|N|cffffcc00Only usable after preparation time has ended.
+}
+
+STRING 289
+// Upgrades: R005 (Chaos), Name (Name)
+{
+Preparation Time Ended
+}
+
+STRING 290
+// Upgrades: R005 (Chaos), EditorSuffix (Editor Suffix)
+{
+(NULL UPGRADE)
+}
+
+STRING 291
+// Units: nmrl (Murloc Tiderunner), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 292
+// Units: nkob (Kobold), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 293
+// Units: nkog (Kobold Geomancer), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 294
+// Units: nfgu (Felguard), Hotkey (Hotkey)
+{
+D
+}
+
+STRING 295
+// Units: nits (Ice Troll Berserker), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 297
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases unit |cffffcc00health|R by 5%.
+}
+
+STRING 298
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases unit |cffffcc00health|R by 5%.
+}
+
+STRING 299
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases unit |cffffcc00health|R by 5%.
+}
+
+STRING 300
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases unit |cffffcc00health|R by 5%.
+}
+
+STRING 301
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases unit |cffffcc00health|R by 5%.
+}
+
+STRING 302
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases unit |cffffcc00health|R by 5%.
+}
+
+STRING 303
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases unit |cffffcc00health|R by 5%.
+}
+
+STRING 304
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases unit |cffffcc00health|R by 5%.
+}
+
+STRING 305
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases unit |cffffcc00health|R by 5%.
+}
+
+STRING 306
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases unit |cffffcc00health|R by 5%.
+}
+
+STRING 307
 // Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
 {
-+5 Food |N|NKeep in mind, you can only have 110 units from your spawn at any given time.|n|n|cffffcc00Use to help increase the rate you reach your max spawn limit.|r
+|cffffcc00+1 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
+}
+
+STRING 308
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+|cffffcc00+2 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
+}
+
+STRING 309
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+|cffffcc00+3 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
+}
+
+STRING 310
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+|cffffcc00+4 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
+}
+
+STRING 311
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+|cffffcc00+5 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
+}
+
+STRING 312
+// Units: njga (Elder Jungle Stalker), Hotkey (Hotkey)
+{
+D
+}
+
+STRING 313
+// Units: nubw (Unbroken Darkweaver), Hotkey (Hotkey)
+{
+F
+}
+
+STRING 315
+// Units: u000 (Spawn Builder Tier 1), Ubertip (Tooltip - Extended)
+{
+Able to build |cffffcc00Tier 1|R units.
+}
+
+STRING 316
+// Units: u001 (Spawn Builder Tier 2), Ubertip (Tooltip - Extended)
+{
+Able to build |cffffcc00Tier 2|R units.
+}
+
+STRING 317
+// Units: u002 (Spawn Builder Tier 3), Ubertip (Tooltip - Extended)
+{
+Able to build |cffffcc00Tier 3|R units.
+}
+
+STRING 318
+// Units: nwlg (Giant Wolf), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 319
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 320
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 321
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 322
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 323
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 324
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 325
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 326
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 327
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 328
+// Abilities: A00A (Summon Inferno), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 329
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 330
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 331
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 332
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 333
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 334
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 335
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 336
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 337
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 338
+// Units: nsts (Satyr Shadowdancer), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 339
+// Abilities: A004 (Remove Unit From Spawn), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 340
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 341
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 342
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 343
+// Upgrades: R002 (Chaos), Hotkey (Hotkey)
+{
+Z
+}
+
+STRING 344
+// Upgrades: R003 (Chaos), Hotkey (Hotkey)
+{
+X
+}
+
+STRING 345
+// Units: nltc (Makrura Tidecaller), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 346
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 347
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 348
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 349
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 350
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 351
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 352
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 353
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 354
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 355
+// Units: nltc (Makrura Tidecaller), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Heal, Frost Armor
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Magic
+}
+
+STRING 356
+// Units: nwlg (Giant Wolf), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Critical Strike
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Normal
+}
+
+STRING 357
+// Units: nubw (Unbroken Darkweaver), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Unholy Frenzy
+
+|Cffffcc00Armor|r: Unarmored
+|cffffcc00Attack|r: Normal
+}
+
+STRING 358
+// Units: nits (Ice Troll Berserker), Ubertip (Tooltip - Extended)
+{
+|Cffffcc00Armor|r: Medium
+|cffffcc00Attack|r: Piercing
+}
+
+STRING 359
+// Units: nsts (Satyr Shadowdancer), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Curse
+
+|Cffffcc00Armor|r: Unarmored
+|cffffcc00Attack|r: Magic
+}
+
+STRING 360
+// Units: nrzm (Razormane Medicine Man), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Healing Ward
+
+|Cffffcc00Armor|r: Medium
+|cffffcc00Attack|r: Normal
+}
+
+STRING 361
+// Units: nsrn (Stormreaver Necrolyte), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Bloodlust, Chain Lightning
+
+|Cffffcc00Armor|r: Unarmored
+|cffffcc00Attack|r: Piercing
+}
+
+STRING 362
+// Units: njga (Elder Jungle Stalker), Ubertip (Tooltip - Extended)
+{
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Normal
+}
+
+STRING 363
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 364
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 365
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 366
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 367
+// Units: u001 (Spawn Builder Tier 2), Hotkey (Hotkey)
+{
+D
+}
+
+STRING 368
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 369
+// Units: u002 (Spawn Builder Tier 3), Hotkey (Hotkey)
+{
+F
+}
+
+STRING 370
+// Units: nsgb (Sea Giant Behemoth), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Pulverize, War Stomp, Hurl Boulder
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Chaos
+}
+
+STRING 371
+// Units: nggr (Granite Golem), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Slam, Hurl Boulder, Spell Immunity
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Chaos
+}
+
+STRING 372
+// Units: nfre (Furbolg Elder Shaman), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Rejuvination
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Chaos
+}
+
+STRING 373
+// Units: nhhr (Heretic), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Carrion Swarm
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Piercing
+}
+
+STRING 374
+// Units: nina (Infernal Juggernaut), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Inferno
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Chaos
+}
+
+STRING 375
+// Units: ndrs (Draenei Seer), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Brilliance Aura, Healing Wave
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Magic
+}
+
+STRING 376
+// Units: nerw (Eredar Warlock), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Bash, Finger of Pain, Mana Shield
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Chaos
+}
+
+STRING 377
+// Units: nmgd (Magnataur Destroyer), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Slam, Frost Bolt, Spell Immunity
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Chaos
+}
+
+STRING 378
+// Units: nsqa (Ancient Sasquatch), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Slam, Force of Nature, Reincarnation
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Chaos
+}
+
+STRING 379
+// Units: ntrd (Dragon Turtle), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Devour, Spiked Shell, Crushing Wave
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Chaos
+}
+
+STRING 380
+// Abilities: A000 (Multishot), Tip (Tooltip - Normal)
+{
+Multishot
+}
+
+STRING 381
+// Abilities: A000 (Multishot), Ubertip (Tooltip - Normal - Extended)
+{
+Lets you shoot multiple enemies at once.
+}
+
+STRING 382
+// Units: E001 (Creep Warlord), Awakentip (Tooltip - Awaken)
+{
+Revive Salamander King
+}
+
+STRING 383
+// Units: E001 (Creep Warlord), Tip (Tooltip - Basic)
+{
+Summon Salamander King
+}
+
+STRING 384
+// Units: E001 (Creep Warlord), Revivetip (Tooltip - Revive)
+{
+Revive Salamander King
+}
+
+STRING 385
+// Units: E001 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Chain Lightning|r, |cffffcc00Divine Shield|r, |cffffcc00Life Drain|r, and |cffffcc00Stampede|r.
 }
 

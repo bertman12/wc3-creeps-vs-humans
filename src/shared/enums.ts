@@ -22,6 +22,9 @@ export enum ABILITIES {
 
 export enum UPGRADES {
     foodCapIncrease = FourCC("R001"),
+    tier2Units = FourCC("R002"),
+    tier3Units = FourCC("R003"),
+    prepTimeEnded = FourCC("R005"),
 }
 
 export enum PlayerIndices {

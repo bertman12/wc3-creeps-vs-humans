@@ -3,6 +3,7 @@ DependencyOr=Hamg,Hblm,Hmkg,Hpal,Obla,Ofar,Oshd,Otch,Edem,Ekee,Emoo,Ewar,Ucrl,Ud
 
 [Misc]
 BuildingKillsGiveExp=1
+ConstructionRefundRate=1.0
 HeroExpRange=100000.0
 HeroMaxAwakenCostGold=300
 HeroMaxAwakenCostLumber=0
@@ -11,4 +12,5 @@ HeroMaxReviveCostLumber=0
 HeroMaxReviveTime=20.0
 ItemStackingEnabled=1
 MaxHeroLevel=50
+UpgradeRefundRate=1.0
 

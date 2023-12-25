@@ -1,5 +1,6 @@
 import { UPGRADES } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
+import { notifyPlayer, ptColor } from "src/utils/misc";
 import { adjustFoodCap } from "src/utils/players";
 import { MapPlayer, Trigger } from "w3ts";
 
@@ -27,7 +28,14 @@ export function playerGetsUpgrade() {
 
             if (tech === UPGRADES.foodCapIncrease) {
                 adjustFoodCap(player, 1);
-                print("Player learned food cap increase");
+            }
+
+            if (tech === UPGRADES.tier2Units) {
+                notifyPlayer(`${ptColor(player, player.name)} has unlocked Tier 2 units.`);
+            }
+
+            if (tech === UPGRADES.tier3Units) {
+                notifyPlayer(`${ptColor(player, player.name)} has unlocked Tier 3 units.`);
             }
         }
     });

@@ -1,5 +1,5 @@
 import { GameConfig } from "src/shared/GameConfig";
-import { ABILITIES, UNITS } from "src/shared/enums";
+import { ABILITIES, UNITS, UPGRADES } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
 import { notifyPlayer, tColor } from "src/utils/misc";
 import { forEachAlliedPlayer, forEachPlayer, isPlayingUser } from "src/utils/players";
@@ -37,6 +37,10 @@ export function setup_heroPurchasing(onPrepTimeEnd: (...args: any[]) => any) {
             moveAllPrepHeroesToStartLocationAndGiveItems();
             trig_heroPurchasedAfterPrepTime();
             onPrepTimeEnd();
+
+            forEachPlayer((p) => {
+                p.setTechResearched(UPGRADES.prepTimeEnded, 1);
+            });
         });
 
         //Create hero choosers for player

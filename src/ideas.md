@@ -57,5 +57,6 @@ max tier 2 spawn chance will be 50%
 
 set all players allied to neutral player and then give the neutral player shop share ally ability so players can see the unit's spells.
 
-
 what i will do is create a region for the player where they can summon or unsummon units, each will take 1 food ; the units here will then be used to determine what units you will be spawning
+
+perhaps add an ability called Take Control that lets players take control of the units that spawned from their base, max of 4 units under your control
