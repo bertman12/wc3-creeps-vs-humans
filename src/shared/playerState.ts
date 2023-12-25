@@ -64,7 +64,7 @@ export function setupPlayerStateInstances() {
     forEachPlayer((p) => {
         if (isPlayingUser(p)) {
             playerStates.set(p.id, new PlayerState(p));
-            adjustLumber(p, 10000);
+            adjustLumber(p, 1000);
         }
     });
 }

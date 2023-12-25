@@ -1,5 +1,4 @@
 declare var gg_rct_HeroSpawnArea: rect;
-declare var gg_snd_PH1: string;
 declare var gg_rct_Player1SpawnBuilder: rect;
 declare var gg_rct_Player2SpawnBuilder: rect;
 declare var gg_rct_Player3SpawnBuilder: rect;
@@ -7,3 +6,5 @@ declare var gg_rct_Player4SpawnBuilder: rect;
 declare var gg_rct_Player5SpawnBuilder: rect;
 declare var gg_rct_Player6SpawnBuilder: rect;
 declare var gg_rct_AllSpawnBuilderRegions: rect;
+declare var gg_snd_PH1: string;
+declare var gg_rct_IllegalTeleportRegion: rect;

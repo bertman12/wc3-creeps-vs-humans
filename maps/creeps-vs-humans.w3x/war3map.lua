@@ -1,5 +1,4 @@
 gg_rct_HeroSpawnArea = nil
-gg_snd_PH1 = ""
 gg_rct_Player1SpawnBuilder = nil
 gg_rct_Player2SpawnBuilder = nil
 gg_rct_Player3SpawnBuilder = nil
@@ -7,6 +6,8 @@ gg_rct_Player4SpawnBuilder = nil
 gg_rct_Player5SpawnBuilder = nil
 gg_rct_Player6SpawnBuilder = nil
 gg_rct_AllSpawnBuilderRegions = nil
+gg_snd_PH1 = ""
+gg_rct_IllegalTeleportRegion = nil
 function InitGlobals()
 end
 
@@ -79,6 +80,7 @@ gg_rct_Player6SpawnBuilder = Rect(1280.0, -7712.0, 2272.0, -6656.0)
 gg_rct_AllSpawnBuilderRegions = Rect(-4832.0, -7808.0, 2624.0, -6592.0)
 we = AddWeatherEffect(gg_rct_AllSpawnBuilderRegions, FourCC("MEds"))
 EnableWeatherEffect(we, true)
+gg_rct_IllegalTeleportRegion = Rect(-8032.0, -8160.0, 2976.0, -5664.0)
 end
 
 function InitCustomPlayerSlots()

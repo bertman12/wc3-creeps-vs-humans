@@ -45,7 +45,7 @@ Gold mines give 25 gold every 10 seconds.
 Max 110 units at any given time.
 
 
-Made by JediMindTrix/NihilismIsDeath
+|Cffffcc00Made by JediMindTrix/NihilismIsDeath|r
 }
 
 STRING 9
@@ -132,7 +132,7 @@ S
 }
 
 STRING 47
-// Units: u000 (Spawn Builder Tier 1), Hotkey (Hotkey)
+// Units: nhhr (Heretic), Hotkey (Hotkey)
 {
 S
 }
@@ -333,12 +333,6 @@ STRING 84
 // Units: H002 (Creep Warlord), Awakentip (Tooltip - Awaken)
 {
 Revive Murloc King
-}
-
-STRING 85
-// Units: H002 (Creep Warlord), Ubertip (Tooltip - Extended)
-{
-Can learn |Cffffcc00Bash|r, |Cffffcc00Mana Shield|R, |Cffffcc00Forked Lightning|r, and |Cffffcc00Volcano|r.
 }
 
 STRING 86
@@ -972,7 +966,7 @@ A
 }
 
 STRING 234
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Hotkey (Hotkey)
+// Units: nina (Infernal Juggernaut), Hotkey (Hotkey)
 {
 A
 }
@@ -1356,13 +1350,13 @@ Able to build |cffffcc00Tier 3|R units.
 }
 
 STRING 318
-// Units: nwlg (Giant Wolf), Hotkey (Hotkey)
+// Units: ninf (Infernal), Hotkey (Hotkey)
 {
 Q
 }
 
 STRING 319
-// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+// Units: nwlg (Giant Wolf), Hotkey (Hotkey)
 {
 Q
 }
@@ -1416,13 +1410,13 @@ Q
 }
 
 STRING 328
-// Abilities: A00A (Summon Inferno), Hotkey (Hotkey - Normal)
+// Units: ntrd (Dragon Turtle), Hotkey (Hotkey)
 {
 W
 }
 
 STRING 329
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: A00A (Summon Inferno), Hotkey (Hotkey - Normal)
 {
 W
 }
@@ -1482,13 +1476,13 @@ R
 }
 
 STRING 339
-// Abilities: A004 (Remove Unit From Spawn), Hotkey (Hotkey - Normal)
+// Units: nmgd (Magnataur Destroyer), Hotkey (Hotkey)
 {
 R
 }
 
 STRING 340
-// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+// Abilities: A004 (Remove Unit From Spawn), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -1506,13 +1500,13 @@ R
 }
 
 STRING 343
-// Upgrades: R002 (Chaos), Hotkey (Hotkey)
+// Units: nfre (Furbolg Elder Shaman), Hotkey (Hotkey)
 {
 Z
 }
 
 STRING 344
-// Upgrades: R003 (Chaos), Hotkey (Hotkey)
+// Units: nerw (Eredar Warlock), Hotkey (Hotkey)
 {
 X
 }
@@ -1524,7 +1518,7 @@ E
 }
 
 STRING 346
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Units: nsqa (Ancient Sasquatch), Hotkey (Hotkey)
 {
 E
 }
@@ -1670,7 +1664,7 @@ E
 }
 
 STRING 367
-// Units: u001 (Spawn Builder Tier 2), Hotkey (Hotkey)
+// Units: nggr (Granite Golem), Hotkey (Hotkey)
 {
 D
 }
@@ -1682,7 +1676,7 @@ R
 }
 
 STRING 369
-// Units: u002 (Spawn Builder Tier 3), Hotkey (Hotkey)
+// Units: nsgb (Sea Giant Behemoth), Hotkey (Hotkey)
 {
 F
 }
@@ -1807,9 +1801,357 @@ STRING 384
 Revive Salamander King
 }
 
-STRING 385
+STRING 386
+// Units: O000 (Creep Warlord), Name (Name)
+{
+Creep Warlord
+}
+
+STRING 387
+// Units: O000 (Creep Warlord), Propernames (Proper Names)
+{
+Satyr Overlord
+}
+
+STRING 388
+// Units: O000 (Creep Warlord), Awakentip (Tooltip - Awaken)
+{
+Revive Satyr Overlord
+}
+
+STRING 389
+// Units: O000 (Creep Warlord), Tip (Tooltip - Basic)
+{
+Summon Satyr Overlord
+}
+
+STRING 390
+// Units: O000 (Creep Warlord), Revivetip (Tooltip - Revive)
+{
+Revive Satyr Overlord
+}
+
+STRING 392
+// Units: H005 (Creep Warlord), Name (Name)
+{
+Creep Warlord
+}
+
+STRING 393
+// Units: H005 (Creep Warlord), Propernames (Proper Names)
+{
+Gnoll Warlord
+}
+
+STRING 394
+// Units: H005 (Creep Warlord), Awakentip (Tooltip - Awaken)
+{
+Revive Gnoll Warlord
+}
+
+STRING 395
+// Units: H005 (Creep Warlord), Tip (Tooltip - Basic)
+{
+Summon Gnoll Warlord
+}
+
+STRING 396
+// Units: H005 (Creep Warlord), Revivetip (Tooltip - Revive)
+{
+Revive Gnoll Warlord
+}
+
+STRING 398
+// Units: H006 (Creep Warlord), Name (Name)
+{
+Creep Warlord
+}
+
+STRING 399
+// Units: H006 (Creep Warlord), Propernames (Proper Names)
+{
+Furbolg Champion
+}
+
+STRING 400
+// Units: H006 (Creep Warlord), Awakentip (Tooltip - Awaken)
+{
+Revive Furbolg Champion
+}
+
+STRING 401
+// Units: H006 (Creep Warlord), Tip (Tooltip - Basic)
+{
+Summon Furbolg Champion
+}
+
+STRING 402
+// Units: H006 (Creep Warlord), Revivetip (Tooltip - Revive)
+{
+Revive Furbolg Champion
+}
+
+STRING 404
+// Units: N002 (Creep Warlord), Name (Name)
+{
+Creep Warlord
+}
+
+STRING 405
+// Units: N002 (Creep Warlord), Propernames (Proper Names)
+{
+Centaur Chieftan
+}
+
+STRING 406
+// Units: N002 (Creep Warlord), Awakentip (Tooltip - Awaken)
+{
+Revive Centaur Chieftan
+}
+
+STRING 407
+// Units: N002 (Creep Warlord), Tip (Tooltip - Basic)
+{
+Summon Centaur Chieftan
+}
+
+STRING 408
+// Units: N002 (Creep Warlord), Revivetip (Tooltip - Revive)
+{
+Revive Centaur Chieftan
+}
+
+STRING 410
+// Units: E002 (Creep Warlord), Name (Name)
+{
+Creep Warlord
+}
+
+STRING 411
+// Units: E002 (Creep Warlord), Propernames (Proper Names)
+{
+Skeletal Flame Master
+}
+
+STRING 412
+// Units: O000 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Wind Walk|r, |cffffcc00Drunken Brawler|r, |cffffcc00Mirror Image|r, |cffffcc00Avatar|r.    |N|N|cff00ff00Agility|r
+}
+
+STRING 413
+// Units: H006 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Storm Bolt|r, |cffffcc00Thunder Clap|r, |cffffcc00Spiked Carapace|R, and |cffffcc00Earthquake|R.    |N|N|cffff0000Strength|r
+}
+
+STRING 414
+// Units: N002 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |Cffffcc00War Stomp|r, |Cffffcc00Cleaving Attack|r, |Cffffcc00Blink|r, and |Cffffcc00Inferno|r.    |N|N|cffff0000Strength|r
+}
+
+STRING 415
+// Units: E002 (Creep Warlord), Awakentip (Tooltip - Awaken)
+{
+Revive Skeletal Flame Master
+}
+
+STRING 416
+// Units: E002 (Creep Warlord), Tip (Tooltip - Basic)
+{
+Summon Skeletal Flame Master
+}
+
+STRING 417
+// Units: E002 (Creep Warlord), Revivetip (Tooltip - Revive)
+{
+Revive Skeletal Flame Master
+}
+
+STRING 418
+// Units: E002 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Flame Strike|R, |cffffcc00Searing Arrows|r, |cffffcc00Critical Strike|r, |cffffcc00Starfall|r.    |N|N|cff00ff00Agility|r
+}
+
+STRING 419
+// Units: H007 (Creep Warlord), Name (Name)
+{
+Creep Warlord
+}
+
+STRING 420
+// Units: H007 (Creep Warlord), Propernames (Proper Names)
+{
+Revenant Underlord
+}
+
+STRING 421
+// Units: H007 (Creep Warlord), Awakentip (Tooltip - Awaken)
+{
+Revive Revenant Underlord
+}
+
+STRING 422
+// Units: H007 (Creep Warlord), Tip (Tooltip - Basic)
+{
+Summon Revenant Underlord
+}
+
+STRING 423
+// Units: H007 (Creep Warlord), Revivetip (Tooltip - Revive)
+{
+Revive Revenant Underlord
+}
+
+STRING 425
+// Units: H002 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- murloc king
+}
+
+STRING 426
+// Units: E001 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- salamander
+}
+
+STRING 427
+// Units: O000 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- satyr master
+}
+
+STRING 428
+// Units: H005 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- gnoll warden
+}
+
+STRING 429
+// Units: H006 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- ursa warrior
+}
+
+STRING 430
+// Units: N002 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- centaur khan
+}
+
+STRING 431
+// Units: E002 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- flame archer
+}
+
+STRING 432
+// Units: H007 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- revenant
+}
+
+STRING 433
+// Abilities: ANms (Mana Shield), Researchubertip (Tooltip - Learn - Extended)
+{
+Creates a shield that absorbs damage by using the Sea Witch's mana. |n|n|cffffcc00Level 1|r - 1 damage per point of mana. |n|cffffcc00Level 2|r - 2 damage per point of mana. |n|cffffcc00Level 3|r - 3 damage per point of mana.
+}
+
+STRING 434
+// Abilities: A003 (Evasion), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a 10% percent chance to avoid an attack.
+}
+
+STRING 435
+// Units: ndrs (Draenei Seer), Hotkey (Hotkey)
+{
+C
+}
+
+STRING 436
+// Units: u000 (Spawn Builder Tier 1), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 437
+// Units: u001 (Spawn Builder Tier 2), Hotkey (Hotkey)
+{
+D
+}
+
+STRING 438
+// Units: u002 (Spawn Builder Tier 3), Hotkey (Hotkey)
+{
+F
+}
+
+STRING 439
+// Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 440
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 441
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Hotkey (Hotkey)
+{
+A
+}
+
+STRING 442
+// Upgrades: R001 (Chaos), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 443
+// Upgrades: R002 (Chaos), Hotkey (Hotkey)
+{
+Z
+}
+
+STRING 444
+// Upgrades: R003 (Chaos), Hotkey (Hotkey)
+{
+X
+}
+
+STRING 445
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 446
+// Units: H002 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |Cffffcc00Bash|r, |Cffffcc00Mana Shield|R, |Cffffcc00Forked Lightning|r, and |Cffffcc00Volcano|r.       |N|N|cff8080ffIntelligence|r
+}
+
+STRING 447
 // Units: E001 (Creep Warlord), Ubertip (Tooltip - Extended)
 {
-Can learn |cffffcc00Chain Lightning|r, |cffffcc00Divine Shield|r, |cffffcc00Life Drain|r, and |cffffcc00Stampede|r.
+Can learn |cffffcc00Chain Lightning|r, |cffffcc00Divine Shield|r, |cffffcc00Life Drain|r, and |cffffcc00Stampede|r.       |N|N|cff8080ffIntelligence|r
+}
+
+STRING 448
+// Units: H005 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Impale|r, |cffffcc00Mana Burn|r, |cffffcc00Siphon Mana|r, |cffffcc00Locust Swarm|r.       |N|N|cff8080ffIntelligence|r
+}
+
+STRING 449
+// Units: H007 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Summon Water Elemental|R, |cffffcc00Blizzard|r, |cffffcc00Howl of Terror|r, and |cffffcc00Tranquility|r.       |N|N|cff8080ffIntelligence|r
 }
 

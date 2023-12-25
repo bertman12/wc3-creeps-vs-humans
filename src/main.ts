@@ -1,7 +1,9 @@
 import { W3TS_HOOK, addScriptHook } from "w3ts/hooks";
 import { setupPlayerStateInstances } from "./shared/playerState";
+import { setup_preventMassTeleportGrief } from "./triggers/anti-grief";
 import { setup_capture } from "./triggers/capture";
 import { setup_GoldMineEco } from "./triggers/goldMineEconomy";
+import { setup_leaderBoard } from "./triggers/leaderboard";
 import { setup_heroPurchasing } from "./triggers/preparation";
 import { playerGetsUpgrade } from "./triggers/upgrades";
 import { trig_setCameraDistance } from "./utils/camera";
@@ -9,7 +11,6 @@ import { trig_itemRecipeSystem } from "./utils/item";
 import { setup_quests } from "./utils/quests";
 import { setup_playerCreepSpawns } from "./utils/spawnSystem";
 import { delayedTimer } from "./utils/timer";
-import { setup_leaderBoard } from "./triggers/leaderboard";
 
 const BUILD_DATE = compiletime(() => new Date().toUTCString());
 const TS_VERSION = compiletime(() => require("typescript").version);
@@ -48,6 +49,7 @@ function tsMain() {
         setup_GoldMineEco();
         playerGetsUpgrade();
         setup_leaderBoard();
+        setup_preventMassTeleportGrief();
         setup_heroPurchasing(setup_playerCreepSpawns);
     } catch (e) {
         print(e);
