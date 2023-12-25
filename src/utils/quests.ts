@@ -11,17 +11,17 @@ export function setup_quests() {
             "ReplaceableTextures\\CommandButtons\\BTNPeasant.blp"
         );
 
+        // \n${tColor("-fixSpawns", "goldenrod")}: Player 1 can only use this. This will fix add all player's spawn units to their corresponding spawn pool.
         addQuest(
             "Commands",
             `
             \n${tColor("-cam ####", "goldenrod")}: Sets the camera distance.
-            \n${tColor("-fixSpawns", "goldenrod")}: Player 1 can only use this. This will fix add all player's spawn units to their corresponding spawn pool. 
         `,
             "ReplaceableTextures\\WorldEditUI\\Doodad-Cinematic.blp",
             false
         );
 
-        addQuest("|cffffcc00Creep Warlords - 1.0|r", "Created by JediMindTrix/NihilismIsDeath", "ReplaceableTextures\\CommandButtons\\BTNClayFigurine.blp", false);
+        addQuest("|cffffcc00Creep Warlords - 1.01|r", "Created by JediMindTrix/NihilismIsDeath", "ReplaceableTextures\\CommandButtons\\BTNClayFigurine.blp", false);
     });
 }
 

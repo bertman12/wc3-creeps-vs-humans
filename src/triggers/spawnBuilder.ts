@@ -1,7 +1,7 @@
 import { ABILITIES, UNITS } from "src/shared/enums";
 import { getPlayerState, playerStates } from "src/shared/playerState";
 import { ptColor, tColor } from "src/utils/misc";
-import { adjustFoodUsed, adjustGold, adjustLumber, forEachPlayer, isPlayingUser } from "src/utils/players";
+import { adjustFoodUsed, adjustGold, forEachPlayer, isPlayingUser } from "src/utils/players";
 import { createUnits } from "src/utils/units";
 import { MapPlayer, Rectangle, Region, Trigger, Unit } from "w3ts";
 import { OrderId } from "w3ts/globals";
@@ -130,8 +130,8 @@ function removeUnitFromSpawn() {
         const victim = Unit.fromHandle(GetSpellTargetUnit());
 
         if (spellNumber === ABILITIES.removeUnitFromSpawn && victim && caster) {
-            adjustGold(caster.owner, GetUnitGoldCost(victim.typeId) * 0.65);
-            adjustLumber(caster.owner, GetUnitGoldCost(victim.typeId));
+            adjustGold(caster.owner, Math.floor(GetUnitGoldCost(victim.typeId) * 0.65));
+            // adjustLumber(caster.owner, GetUnitCost(victim.typeId));
 
             const state = getPlayerState(caster.owner);
 

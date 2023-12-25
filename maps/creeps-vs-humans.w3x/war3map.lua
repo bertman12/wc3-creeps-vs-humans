@@ -24,18 +24,18 @@ local unitID
 local t
 local life
 
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), -64.0, 3328.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), -64.0, 3392.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1728.0, 2432.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), 2560.0, -1920.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -896.0, -3008.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), -3264.0, 1664.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), -3328.0, 1728.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -1408.0, -768.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1728.0, 704.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -2880.0, -384.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -2624.0, -2304.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1024.0, -3200.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3776.0, -448.0, 270.000, FourCC("h001"))
-u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3712.0, 2624.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1088.0, -3264.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3840.0, -512.0, 270.000, FourCC("h001"))
+u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3776.0, 2688.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -1664.0, 2624.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), -1152.0, 704.0, 270.000, FourCC("h001"))
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), 1664.0, -448.0, 270.000, FourCC("h001"))

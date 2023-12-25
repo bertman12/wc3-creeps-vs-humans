@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-Creep Warlords - 1.0
+Creep Warlords - 1.01
 }
 
 STRING 2
@@ -31,7 +31,7 @@ Player 1
 
 STRING 7
 {
-Creep Warlords - 1.0
+Creep Warlords - 1.01
 }
 
 STRING 8
@@ -876,12 +876,6 @@ STRING 231
 // Abilities: A009 (Guide), EditorSuffix (Editor Suffix)
 {
 (INFO ABILITY BASE)
-}
-
-STRING 232
-// Abilities: A009 (Guide), Ubertip (Tooltip - Normal - Extended)
-{
-Build units to add them to your spawn. |n|nResearch more food at the upgrade center to increase the number of units that are spawned every wave.|n|nRefund units with finger of death for 100% return.  |n|nMax food cap: 10
 }
 
 STRING 233
@@ -2899,5 +2893,11 @@ STRING 606
 
 |Cffffcc00Armor|r: Unarmored
 |cffffcc00Attack|r: Piercing
+}
+
+STRING 607
+// Abilities: A009 (Guide), Ubertip (Tooltip - Normal - Extended)
+{
+Build units to add them to your spawn. |n|nResearch more food at the upgrade center to increase the number of units that are spawned every wave.|n|nRefund units with finger of death for 65% return.  |n|nMax food cap: 10
 }
 
