@@ -2,7 +2,7 @@ import { UNITS } from "src/shared/enums";
 import { ptColor } from "src/utils/misc";
 import { forEachPlayer, isUser } from "src/utils/players";
 import { delayedTimer } from "src/utils/timer";
-import { Multiboard, MultiboardItem, Trigger, Unit } from "w3ts";
+import { Multiboard, MultiboardItem } from "w3ts";
 
 let killCountMultiboard: Multiboard | undefined = undefined;
 
@@ -44,7 +44,7 @@ export function setup_multiBoard() {
         killCountMultiboard.title = "Player Info";
         killCountMultiboard.rows = 1;
         killCountMultiboard.columns = 3;
-        killCountMultiboard.setItemsWidth(0.15);
+        // killCountMultiboard.setItemsWidth(0.15);
         killCountMultiboard.setItemsStyle(true, false);
         killCountMultiboard.display(true);
         killCountMultiboard.minimize(false);
@@ -53,6 +53,7 @@ export function setup_multiBoard() {
         const playerNameColumnItem = killCountMultiboard?.createItem(1, 1);
         playerNameColumnItem?.setValue(`Player`);
         playerNameColumnItem?.setStyle(true, false);
+        playerNameColumnItem?.setWidth(0.2);
 
         const killCountColumnItem = killCountMultiboard?.createItem(1, 2);
         killCountColumnItem?.setValue(`Kills`);
@@ -76,6 +77,7 @@ export function setup_multiBoard() {
                 playerNameItem?.setValue(`${ptColor(p, p.name)}`);
                 playerNameItem?.setIcon(`ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp`);
                 playerNameItem?.setStyle(true, true);
+                playerNameItem?.setWidth(0.2);
 
                 const killCountItem = killCountMultiboard.createItem(p.id + 2, 2);
                 killCountItem?.setIcon(`ReplaceableTextures\\CommandButtons\\BTNCorpseExplode.blp`);
@@ -94,39 +96,20 @@ export function setup_multiBoard() {
                 multiboardData.push([`${ptColor(p, p.name)}`, 0, 0]);
             }
         });
-
-        trackPlayerKillCount();
-    });
-}
-
-function trackPlayerKillCount() {
-    const t = Trigger.create();
-
-    t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH);
-
-    t.addAction(() => {
-        const u = Unit.fromEvent();
-        const killer = Unit.fromHandle(GetKillingUnit());
-
-        if (!u || !killer) return;
-
-        adjustMultiboardItemValue(killer.owner.id, MultiboardColumnIndexMap.PlayerKills, 1);
     });
 }
 
 export function adjustMultiboardItemValue(row: number, column: number, value: number) {
     const currentDataValue = multiboardData[row][column];
-    const stringValueToNumber = Number(currentDataValue);
 
-    if (typeof stringValueToNumber === "number") {
-        const newDataValue = stringValueToNumber + value;
-
-        print(`Current data value: ${stringValueToNumber} - New Data value: ${newDataValue}`);
-
-        setMultiboardItemValue(row, column, newDataValue.toFixed(0));
-    } else {
-        print(`Attempted to adjust data value (${stringValueToNumber}) with a number on a column (${column}) that does not represent a number! Function: adjustMultiboardItemValue`);
+    if (row > multiboardData.length - 1) {
+        print("Index is out of bounds for multiboard data array. Index: ", row);
+        return;
     }
+
+    const newDataValue = value + currentDataValue;
+
+    setMultiboardItemValue(row, column, newDataValue);
 }
 
 /**
@@ -140,10 +123,6 @@ export function setMultiboardItemValue(row: number, column: number, value: strin
     if (!playerMultiboardItems[column]) {
         print("Could not find multiboard item column number: ", column);
         return;
-    }
-
-    if (typeof value !== "string") {
-        print(`setMultiboardItemValue expected string for value, but received ${typeof value}`);
     }
 
     playerMultiboardItems[column]?.setValue(value);

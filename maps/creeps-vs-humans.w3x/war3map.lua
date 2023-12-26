@@ -9,12 +9,59 @@ gg_rct_AllSpawnBuilderRegions = nil
 gg_rct_IllegalTeleportRegion = nil
 gg_snd_PH1 = ""
 gg_snd_NightElfX1 = ""
+gg_snd_MuradinTaunt1 = nil
+gg_snd_MuradinTaunt2 = nil
+gg_snd_KelThuzadDeath1 = nil
+gg_snd_FootmanPissed4 = nil
+gg_snd_PeasantPissed3 = nil
+gg_snd_MuradinPissed7 = nil
+gg_snd_WhiteTaurenPissed4 = nil
 function InitGlobals()
 end
 
 function InitSounds()
 gg_snd_PH1 = "PH1"
 gg_snd_NightElfX1 = "NightElfX1"
+gg_snd_MuradinTaunt1 = CreateSound("Sound/Dialogue/Extra/MuradinTaunt1.flac", false, false, false, 1, 1, "DefaultEAXON")
+SetSoundParamsFromLabel(gg_snd_MuradinTaunt1, "MuradinTaunt1")
+SetSoundDuration(gg_snd_MuradinTaunt1, 2298)
+SetSoundVolume(gg_snd_MuradinTaunt1, 120)
+gg_snd_MuradinTaunt2 = CreateSound("Sound/Dialogue/Extra/MuradinTaunt2.flac", false, false, false, 1, 1, "DefaultEAXON")
+SetSoundParamsFromLabel(gg_snd_MuradinTaunt2, "MuradinTaunt2")
+SetSoundDuration(gg_snd_MuradinTaunt2, 2507)
+SetSoundVolume(gg_snd_MuradinTaunt2, 120)
+gg_snd_KelThuzadDeath1 = CreateSound("Sound/Dialogue/Extra/KelThuzadDeath1.flac", false, false, false, 0, 0, "DefaultEAXON")
+SetSoundParamsFromLabel(gg_snd_KelThuzadDeath1, "KelThuzadDeath1")
+SetSoundDuration(gg_snd_KelThuzadDeath1, 4362)
+SetSoundVolume(gg_snd_KelThuzadDeath1, 120)
+gg_snd_FootmanPissed4 = CreateSound("Units/Human/Footman/FootmanPissed4.flac", false, true, true, 1, 1, "DefaultEAXON")
+SetSoundParamsFromLabel(gg_snd_FootmanPissed4, "FootmanPissed")
+SetSoundDuration(gg_snd_FootmanPissed4, 1573)
+SetSoundChannel(gg_snd_FootmanPissed4, 0)
+SetSoundVolume(gg_snd_FootmanPissed4, 127)
+SetSoundDistances(gg_snd_FootmanPissed4, 100000.0, 100000.0)
+SetSoundDistanceCutoff(gg_snd_FootmanPissed4, 3000.0)
+gg_snd_PeasantPissed3 = CreateSound("Units/Human/Peasant/PeasantPissed3.flac", false, true, true, 1, 1, "DefaultEAXON")
+SetSoundParamsFromLabel(gg_snd_PeasantPissed3, "PeasantPissed")
+SetSoundDuration(gg_snd_PeasantPissed3, 2600)
+SetSoundChannel(gg_snd_PeasantPissed3, 0)
+SetSoundVolume(gg_snd_PeasantPissed3, 127)
+SetSoundDistances(gg_snd_PeasantPissed3, 100000.0, 100000.0)
+SetSoundDistanceCutoff(gg_snd_PeasantPissed3, 3000.0)
+gg_snd_MuradinPissed7 = CreateSound("Units/Human/Muradin/MuradinPissed7.flac", false, true, true, 1, 1, "HeroAcksEAX")
+SetSoundParamsFromLabel(gg_snd_MuradinPissed7, "MuradinPissed")
+SetSoundDuration(gg_snd_MuradinPissed7, 2542)
+SetSoundChannel(gg_snd_MuradinPissed7, 0)
+SetSoundVolume(gg_snd_MuradinPissed7, 127)
+SetSoundDistances(gg_snd_MuradinPissed7, 100000.0, 100000.0)
+SetSoundDistanceCutoff(gg_snd_MuradinPissed7, 3000.0)
+gg_snd_WhiteTaurenPissed4 = CreateSound("Units/Orc/SpiritWalker/WhiteTaurenPissed4.flac", false, true, true, 1, 1, "DefaultEAXON")
+SetSoundParamsFromLabel(gg_snd_WhiteTaurenPissed4, "SpiritWalkerPissed")
+SetSoundDuration(gg_snd_WhiteTaurenPissed4, 2667)
+SetSoundChannel(gg_snd_WhiteTaurenPissed4, 0)
+SetSoundVolume(gg_snd_WhiteTaurenPissed4, 127)
+SetSoundDistances(gg_snd_WhiteTaurenPissed4, 100000.0, 100000.0)
+SetSoundDistanceCutoff(gg_snd_WhiteTaurenPissed4, 3000.0)
 end
 
 function CreateNeutralHostileBuildings()
@@ -44,23 +91,6 @@ u = BlzCreateUnitWithSkin(p, FourCC("h001"), 640.0, -1280.0, 270.000, FourCC("h0
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3456.0, 1088.0, 270.000, FourCC("h001"))
 end
 
-function CreateNeutralHostile()
-local p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2480.9, 5451.2, 345.959, FourCC("earc"))
-u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2424.3, 5509.2, 244.739, FourCC("earc"))
-u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2441.6, 5395.7, 273.491, FourCC("earc"))
-u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2482.4, 5302.6, 274.282, FourCC("earc"))
-u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2560.3, 5337.9, 339.466, FourCC("earc"))
-u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2566.5, 5452.0, 11.481, FourCC("earc"))
-u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2520.3, 5529.7, 112.053, FourCC("earc"))
-u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2378.9, 5462.3, 94.958, FourCC("earc"))
-end
-
 function CreateNeutralPassiveBuildings()
 local p = Player(PLAYER_NEUTRAL_PASSIVE)
 local u
@@ -82,7 +112,6 @@ function CreateAllUnits()
 CreateNeutralHostileBuildings()
 CreateNeutralPassiveBuildings()
 CreatePlayerBuildings()
-CreateNeutralHostile()
 CreatePlayerUnits()
 end
 

@@ -18,7 +18,7 @@ export function setup_heroPurchasing(onPrepTimeEnd: (...args: any[]) => any) {
         const prepTimer = Timer.create();
         const prepTimerDialog = CreateTimerDialogBJ(prepTimer.handle, "Preparation Time...");
         const PREP_TIME_SECONDS = GameConfig.heroPreparationTime;
-
+        print(" ");
         notifyPlayer(`You have ${PREP_TIME_SECONDS} seconds to prepare. You may still pick your hero after preparation time has ended.`);
         print(tColor("Choose your hero...", "red"));
 

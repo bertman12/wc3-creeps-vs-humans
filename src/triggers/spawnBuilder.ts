@@ -27,7 +27,7 @@ export function createSpawnBuilder() {
         if (isPlayingUser(p)) {
             const builderRect = playerSpawnBuilderMap.get(p.id);
             if (builderRect) {
-                Unit.create(p, UNITS.spawnBuilder_tier1, builderRect.centerX, builderRect.centerY + 150);
+                Unit.create(p, UNITS.spawnBuilder_tier1, builderRect.centerX - 300, builderRect.centerY);
                 Unit.create(p, UNITS.upgradeShop, builderRect.centerX, builderRect.centerY);
                 const units = createUnits(3, true, p, UNITS.murloc_baseUnit, builderRect.centerX, builderRect.centerY - 200);
 

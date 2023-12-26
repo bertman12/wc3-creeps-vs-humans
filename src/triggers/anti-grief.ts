@@ -17,7 +17,7 @@ export function setup_preventMassTeleportGrief() {
     t.addAction(() => {
         //player casts teleport check if the unit they are teleporting to is in region
         const spellNumberCast = GetSpellAbilityId();
-        const illegalSpells = [FourCC("Almt"), FourCC("A01Y"), FourCC("A00H"), 1095331188, FourCC("AEbl")];
+        const illegalSpells = [FourCC("Almt"), FourCC("A01Y"), FourCC("A00H"), 1095331188];
 
         if (illegalSpells.includes(spellNumberCast)) {
             const caster = Unit.fromEvent();

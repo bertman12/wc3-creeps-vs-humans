@@ -83,7 +83,7 @@ export function setupPlayerStateInstances() {
             const state = new PlayerState(p);
             playerStates.set(p.id, state);
             adjustLumber(p, 1000);
-            SetPlayerHandicapXP(p.handle, 0.75);
+            SetPlayerHandicapXP(p.handle, 0.6);
         }
     });
 }

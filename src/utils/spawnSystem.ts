@@ -166,7 +166,6 @@ export class SpawnData {
 
         this.spawnBase = Unit.create(this.spawnOwner, FourCC("h000"), this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0, 305);
 
-
         if (this.spawnBase) {
             const playerState = playerStates.get(this.spawnOwner.id);
 
@@ -238,7 +237,7 @@ export class SpawnData {
         this.simpleUnitSpawnPool = [];
         const illegalUnits = [UNITS.spawnBuilder_tier1, UNITS.upgradeShop, FourCC("efon")];
         forEachUnitInRectangle(playerSpawnBuilderRegion, (u) => {
-            if (!illegalUnits.includes(u.typeId)) {
+            if (!illegalUnits.includes(u.typeId) && !u.isHero()) {
                 this.simpleUnitSpawnPool.push(u);
             }
         });

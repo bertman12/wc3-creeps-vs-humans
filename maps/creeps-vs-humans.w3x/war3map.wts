@@ -2314,7 +2314,7 @@ Q
 }
 
 STRING 509
-// Abilities: A00A (Summon Inferno), Hotkey (Hotkey - Normal)
+// Abilities: ANdh (Drunken Haze), Researchhotkey (Hotkey - Learn)
 {
 W
 }
@@ -2383,12 +2383,6 @@ STRING 525
 // Units: E003 (Creep Warlord), Revivetip (Tooltip - Revive)
 {
 Revive Shadow Demon
-}
-
-STRING 527
-// Units: E003 (Creep Warlord), Ubertip (Tooltip - Extended)
-{
-Can learn |cffffcc00Hex|R, |cffffcc00Shadow Strike|r, |cffffcc00Cold Arrows|r, |cffffcc00Avatar of Vengance|r.    |N|N|cff00ff00Agility|r
 }
 
 STRING 528
@@ -2713,13 +2707,13 @@ Q
 }
 
 STRING 583
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: ANdh (Drunken Haze), Hotkey (Hotkey - Normal)
 {
 W
 }
 
 STRING 584
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+// Abilities: A00A (Summon Inferno), Hotkey (Hotkey - Normal)
 {
 W
 }
@@ -2919,5 +2913,47 @@ STRING 620
 // Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
 {
 Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R. |N|n-Player Base|n-Gold Mines|n-Towers
+}
+
+STRING 621
+// Units: E003 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Hex|R, |cffffcc00Shadow Strike|r, |cffffcc00Drunken Haze|r, |cffffcc00Avatar of Vengance|r.    |N|N|cff00ff00Agility|r
+}
+
+STRING 622
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 623
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 624
+// Abilities: AIav (), EditorSuffix (Editor Suffix)
+{
+(20%) item
+}
+
+STRING 626
+// Items: lhst (The Lion Horn of Stormwind), Ubertip (Tooltip - Extended)
+{
+Grants the Hero and friendly nearby units 4.5 bonus armor. |nDoes not stack with Devotion Aura.
+}
+
+STRING 627
+// Items: lgdh (Legion Doom-Horn), Ubertip (Tooltip - Extended)
+{
+Grants the Hero and friendly nearby units 2 life regeneration and 15% increased movement speed. |nDoes not stack with Unholy Aura.
+}
+
+STRING 628
+// Items: war2 (Warsong Battle Drums), Ubertip (Tooltip - Extended)
+{
+Increases the attack damage of nearby friendly units by 15% when worn. |nDoes not stack with War Drums.
 }
 

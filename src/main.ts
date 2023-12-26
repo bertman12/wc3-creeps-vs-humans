@@ -13,6 +13,7 @@ import { trig_itemRecipeSystem } from "./utils/item";
 import { setup_quests } from "./utils/quests";
 import { setup_playerCreepSpawns } from "./utils/spawnSystem";
 import { delayedTimer } from "./utils/timer";
+import { setup_trackPlayerKillCount } from "./triggers/hero-kill";
 
 const BUILD_DATE = compiletime(() => new Date().toUTCString());
 const TS_VERSION = compiletime(() => require("typescript").version);
@@ -58,7 +59,7 @@ function tsMain() {
         setup_heroPurchasing(setup_playerCreepSpawns);
         setup_fixSpawns();
         setup_playerLeaves();
-
+        setup_trackPlayerKillCount();
         /**
          * @step 2
          */
