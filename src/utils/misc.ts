@@ -13,6 +13,9 @@ export function tColor(text: string | number, color?: ProperColors, hex?: string
     return String(text);
 }
 
+/**
+ * Colorizes the string according to the map player
+ */
 export function ptColor(player: MapPlayer, text: string) {
     return `${tColor(text, undefined, playerHexColorMap.get(player.id))}`;
 }
@@ -30,6 +33,9 @@ const properColorHexes = new Map<ProperColors, string>([
     ["player6-orange", "fe8a0e"],
 ]);
 
+/**
+ * Standardized format for notifying player of events.
+ */
 export function notifyPlayer(msg: string) {
     print(`${tColor("!", "goldenrod")} - ${msg}`);
 }

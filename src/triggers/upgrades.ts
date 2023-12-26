@@ -1,10 +1,10 @@
 import { UPGRADES } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
-import { notifyPlayer, ptColor } from "src/utils/misc";
+import { notifyPlayer, ptColor, tColor } from "src/utils/misc";
 import { adjustFoodCap } from "src/utils/players";
 import { MapPlayer, Trigger } from "w3ts";
 
-export function playerGetsUpgrade() {
+export function setup_playerGetsUpgrade() {
     //grab the map player who got the upgrade
     //set the same tech they upgraded for their allied spawn computer players as well
     const t = Trigger.create();
@@ -31,11 +31,11 @@ export function playerGetsUpgrade() {
             }
 
             if (tech === UPGRADES.tier2Units) {
-                notifyPlayer(`${ptColor(player, player.name)} has unlocked Tier 2 units.`);
+                notifyPlayer(`${ptColor(player, player.name)} has unlocked ${tColor("Tier 2", "goldenrod")} units.`);
             }
 
             if (tech === UPGRADES.tier3Units) {
-                notifyPlayer(`${ptColor(player, player.name)} has unlocked Tier 3 units.`);
+                notifyPlayer(`${ptColor(player, player.name)} has unlocked ${tColor("Tier 3", "goldenrod")} units.`);
             }
         }
     });

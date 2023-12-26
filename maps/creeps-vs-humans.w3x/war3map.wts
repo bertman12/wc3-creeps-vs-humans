@@ -2901,3 +2901,9 @@ STRING 607
 Build units to add them to your spawn. |n|nResearch more food at the upgrade center to increase the number of units that are spawned every wave.|n|nRefund units with finger of death for 65% return.  |n|nMax food cap: 10
 }
 
+STRING 608
+// Abilities: A009 (Guide), Tip (Tooltip - Normal)
+{
+Guide
+}
+

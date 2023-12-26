@@ -18,9 +18,9 @@
     "plugins": [
       {
         "transform": "war3-transformer",
-        "mapDir": "C:/Users/eddyd/OneDrive/Desktop/Personal Projects/warcraft 3 typescript projects/wc3-creeps-vs-humans/maps/creeps-vs-humans.w3x",
-        "entryFile": "C:/Users/eddyd/OneDrive/Desktop/Personal Projects/warcraft 3 typescript projects/wc3-creeps-vs-humans/src/main.ts",
-        "outputDir": "C:/Users/eddyd/OneDrive/Desktop/Personal Projects/warcraft 3 typescript projects/wc3-creeps-vs-humans/dist/creeps-vs-humans.w3x"
+        "mapDir": "C:/Users/Eddy/Desktop/Personal  Projects/WARCRAFT PROJECTS/using-w3ts-v3.0.2/wc3-creeps-vs-humans/maps/creeps-vs-humans.w3x",
+        "entryFile": "C:/Users/Eddy/Desktop/Personal  Projects/WARCRAFT PROJECTS/using-w3ts-v3.0.2/wc3-creeps-vs-humans/src/main.ts",
+        "outputDir": "C:/Users/Eddy/Desktop/Personal  Projects/WARCRAFT PROJECTS/using-w3ts-v3.0.2/wc3-creeps-vs-humans/dist/creeps-vs-humans.w3x"
       }
     ],
     "types": [
