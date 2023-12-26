@@ -6,6 +6,7 @@ import { adjustLumber, forEachPlayer, isPlayingUser } from "src/utils/players";
 import { delayedTimer } from "src/utils/timer";
 import { MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts";
 import { OrderId } from "w3ts/globals";
+import { setHeroIconForPlayerMultiboardItem } from "./multiboard";
 import { createSpawnBuilder } from "./spawnBuilder";
 
 /**
@@ -180,6 +181,7 @@ function moveSingleHeroToStartLocationAndGiveItems(player: MapPlayer) {
 
             purchasedHero.removeAbility(ABILITIES.invulnerable);
             purchasedHero.issueImmediateOrder(OrderId.Stop);
+            setHeroIconForPlayerMultiboardItem(purchasedHero);
         }
     }
 }

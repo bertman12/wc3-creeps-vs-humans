@@ -146,19 +146,6 @@ export class SpawnData {
 
         //Maybe would use?
         this.spawnAmountPerWave = this.calculateUnitCountSpawnedPerWave();
-        // this.baseTier2Chance = 0.08 + 0.04 * RoundManager.currentRound + (isHardDiff ? 0.08 : 0);
-        // this.currentTier2Chance = this.baseTier2Chance;
-        // this.baseTier3Chance = 0.05 + 0.02 * RoundManager.currentRound + (isHardDiff ? 0.05 : 0);
-        // this.currentTier3Chance = this.baseTier3Chance;
-
-        // if (this.spawnDifficulty === SpawnDifficulty.normal) {
-        //     this.currentTier2Chance = -1;
-        //     this.currentTier3Chance = -1;
-        //     this.baseTier2Chance = -1;
-        //     this.baseTier3Chance = -1;
-        //     this.tier2ChanceModifier = 0;
-        //     this.tier3ChanceModifier = 0;
-        // }
 
         this.unitCompData = new Map<UnitCategory, number>([
             ["infantry", Math.ceil(1 * this.spawnAmountPerWave)],
@@ -166,8 +153,6 @@ export class SpawnData {
             ["caster", Math.ceil(0.108 * this.spawnAmountPerWave)],
             ["siege", Math.ceil(0.025 * this.spawnAmountPerWave)],
         ]);
-
-        const { red, green, blue } = this.getMinimapRGB();
 
         this.spawnIcon = CreateMinimapIcon(
             this.spawnRec?.centerX ?? 0,
@@ -181,7 +166,6 @@ export class SpawnData {
 
         this.spawnBase = Unit.create(this.spawnOwner, FourCC("h000"), this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0, 305);
 
-        const t = Trigger.create();
 
         if (this.spawnBase) {
             const playerState = playerStates.get(this.spawnOwner.id);
@@ -342,11 +326,7 @@ export class SpawnData {
     }
 
     public cleanupSpawn() {
-        // forEachUnitOfPlayerWithAbility(this.spawnOwner, FourCC("ACrn"), (u) => {
-        //     u.removeAbility(FourCC("ACrn"));
-        // });
-
-        this.units.forEach((u, index) => {
+        this.units.forEach((u) => {
             if (u) {
                 u.kill();
             }

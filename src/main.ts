@@ -4,7 +4,7 @@ import { setup_preventMassTeleportGrief } from "./triggers/anti-grief";
 import { setup_capture } from "./triggers/capture";
 import { setup_fixSpawns } from "./triggers/fixSpawns";
 import { setup_GoldMineEco } from "./triggers/goldMineEconomy";
-import { setup_multiBoard } from "./triggers/leaderboard";
+import { setup_multiBoard } from "./triggers/multiboard";
 import { setup_playerLeaves } from "./triggers/player-leaves";
 import { setup_heroPurchasing } from "./triggers/preparation";
 import { setup_playerGetsUpgrade } from "./triggers/upgrades";

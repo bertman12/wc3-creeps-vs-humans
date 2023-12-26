@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-Creep Warlords - 1.01
+Creep Warlords - 1.02
 }
 
 STRING 2
@@ -11,12 +11,11 @@ STRING 2
 STRING 3
 {
 Capture Gold Mines to increase your income.
-
+Customize your creep spawn.
 Build towers to defend your mines.
-
 Fight with creeps to attack players.
 
-Allied creeps are controlled by computer.
+|cffffcc00Allied creeps are controlled by computer.|r
 }
 
 STRING 4
@@ -31,7 +30,7 @@ Player 1
 
 STRING 7
 {
-Creep Warlords - 1.01
+Creep Warlords - 1.02
 }
 
 STRING 8
@@ -40,7 +39,11 @@ STRING 8
 
 |cffffff00Spawns|r - Add units to your spawn at the bottom of the map.
 
-Max 110 units per player at any given time.
+|Cffffcc00Max units per player|r: 110
+
+|cff00ff00Future development|r: Creep Spawn archetypes, upgrades for those archetypes. Improved hero balance. Possibly more map objectives.  
+
+|cff00ff00Please leave any feedback before leaving.|r
 
 |Cffffcc00Made by JediMindTrix/NihilismIsDeath|r
 }
@@ -102,12 +105,6 @@ STRING 42
 // Abilities: A000 (Multishot), EditorSuffix (Editor Suffix)
 {
 (Base)
-}
-
-STRING 43
-// Items: infs (Inferno Stone), Ubertip (Tooltip - Extended)
-{
-Calls an Infernal down from the sky, dealing <AIin,DataA1> damage and stunning enemy land units for <AIin,Dur1> seconds in an area. The Infernal lasts <AIin,DataB1> seconds.|n|N|Cffffcc00Stackable.|R
 }
 
 STRING 44
@@ -2358,36 +2355,6 @@ STRING 515
 Q
 }
 
-STRING 516
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
-{
-Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R.
-}
-
-STRING 517
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
-{
-Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R.
-}
-
-STRING 518
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
-{
-Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R.
-}
-
-STRING 519
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
-{
-Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R.
-}
-
-STRING 520
-// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
-{
-Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R.
-}
-
 STRING 521
 // Units: E003 (Creep Warlord), Name (Name)
 {
@@ -2880,12 +2847,6 @@ STRING 604
 |cffffcc00Attack|r: Magic
 }
 
-STRING 605
-// Abilities: A004 (Remove Unit From Spawn), Ubertip (Tooltip - Normal - Extended)
-{
-Removes the unit from your spawn. |n|N|cff80ff80Refunds 65% unit cost.|r |n|N|cffffcc00Only usable after preparation time has ended.
-}
-
 STRING 606
 // Units: nsqa (Ancient Sasquatch), Ubertip (Tooltip - Extended)
 {
@@ -2895,15 +2856,68 @@ STRING 606
 |cffffcc00Attack|r: Piercing
 }
 
-STRING 607
-// Abilities: A009 (Guide), Ubertip (Tooltip - Normal - Extended)
+STRING 609
 {
-Build units to add them to your spawn. |n|nResearch more food at the upgrade center to increase the number of units that are spawned every wave.|n|nRefund units with finger of death for 65% return.  |n|nMax food cap: 10
+Hero Arena/Auto Battler
 }
 
-STRING 608
+STRING 610
+// Abilities: A004 (Remove Unit From Spawn), Ubertip (Tooltip - Normal - Extended)
+{
+Removes the unit from your spawn. |n|N|cff80ff80Refunds 50% unit cost.|r |n|N|cffffcc00Only usable after preparation time has ended.
+}
+
+STRING 612
+// Units: n001 (Tidal Guardian), Ubertip (Tooltip - Extended)
+{
+Primary defensive structure.|n|nGood for early game defense of gold mines.
+}
+
+STRING 613
+// Items: infs (Inferno Stone), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Tier 3 Unit|r|N|NCalls an Infernal down from the sky, dealing <AIin,DataA1> damage and stunning enemy land units for <AIin,Dur1> seconds in an area. The Infernal lasts <AIin,DataB1> seconds.|n|N|Cffffcc00Stackable.|R
+}
+
+STRING 614
+// Abilities: A009 (Guide), Ubertip (Tooltip - Normal - Extended)
+{
+Build units to add them to your spawn. |n|nResearch more food at the upgrade center to increase the number of units that are spawned every wave.|n|nRefund units with finger of death for 50% cost.  |n|n|cffffcc00Max food cap|r: 10 |n|N|cffffcc00Max units per player|r: 110
+}
+
+STRING 615
 // Abilities: A009 (Guide), Tip (Tooltip - Normal)
 {
-Guide
+|cff80ff80Guide|r
+}
+
+STRING 616
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R. |N|n-Player Base|n-Gold Mines|n-Towers
+}
+
+STRING 617
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R. |N|n-Player Base|n-Gold Mines|n-Towers
+}
+
+STRING 618
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R. |N|n-Player Base|n-Gold Mines|n-Towers
+}
+
+STRING 619
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R. |N|n-Player Base|n-Gold Mines|n-Towers
+}
+
+STRING 620
+// Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Ubertip (Tooltip - Extended)
+{
+Increases the |cffffcc00armor|R and |Cffffcc00hit points|r (10%) of |Cffffcc00buildings|R. |N|n-Player Base|n-Gold Mines|n-Towers
 }
 

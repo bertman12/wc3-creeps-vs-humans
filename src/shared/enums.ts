@@ -13,6 +13,19 @@ export enum UNITS {
     spawnBuilder_tier1 = FourCC("u000"),
     spawnBuilder_tier2 = FourCC("u001"),
     spawnBuilder_tier3 = FourCC("u002"),
+
+    hero_makuraLord = FourCC("H008"),
+    hero_overlordArachnathid = FourCC("O001"),
+    hero_shadowDemon = FourCC("E003"),
+    hero_centaurKhan = FourCC("N002"),
+    hero_skeletalFlameMaster = FourCC("E002"),
+    hero_gnollWarden = FourCC("H005"),
+    hero_murlocKing = FourCC("H002"),
+    hero_revenant = FourCC("H007"),
+    hero_salamander = FourCC("E001"),
+    hero_satyr = FourCC("O000"),
+    hero_spiderBroodMaster = FourCC("E004"),
+    hero_ursa = FourCC("H006"),
 }
 
 export enum ABILITIES {

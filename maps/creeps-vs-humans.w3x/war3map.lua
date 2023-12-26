@@ -17,6 +17,18 @@ gg_snd_PH1 = "PH1"
 gg_snd_NightElfX1 = "NightElfX1"
 end
 
+function CreateUnitsForPlayer0()
+local p = Player(0)
+local u
+local unitID
+local t
+local life
+
+u = BlzCreateUnitWithSkin(p, FourCC("echm"), -535.8, 4817.5, 150.067, FourCC("echm"))
+u = BlzCreateUnitWithSkin(p, FourCC("echm"), -517.2, 4513.5, 206.143, FourCC("echm"))
+u = BlzCreateUnitWithSkin(p, FourCC("echm"), -497.5, 4249.9, 3.021, FourCC("echm"))
+end
+
 function CreateNeutralHostileBuildings()
 local p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
 local u
@@ -44,6 +56,23 @@ u = BlzCreateUnitWithSkin(p, FourCC("h001"), 640.0, -1280.0, 270.000, FourCC("h0
 u = BlzCreateUnitWithSkin(p, FourCC("h001"), 3456.0, 1088.0, 270.000, FourCC("h001"))
 end
 
+function CreateNeutralHostile()
+local p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
+local u
+local unitID
+local t
+local life
+
+u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2480.9, 5451.2, 345.959, FourCC("earc"))
+u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2424.3, 5509.2, 244.739, FourCC("earc"))
+u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2441.6, 5395.7, 273.491, FourCC("earc"))
+u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2482.4, 5302.6, 274.282, FourCC("earc"))
+u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2560.3, 5337.9, 339.466, FourCC("earc"))
+u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2566.5, 5452.0, 11.481, FourCC("earc"))
+u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2520.3, 5529.7, 112.053, FourCC("earc"))
+u = BlzCreateUnitWithSkin(p, FourCC("earc"), -2378.9, 5462.3, 94.958, FourCC("earc"))
+end
+
 function CreateNeutralPassiveBuildings()
 local p = Player(PLAYER_NEUTRAL_PASSIVE)
 local u
@@ -59,12 +88,14 @@ function CreatePlayerBuildings()
 end
 
 function CreatePlayerUnits()
+CreateUnitsForPlayer0()
 end
 
 function CreateAllUnits()
 CreateNeutralHostileBuildings()
 CreateNeutralPassiveBuildings()
 CreatePlayerBuildings()
+CreateNeutralHostile()
 CreatePlayerUnits()
 end
 

@@ -21,6 +21,7 @@ export function forEachUnitOfPlayerWithAbility(player: MapPlayer, abilityId: num
 
 /**
  * Calls a function for each player playing and is an ally of red.
+ * @warning specific to map
  */
 export function forEachAlliedPlayer(cb: (player: MapPlayer, index: number) => void) {
     Players.forEach((player, index) => {
