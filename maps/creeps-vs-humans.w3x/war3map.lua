@@ -17,18 +17,6 @@ gg_snd_PH1 = "PH1"
 gg_snd_NightElfX1 = "NightElfX1"
 end
 
-function CreateUnitsForPlayer0()
-local p = Player(0)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("echm"), -535.8, 4817.5, 150.067, FourCC("echm"))
-u = BlzCreateUnitWithSkin(p, FourCC("echm"), -517.2, 4513.5, 206.143, FourCC("echm"))
-u = BlzCreateUnitWithSkin(p, FourCC("echm"), -497.5, 4249.9, 3.021, FourCC("echm"))
-end
-
 function CreateNeutralHostileBuildings()
 local p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
 local u
@@ -88,7 +76,6 @@ function CreatePlayerBuildings()
 end
 
 function CreatePlayerUnits()
-CreateUnitsForPlayer0()
 end
 
 function CreateAllUnits()

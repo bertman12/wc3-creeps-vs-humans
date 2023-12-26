@@ -6,28 +6,7 @@ import { Multiboard, MultiboardItem, Trigger, Unit } from "w3ts";
 
 let killCountMultiboard: Multiboard | undefined = undefined;
 
-// /**
-//  * Initially items are undefined
-//  */
-// const multiboardItems = new Map<number, MultiboardItem | undefined>([
-//     [0, undefined],
-//     [1, undefined],
-//     [2, undefined],
-//     [3, undefined],
-//     [4, undefined],
-//     [5, undefined],
-// ]);
-
-// const playerKills = new Map<number, number>([
-//     [0, 0],
-//     [1, 0],
-//     [2, 0],
-//     [3, 0],
-//     [4, 0],
-//     [5, 0],
-// ]);
-
-enum ColumnIndexMap {
+export enum MultiboardColumnIndexMap {
     PlayerName,
     PlayerKills,
     PlayerMines,
@@ -46,10 +25,11 @@ export class MultiboardUtility extends Multiboard {
  * Player indexed array of multiboard items. Each element corresponds to the ColumnIndexMap
  */
 const multiboardItems: (MultiboardItem | undefined)[][] = [];
+
 /**
  * Player indexed array of multiboard item values. Each element corresponds to the ColumnIndexMap
  */
-const multiboardData: any[][] = [];
+export const multiboardData: any[][] = [];
 
 export function setup_multiBoard() {
     delayedTimer(1, () => {
@@ -60,6 +40,7 @@ export function setup_multiBoard() {
             return;
         }
 
+        //Initialization for settings
         killCountMultiboard.title = "Player Info";
         killCountMultiboard.rows = 1;
         killCountMultiboard.columns = 3;
@@ -68,6 +49,7 @@ export function setup_multiBoard() {
         killCountMultiboard.display(true);
         killCountMultiboard.minimize(false);
 
+        //Column Headers
         const playerNameColumnItem = killCountMultiboard?.createItem(1, 1);
         playerNameColumnItem?.setValue(`Player`);
         playerNameColumnItem?.setStyle(true, false);
@@ -75,10 +57,12 @@ export function setup_multiBoard() {
         const killCountColumnItem = killCountMultiboard?.createItem(1, 2);
         killCountColumnItem?.setValue(`Kills`);
         killCountColumnItem?.setStyle(true, false);
+        killCountColumnItem?.setWidth(0.05);
 
         const mineCountColumnItem = killCountMultiboard?.createItem(1, 3);
         mineCountColumnItem?.setValue(`Mines`);
         mineCountColumnItem?.setStyle(true, false);
+        mineCountColumnItem?.setWidth(0.05);
 
         //Should create add the player to multiboard, even if they are not playing
         forEachPlayer((p) => {
@@ -86,28 +70,28 @@ export function setup_multiBoard() {
                 killCountMultiboard.rows = killCountMultiboard.rows + 1;
 
                 /**
-                 * @note we offset the rows by 2; row 0 isnt valid for multboards and row 1 is reserved for column headers
+                 * @note we offset the rows by 2; row 0 isn't valid for multboards and row 1 is reserved for column headers
                  */
-
-                //Player Names
                 const playerNameItem = killCountMultiboard?.createItem(p.id + 2, 1);
-
                 playerNameItem?.setValue(`${ptColor(p, p.name)}`);
-                playerNameItem?.setIcon(`ReplaceableTextures\CommandButtons\BTNSelectHeroOn.blp`);
+                playerNameItem?.setIcon(`ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp`);
                 playerNameItem?.setStyle(true, true);
 
                 const killCountItem = killCountMultiboard.createItem(p.id + 2, 2);
+                killCountItem?.setIcon(`ReplaceableTextures\\CommandButtons\\BTNCorpseExplode.blp`);
                 killCountItem?.setValue("0");
-                killCountItem?.setStyle(true, false);
+                killCountItem?.setStyle(true, true);
+                killCountItem?.setWidth(0.05);
 
                 const mineCountItem = killCountMultiboard.createItem(p.id + 2, 3);
-                killCountItem?.setValue("0");
-                killCountItem?.setStyle(true, false);
+                mineCountItem?.setIcon(`ReplaceableTextures\\CommandButtons\\BTNGoldMine.blp`);
+                mineCountItem?.setValue("0");
+                mineCountItem?.setStyle(true, true);
+                mineCountItem?.setWidth(0.05);
 
                 //Initializing multiboard items for the player
                 multiboardItems.push([playerNameItem, killCountItem, mineCountItem]);
                 multiboardData.push([`${ptColor(p, p.name)}`, 0, 0]);
-                // multiboardItems.set(p.id, playerNameItem);
             }
         });
 
@@ -126,31 +110,27 @@ function trackPlayerKillCount() {
 
         if (!u || !killer) return;
 
-        // const multiboardItem = multiboardItems.get(killer.owner.id);
-        // const currentKills = playerKills.get(killer.owner.id);
-
-        // if (multiboardItem !== undefined && currentKills !== undefined) {
-        //     multiboardItem.setValue(`${ptColor(killer.owner, killer.owner.name)}: ${currentKills + 1}`);
-        //     playerKills.set(killer.owner.id, currentKills + 1);
-        // }
+        adjustMultiboardItemValue(killer.owner.id, MultiboardColumnIndexMap.PlayerKills, 1);
     });
 }
 
-export function setHeroIconForPlayerMultiboardItem(hero: Unit) {
-    const multiboardItem = multiboardItems[hero.owner.id];
-    // const multiboardItem = multiboardItems.get(hero.owner.id);
+export function adjustMultiboardItemValue(row: number, column: number, value: number) {
+    const currentDataValue = multiboardData[row][column];
+    const stringValueToNumber = Number(currentDataValue);
 
-    if (!multiboardItem) return;
+    if (typeof stringValueToNumber === "number") {
+        const newDataValue = stringValueToNumber + value;
 
-    const iconPath = heroIconsMap.get(hero.typeId);
+        print(`Current data value: ${stringValueToNumber} - New Data value: ${newDataValue}`);
 
-    if (!iconPath) return;
-
-    // multiboardItem.setIcon(iconPath);
+        setMultiboardItemValue(row, column, newDataValue.toFixed(0));
+    } else {
+        print(`Attempted to adjust data value (${stringValueToNumber}) with a number on a column (${column}) that does not represent a number! Function: adjustMultiboardItemValue`);
+    }
 }
 
 /**
- *
+ *  0 indexed array of item arrays
  * @param row Player index
  * @param column Column Index Map
  */
@@ -162,7 +142,12 @@ export function setMultiboardItemValue(row: number, column: number, value: strin
         return;
     }
 
+    if (typeof value !== "string") {
+        print(`setMultiboardItemValue expected string for value, but received ${typeof value}`);
+    }
+
     playerMultiboardItems[column]?.setValue(value);
+    multiboardData[row][column] = value;
 }
 
 /**
