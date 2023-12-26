@@ -1,5 +1,5 @@
 {
-    "mapFolder": "creeps-vs-humans.w3x",
+    "mapFolder": "creep-warlords.w3x",
     "minifyScript": true,
     "gameExecutable": "C:\\Program Files\\Warcraft III\\_retail_\\x86_64\\Warcraft III.exe",
     "outputFolder": "./dist/bin",
