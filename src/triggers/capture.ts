@@ -4,13 +4,13 @@ import { Trigger, Unit } from "w3ts";
 import { MultiboardColumnIndexMap, adjustMultiboardItemValue } from "./multiboard";
 
 export function setup_capture() {
-    const t = Trigger.create();
+    const onDamageTrig = Trigger.create();
 
-    t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_ATTACKED);
+    onDamageTrig.registerAnyUnitEvent(EVENT_PLAYER_UNIT_DAMAGED);
 
-    t.addAction(() => {
-        const victim = Unit.fromHandle(GetAttackedUnitBJ());
-        const attacker = Unit.fromHandle(GetAttacker());
+    onDamageTrig.addAction(() => {
+        const victim = Unit.fromEvent();
+        const attacker = Unit.fromHandle(GetEventDamageSource());
 
         if (victim && attacker && victim.typeId === UNITS.goldMine) {
             if (victim.life <= victim.maxLife / 3) {

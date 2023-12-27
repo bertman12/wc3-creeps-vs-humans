@@ -31,6 +31,8 @@ export enum UNITS {
 export enum ABILITIES {
     invulnerable = FourCC("Avul"),
     removeUnitFromSpawn = FourCC("A004"),
+    creepControl = FourCC("A00B"),
+    playerBase_summonInfernal = FourCC("A00A"),
 }
 
 export enum UPGRADES {
@@ -38,6 +40,8 @@ export enum UPGRADES {
     tier2Units = FourCC("R002"),
     tier3Units = FourCC("R003"),
     prepTimeEnded = FourCC("R005"),
+    creepControlRestrictionTime = FourCC("R006"),
+    improvedCreepControl = FourCC("R007"),
 }
 
 export enum PlayerIndices {

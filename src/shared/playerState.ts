@@ -13,6 +13,7 @@ export class PlayerState {
     player: MapPlayer;
     playerHero: Unit | undefined;
     ownedSpawn: SpawnData | undefined;
+    baseGoldIncome = 50;
 
     constructor(player: MapPlayer) {
         this.player = player;
@@ -62,13 +63,6 @@ export class PlayerState {
                 const clearFogState = FogModifier.create(this.player, FOG_OF_WAR_VISIBLE, 0, 0, 25000, true, true);
                 clearFogState?.start();
             }
-
-            //Grant the remaining players 1000 gold.
-            // delayedTimer(3, () => {
-            //     forEachPlayer((p) => {
-            //         notifyPlayer("All players receive 500 gold.");
-            //     });
-            // });
         });
     }
 }

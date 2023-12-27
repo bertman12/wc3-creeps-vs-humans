@@ -1,7 +1,7 @@
 import { UPGRADES } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
 import { notifyPlayer, ptColor, tColor } from "src/utils/misc";
-import { adjustFoodCap } from "src/utils/players";
+import { adjustFoodCap, forEachPlayer, isPlayingUser } from "src/utils/players";
 import { MapPlayer, Trigger } from "w3ts";
 
 export function setup_playerGetsUpgrade() {
@@ -31,12 +31,22 @@ export function setup_playerGetsUpgrade() {
             }
 
             if (tech === UPGRADES.tier2Units) {
-                notifyPlayer(`${ptColor(player, player.name)} has unlocked ${tColor("Tier 2", "goldenrod")} units.`);
+                notifyPlayer(`${ptColor(player, player.name)} has unlocked ${tColor("Tier 2", "magenta")} units.`);
             }
 
             if (tech === UPGRADES.tier3Units) {
-                notifyPlayer(`${ptColor(player, player.name)} has unlocked ${tColor("Tier 3", "goldenrod")} units.`);
+                notifyPlayer(`${ptColor(player, player.name)} has unlocked ${tColor("Tier 3", "magenta")} units.`);
             }
         }
     });
+}
+
+export function researchCreepControl() {
+    forEachPlayer((p) => {
+        if (isPlayingUser(p)) {
+            p.setTechResearched(UPGRADES.creepControlRestrictionTime, 1);
+        }
+    });
+
+    notifyPlayer("Players may now use the |cffffcc00Creep Control|r ability on their base to control where their creeps attack for a limited time.");
 }

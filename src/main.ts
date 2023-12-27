@@ -4,16 +4,16 @@ import { setup_preventMassTeleportGrief } from "./triggers/anti-grief";
 import { setup_capture } from "./triggers/capture";
 import { setup_fixSpawns } from "./triggers/fixSpawns";
 import { setup_GoldMineEco } from "./triggers/goldMineEconomy";
+import { setup_trackPlayerKillCount } from "./triggers/hero-kill";
 import { setup_multiBoard } from "./triggers/multiboard";
 import { setup_playerLeaves } from "./triggers/player-leaves";
-import { setup_heroPurchasing } from "./triggers/preparation";
+import { setup_preparation } from "./triggers/preparation";
 import { setup_playerGetsUpgrade } from "./triggers/upgrades";
 import { trig_setCameraDistance } from "./utils/camera";
 import { trig_itemRecipeSystem } from "./utils/item";
 import { setup_quests } from "./utils/quests";
 import { setup_playerCreepSpawns } from "./utils/spawnSystem";
 import { delayedTimer } from "./utils/timer";
-import { setup_trackPlayerKillCount } from "./triggers/hero-kill";
 
 const BUILD_DATE = compiletime(() => new Date().toUTCString());
 const TS_VERSION = compiletime(() => require("typescript").version);
@@ -56,7 +56,7 @@ function tsMain() {
         setup_playerGetsUpgrade();
         setup_multiBoard();
         setup_preventMassTeleportGrief();
-        setup_heroPurchasing(setup_playerCreepSpawns);
+        setup_preparation(setup_playerCreepSpawns);
         setup_fixSpawns();
         setup_playerLeaves();
         setup_trackPlayerKillCount();

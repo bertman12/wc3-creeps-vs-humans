@@ -1,4 +1,4 @@
-import { MinimapIconPath, UNITS, primaryCaptureTargets } from "src/shared/enums";
+import { ABILITIES, MinimapIconPath, UNITS, UPGRADES, primaryCaptureTargets } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
 import { getPlayerSpawnBuilderRegionMap } from "src/triggers/spawnBuilder";
 import { adjustGold, forEachPlayer, forEachUnitInRectangle, forEachUnitTypeOfPlayer, isPlayingUser } from "src/utils/players";
@@ -6,6 +6,8 @@ import { Effect, MapPlayer, Point, Rectangle, Timer, Trigger, Unit } from "w3ts"
 import { OrderId, Players } from "w3ts/globals";
 import { playerRGBMap } from "./color";
 import { notifyPlayer, ptColor, tColor, useTempEffect } from "./misc";
+import { createTextTagOnUnit } from "./textTag";
+import { delayedTimer } from "./timer";
 
 //30 seconds being the hard spawn, 15 second intervals being the normal spawn difficulty; maybe fr
 let computerPlayerPool: MapPlayer[] = [];
@@ -62,23 +64,6 @@ export class SpawnData {
     public spawnDifficulty = 0;
     //random number from the array;
     private spawnAmountPerWave = 1;
-
-    /**
-     * @UndeadSpawnChances
-     */
-    private readonly TIER_2_MAX_CHANCE = 0.8;
-    private readonly TIER_3_MAX_CHANCE = 0.6;
-    //These should be the base values for the most spawned unit
-    //55% base chance on final night to see Tier 2 units
-    private baseTier2Chance = 0.15;
-    //Determines how much to increase the tier 2 chance every time tier 2 is not selected
-    private tier2ChanceModifier = 0.02;
-    private currentTier2Chance = 0.15;
-    //25% base chance to see Tier 3 units on final night
-    private baseTier3Chance = 0.05;
-    //Determines how much to increase the tier 3 chance every time tier 3 is not selected
-    private tier3ChanceModifier = 0.01;
-    private currentTier3Chance = 0;
     /**
      * @unit_comp_distribution
      * how many of each type of unit are we going to choose?
@@ -111,15 +96,6 @@ export class SpawnData {
     private MAX_SPAWN_COUNT = 110;
     public simpleUnitSpawnPool: Unit[] = [];
     public spawnType: "simple" | "tiered" = "simple";
-    private spawnedUnitTypeConfig: Map<
-        UnitCategory,
-        {
-            tierI: number[];
-            tierII: number[];
-            tierIII: number[];
-        }
-    > | null = simpleCategoryData;
-
     /**
      * A pool of players to use when creating units
      * Should be initialized at the start of the game.
@@ -129,7 +105,7 @@ export class SpawnData {
      * Used to adjust the difficulty of the night
      */
     private playersPlaying: number = 0;
-
+    private retainCurrentAttackTarget: boolean = false;
     /**
      * Tracks how many waves have already been sent to the players from this spawn.
      *
@@ -168,6 +144,7 @@ export class SpawnData {
 
         if (this.spawnBase) {
             const playerState = playerStates.get(this.spawnOwner.id);
+            this.spawnBase.startAbilityCooldown(ABILITIES.playerBase_summonInfernal, 120);
 
             if (playerState) {
                 playerState.setup_defeatPlayer(this.spawnBase);
@@ -182,9 +159,9 @@ export class SpawnData {
                     useTempEffect(Effect.createAttachment("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", this.spawnBase, "overhead"), 3);
 
                     const goldAwarded = 50;
-
                     adjustGold(this.spawnBase.owner, goldAwarded);
                     this.spawnBase.mana = 0;
+                    createTextTagOnUnit(this.spawnBase, tColor(`+${goldAwarded.toFixed(0)}`, "goldenrod"));
                 }
             });
         }
@@ -221,8 +198,7 @@ export class SpawnData {
                 }
             });
         });
-
-        this.setup_orderAttackOnRandomTarget();
+        this.trackPlayerUsesCreepControl();
     }
 
     /**
@@ -243,16 +219,33 @@ export class SpawnData {
         });
     }
 
-    private calculateUnitCountSpawnedPerWave() {
-        return 3;
+    private trackPlayerUsesCreepControl() {
+        const t = Trigger.create();
+        t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST);
+        t.addAction(() => {
+            const spellId = GetSpellAbilityId();
+            const x = GetSpellTargetX();
+            const y = GetSpellTargetY();
+
+            if (spellId === ABILITIES.creepControl) {
+                print("Player used creep control.");
+                print(`Spell x and y`, x, " ", y);
+
+                this.chooseForceAttackTarget(Point.create(x, y), true);
+                this.orderNewAttack(this.units, true);
+                // this.retainCurrentAttackTarget = true;
+
+                const upgradeLevel = this.spawnOwner.getTechCount(UPGRADES.improvedCreepControl, true);
+                //Should occur after the 6th wave has left for the target.
+                delayedTimer(61 + 11 * upgradeLevel, () => {
+                    this.retainCurrentAttackTarget = false;
+                });
+            }
+        });
     }
 
-    private setup_orderAttackOnRandomTarget() {
-        const timer = Timer.create();
-
-        timer.start(90, true, () => {
-            this.orderNewAttack(this.units);
-        });
+    private calculateUnitCountSpawnedPerWave() {
+        return 3;
     }
 
     private getNextAlliedComputerPlayer() {
@@ -266,21 +259,6 @@ export class SpawnData {
         }
 
         return player;
-    }
-
-    private getMinimapRGB() {
-        switch (this.spawnDifficulty) {
-            case SpawnDifficulty.normal:
-                return { red: 255, green: 255, blue: 255 };
-            case SpawnDifficulty.hard:
-                return { red: 255, green: 255, blue: 0 };
-            case SpawnDifficulty.boss:
-                return { red: 255, green: 105, blue: 0 };
-            case SpawnDifficulty.final:
-                return { red: 255, green: 0, blue: 0 };
-            default:
-                return { red: 255, green: 0, blue: 0 };
-        }
     }
 
     private setup_removeDeadUnitFromSpawnCount() {
@@ -298,19 +276,21 @@ export class SpawnData {
     public startSpawning() {
         this.preSpawnFunctions.forEach((fn) => fn());
         this.createWaveUnits();
-        this.orderNewAttack(this.units);
+        this.orderNewAttack(this.units, false);
 
         const t = Trigger.create();
         this.trig_chooseNextTarget = t;
 
-        t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH);
+        // t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH);
         t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_CHANGE_OWNER);
 
         t.addCondition(() => {
             const u = Unit.fromEvent();
-
+            //Doesn't keep track of a previous target that a previous spawn was attacking only the most recent one, thats why it fails.
+            //Condition will fail for past spawns because the current target is no longer the same
             if (u && u === this.currentAttackTarget) {
-                this.orderNewAttack(this.units);
+                print("Current attack target has had owner converted, choosing new target...");
+                this.orderNewAttack(this.units, false);
             }
 
             return false;
@@ -320,7 +300,7 @@ export class SpawnData {
 
         this.waveTimer.start(this.waveIntervalSeconds, true, () => {
             this.createWaveUnits();
-            this.orderNewAttack(this.lastCreatedWaveUnits);
+            this.orderNewAttack(this.lastCreatedWaveUnits, this.retainCurrentAttackTarget);
         });
     }
 
@@ -364,10 +344,14 @@ export class SpawnData {
      * units will firstly use the path finder's location to get an initial target, then they will attack the true target, this will help with pathing
      * @param attackingUnits
      */
-    private orderNewAttack(attackingUnits: Unit[]) {
-        const newTarget = this.chooseForceAttackTarget(Point.create(this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0));
+    private orderNewAttack(attackingUnits: Unit[], useCurrentTarget: boolean) {
+        const newTarget = useCurrentTarget ? this.currentAttackTarget : this.chooseForceAttackTarget(Point.create(this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0));
 
-        if (newTarget && newTarget !== this.currentAttackTarget) {
+        if (useCurrentTarget) {
+            print("Attack will use current attack target.");
+        }
+
+        if (newTarget) {
             this.applyAttackTargetEffects(newTarget);
         }
 
@@ -426,56 +410,6 @@ export class SpawnData {
             this.spawnUnitsSimple();
             return;
         }
-
-        this.wavesCreated++;
-
-        const unitsCreatedThisWave: Unit[] = [];
-
-        //sample a random theta from 0 - PI/2
-        //sin(theta) is uniformly distributed with a linear rate of change and valid for chance selection. each point on the curve is equally likely to be chosen as any other
-        this.unitCompData.forEach((count, category) => {
-            for (let x = 0; x < count; x++) {
-                //Range [0, PI/2)
-                const randomTheta = (Math.random() * Math.PI) / 2;
-                //Range [0, 1)
-                const sampledValue = Math.sin(randomTheta);
-
-                //will always spawn tier 3 units on the last 2 nights
-                if (sampledValue <= this.currentTier3Chance) {
-                    //spawn tier 3 unit
-                    const u = this.spawnSingleUnit(category, 2);
-                    if (u) {
-                        unitsCreatedThisWave.push(u);
-                    }
-
-                    this.currentTier3Chance = this.baseTier3Chance;
-                } else if (sampledValue <= this.currentTier2Chance) {
-                    //Tier 3 was not selected, so we must increase the chance to be chosen
-                    // this.currentTier3Chance += this.tier3ChanceModifier;
-
-                    //spawn tier 2 unit
-                    const u = this.spawnSingleUnit(category, 1);
-
-                    if (u) {
-                        unitsCreatedThisWave.push(u);
-                    }
-
-                    this.currentTier2Chance = this.baseTier3Chance;
-                } else {
-                    //Tier 2 was not selected, so we must increase the chance to be chosen
-                    // this.currentTier2Chance += this.tier2ChanceModifier;
-
-                    //spawn a tier 1 unit
-                    const u = this.spawnSingleUnit(category, 0);
-
-                    if (u) {
-                        unitsCreatedThisWave.push(u);
-                    }
-                }
-            }
-
-            this.lastCreatedWaveUnits = unitsCreatedThisWave;
-        });
     }
 
     /**
@@ -510,113 +444,14 @@ export class SpawnData {
         this.lastCreatedWaveUnits = unitsCreatedThisWave;
     }
 
-    private spawnSingleUnit(category: UnitCategory, tier: number) {
-        if (this.spawnUnitCount >= this.MAX_SPAWN_COUNT) {
-            return undefined;
+    public chooseForceAttackTarget(currentPoint: Point, relativeToPoint?: boolean): Unit | undefined {
+        if (this.retainCurrentAttackTarget && this.currentAttackTarget?.isAlive()) {
+            print("Player is using creep control. A new target will not be chosen.");
+            return this.currentAttackTarget;
+        } else if (this.retainCurrentAttackTarget && !this.currentAttackTarget?.isAlive()) {
+            this.retainCurrentAttackTarget = false;
         }
 
-        let unitTypeId = 0;
-
-        const categoryData = simpleCategoryData.get(category);
-
-        if (categoryData) {
-            switch (tier) {
-                case 0:
-                    const r1 = Math.floor(Math.random() * categoryData.tierI.length);
-                    unitTypeId = categoryData.tierI[r1];
-                    break;
-                case 1:
-                    const r2 = Math.floor(Math.random() * categoryData.tierII.length);
-                    unitTypeId = categoryData.tierII[r2];
-                    break;
-                case 2:
-                    const r3 = Math.floor(Math.random() * categoryData.tierIII.length);
-                    unitTypeId = categoryData.tierIII[r3];
-
-                    break;
-                default:
-                    print("Failed to pick zombie from a valid tier!");
-                    break;
-            }
-        }
-
-        if (!unitTypeId) {
-            return undefined;
-        }
-
-        const u = Unit.create(this.getNextAlliedComputerPlayer(), unitTypeId, this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0);
-
-        if (u) {
-            this.spawnUnitCount++;
-            u.owner.name = ptColor(this.spawnOwner, this.spawnOwner.name);
-            u.color = this.spawnOwner.color;
-
-            // this.scaleUnitDifficulty(u);
-            u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_BASE, 25);
-            u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_NUMBER_OF_DICE, 1);
-            u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_SIDES_PER_DIE, 2);
-
-            // if (GameConfig.useEnemyBounty) {
-            //     const playerCountModifier = this.playersPlaying - GameConfig.playersRequiredBeforeScaling;
-            //     const enemyBountyAmount =
-            //         GameConfig.enemyBaseBounty + playerCountModifier * GameConfig.enemyBountyPlayerCountModifier + GameConfig.enemyBountyRoundCountModifier * RoundManager.currentRound + GameConfig.enemyBountySpawnDifficulty * this.spawnDifficulty;
-
-            //     u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_BASE, enemyBountyAmount);
-            //     u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_NUMBER_OF_DICE, 1);
-            //     u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_SIDES_PER_DIE, 2);
-            // }
-
-            this.units.push(u);
-
-            return u;
-        }
-    }
-
-    /**
-     * Increases the health and damage of the unit based on the number of players present when the round started and also the current round the players are on
-     * @param unit
-     * @returns
-     */
-    private scaleUnitDifficulty(unit: Unit): Unit {
-        // if (GameConfig.enableEnemyScaling && this.playersPlaying > GameConfig.playersRequiredBeforeScaling) {
-        //     const playerBonus = this.playersPlaying - 2;
-        //     //linear damage increase - will now scale by players, round and current spawn difficulty
-
-        //     //10+20+4>>36+18 Heavy damage scaling
-        //     const roundDamageMultiplier =
-        //         GameConfig.enemyDMG_baseIncreasePercentage +
-        //         GameConfig.enemyDMG_playerCountPercentageMultiplier * playerBonus +
-        //         (RoundManager.currentRound * GameConfig.enemyDMG_RoundCountMultiplier + this.spawnDifficulty * GameConfig.enemyDMG_SpawnDifficultyMultiplier) / 100;
-        //     const healthBonusMultiplier =
-        //         GameConfig.enemyHP_baseIncreasePercentage +
-        //         GameConfig.enemyHP_playerCountPercentageMultiplier * playerBonus +
-        //         (RoundManager.currentRound * GameConfig.enemyHP_RoundCountMultiplier + this.spawnDifficulty * GameConfig.enemyHP_SpawnDifficultyMultiplier) / 100;
-
-        //     //Increasing health and damage based on number of players playing
-        //     const baseDmgIncrease = unit.getBaseDamage(0) + Math.ceil(unit.getBaseDamage(0) * roundDamageMultiplier);
-        //     const diceSidesIncrease = unit.getDiceSides(0) + Math.ceil(unit.getDiceSides(0) * roundDamageMultiplier);
-        //     const healthIncrease = Math.ceil(unit.maxLife * (1 + healthBonusMultiplier));
-        //     unit.name += ` |cff00ff00+${(healthBonusMultiplier * 100).toFixed(0)}%/|cffff0000+${(roundDamageMultiplier * 100).toFixed(0)}%`;
-        //     unit.maxLife = healthIncrease;
-        //     unit.life = unit.maxLife;
-        //     unit.setBaseDamage(baseDmgIncrease, 0);
-        //     unit.setDiceSides(diceSidesIncrease, 0);
-        // }
-
-        return unit;
-    }
-
-    /**
-     * Zombies at different spawn points will have different areas they to attack.
-     * Should select points of interest that are closest to their spawn.
-     * Perhaps some nights they will attack the outskirts
-     * Other nights they will attack towards the capital city
-     * and on dangerous nights they will attempt to bee line it to the capital city. (?lol probably not fun for the player)
-     *
-     * We choose the next point of attack relative to the current point
-     */
-    public chooseForceAttackTarget(currentPoint: Point): Unit | undefined {
-        //So we want to iterate our towns.
         /**
          * @WARNING
          * @REFACTOR
@@ -628,30 +463,8 @@ export class SpawnData {
 
         const currLoc = Location(currentPoint.x, currentPoint.y);
 
-        //If y is greater than r*sin(theta) or x is greater than r*cos(theta) then
-        primaryCaptureTargets.forEach((unitTypeId) => {
-            forEachPlayer((p) => {
-                if (!p.isPlayerAlly(this.spawnOwner)) {
-                    forEachUnitTypeOfPlayer(unitTypeId, p, (u) => {
-                        if (u && u.isAlive() && math.random(0, 100) < 25) {
-                            closestCapturableStructure = u;
-                        }
-
-                        //Dont check neutral units
-                        // const locU = Location(u.x, u.y);
-                        // const dist = DistanceBetweenPoints(currLoc, locU);
-
-                        // // //Choose the point closest to the current attack point
-                        // if (dist < shortestDistance) {
-                        //     shortestDistance = dist;
-                        //     closestCapturableStructure = u;
-                        // }
-                    });
-                }
-            });
-        });
-
-        if (closestCapturableStructure === undefined) {
+        if (!relativeToPoint) {
+            //If y is greater than r*sin(theta) or x is greater than r*cos(theta) then
             primaryCaptureTargets.forEach((unitTypeId) => {
                 forEachPlayer((p) => {
                     if (!p.isPlayerAlly(this.spawnOwner)) {
@@ -659,186 +472,56 @@ export class SpawnData {
                             if (u && u.isAlive() && math.random(0, 100) < 25) {
                                 closestCapturableStructure = u;
                             }
+                        });
+                    }
+                });
+            });
+        }
 
+        let previousEffect: Effect | undefined = undefined;
+
+        //Used when random choice fails or when relativeToPoint is true
+        if (closestCapturableStructure === undefined) {
+            primaryCaptureTargets.forEach((unitTypeId) => {
+                forEachPlayer((p) => {
+                    if (!p.isPlayerAlly(this.spawnOwner)) {
+                        forEachUnitTypeOfPlayer(unitTypeId, p, (u) => {
                             //Dont check neutral units
                             const locU = Location(u.x, u.y);
-                            const dist = DistanceBetweenPoints(currLoc, locU);
+                            // const dist = DistanceBetweenPoints(currLoc, locU);
+
+                            const distance = Math.sqrt(Math.pow(u.x - currentPoint.x, 2) + Math.pow(u.y - currentPoint.y, 2));
+                            print(distance);
 
                             // //Choose the point closest to the current attack point
-                            if (dist < shortestDistance) {
-                                shortestDistance = dist;
+
+                            if (distance < shortestDistance) {
+                                shortestDistance = distance;
                                 closestCapturableStructure = u;
+
+                                previousEffect?.setColor(0, 0, 0);
+
+                                const rallyFlag = Effect.create("UI\\Feedback\\RallyPoint\\RallyPoint.mdl", u.x, u.y);
+                                rallyFlag?.setScaleMatrix(2, 2, 2);
+                                rallyFlag?.setColorByPlayer(this.spawnOwner);
+
+                                previousEffect = rallyFlag;
+
+                                print("Shortest Distance: ", distance);
                             }
                         });
                     }
                 });
             });
-
-            print("Restarted search for attack target.");
         }
 
+        closestCapturableStructure = closestCapturableStructure as unknown as Unit;
+
+        const rallyFlag = Effect.create("UI\\Feedback\\RallyPoint\\RallyPoint.mdl", closestCapturableStructure.x, closestCapturableStructure.y);
+        rallyFlag?.setScaleMatrix(4, 4, 4);
+        rallyFlag?.setColorByPlayer(this.spawnOwner);
         return closestCapturableStructure;
 
         //If there exists valid attack points in the scanned region, of the valid points, select the closest. Then proceed
     }
 }
-
-const simpleCategoryData = new Map<UnitCategory, { tierI: number[]; tierII: number[]; tierIII: number[] }>([
-    [
-        "infantry",
-        {
-            tierI: [
-                //murloc
-                FourCC("nmrl"),
-                //satyr
-                FourCC("nsty"),
-                //spider
-                FourCC("nspr"),
-                //wolf
-                FourCC("nwlt"),
-
-                //ice troll
-                FourCC("nitr"),
-                //skeleton archer
-                FourCC("nska"),
-                //void walker
-                FourCC("nvdw"),
-
-                //kobold geomancer
-                FourCC("nkog"),
-                //poison treant
-                FourCC("nenp"),
-                //shadow troll priest
-                FourCC("ndtp"),
-                //
-            ],
-            tierII: [
-                //overlord
-                // FourCC("nfov"),
-            ],
-            tierIII: [
-                //
-            ],
-        },
-    ],
-]);
-
-/**
- * This spawn configuration which separates units into role can be nice but may not be necessary.
- * We can create a simpler spawn data configuration by leaving them all in one category type but preserving the different tiers
- */
-const unitCategoryData = new Map<UnitCategory, { tierI: number[]; tierII: number[]; tierIII: number[] }>([
-    [
-        "infantry",
-        {
-            tierI: [
-                //murloc
-                FourCC("nmrl"),
-                //satyr
-                FourCC("nsty"),
-                //spider
-                FourCC("nspr"),
-                //wolf
-                FourCC("nwlt"),
-                //
-            ],
-            tierII: [
-                //overlord
-                FourCC("nfov"),
-            ],
-            tierIII: [
-                //
-            ],
-        },
-    ],
-    [
-        "missile",
-        {
-            tierI: [
-                // UNITS.skeletalArcher,
-                //ice troll
-                FourCC("nitr"),
-                //skeleton archer
-                FourCC("nska"),
-                //void walker
-                FourCC("nvdw"),
-                //basic skeleton marksman?
-            ],
-            tierII: [
-                //crypt fiends - maybe they can create eggs which hatch and spawn some spiderlings?
-                FourCC("ucry"),
-                //fire archer
-                FourCC("nskf"),
-                //garg
-                FourCC("ugar"),
-            ],
-            tierIII: [
-                //nether drake - to fucking op lol
-                //frost wyrm
-                FourCC("ufro"),
-                //
-            ],
-        },
-    ],
-    [
-        "caster",
-        {
-            tierI: [
-                //kobold geomancer
-                FourCC("nkog"),
-                //poison treant
-                FourCC("nenp"),
-                //shadow troll priest
-                FourCC("ndtp"),
-            ],
-            tierII: [
-                //stormreaver necrolyte
-                FourCC("nsrn"),
-                //eredar diabolist
-                FourCC("nerd"),
-            ],
-            tierIII: [
-                //thudner lizzard
-                FourCC("nstw"),
-                //
-            ],
-        },
-    ],
-    [
-        "siege",
-        {
-            tierI: [
-                // UNITS.meatWagon,
-                //meat wagon
-            ],
-            tierII: [
-                //
-                FourCC("ocat"),
-            ],
-            tierIII: [
-                // UNITS.blackCitadelMeatWagon,
-                //demon fire artillery
-            ],
-        },
-    ],
-    [
-        "hero",
-        {
-            //dread lord
-            tierI: [FourCC("Udre")],
-            //crypt lord
-            tierII: [FourCC("Ucrl")],
-            tierIII: [FourCC("Ucrl")],
-        },
-    ],
-]);
-
-//Optional set for doing specific things when a specific unit type spawns; like if a special hero spawns you do something cool? or something
-const unitTypeSpawnFunctions = new Map<number, () => void>([
-    [
-        FourCC("hfoo"),
-        () => {
-            print("Special abom function!");
-        },
-    ],
-]);

@@ -1,6 +1,7 @@
 export class GameConfig {
-    static heroPreparationTime = 60;
-    static heroStartItems: number[] = [FourCC("stel")];
+    static heroPreparationTime = 10;
+    static heroStartItems: number[] = [];
+    static creepControlDelay: number = 5;
 }
 
 export class SpawnConfig {

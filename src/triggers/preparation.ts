@@ -2,24 +2,24 @@ import { GameConfig } from "src/shared/GameConfig";
 import { ABILITIES, UNITS, UPGRADES } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
 import { notifyPlayer, tColor } from "src/utils/misc";
-import { adjustLumber, forEachPlayer, isPlayingUser } from "src/utils/players";
+import { forEachPlayer, isPlayingUser } from "src/utils/players";
 import { delayedTimer } from "src/utils/timer";
 import { MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts";
 import { OrderId } from "w3ts/globals";
 import { MultiboardColumnIndexMap, setMultiboardItemIcon } from "./multiboard";
 import { createSpawnBuilder } from "./spawnBuilder";
+import { researchCreepControl } from "./upgrades";
 
 /**
  * Must occur after player states have been setup
  */
-export function setup_heroPurchasing(onPrepTimeEnd: (...args: any[]) => any) {
+export function setup_preparation(onPrepTimeEnd: (...args: any[]) => any) {
     delayedTimer(1, () => {
         const prepHeroPurchaseTrigger = trig_heroPurchasedDuringPrepTime();
         const prepTimer = Timer.create();
         const prepTimerDialog = CreateTimerDialogBJ(prepTimer.handle, "Preparation Time...");
-        const PREP_TIME_SECONDS = GameConfig.heroPreparationTime;
         print(" ");
-        notifyPlayer(`You have ${PREP_TIME_SECONDS} seconds to prepare. You may still pick your hero after preparation time has ended.`);
+        notifyPlayer(`You have ${GameConfig.heroPreparationTime} seconds to prepare. You may still pick your hero after preparation time has ended.`);
         print(tColor("Choose your hero...", "red"));
 
         if (!prepTimerDialog) {
@@ -31,7 +31,12 @@ export function setup_heroPurchasing(onPrepTimeEnd: (...args: any[]) => any) {
 
         TimerDialogDisplayBJ(true, prepTimerDialog);
 
-        prepTimer.start(PREP_TIME_SECONDS, false, () => {
+        //Create hero choosers for player
+        createHeroChoosers();
+        createSpawnBuilder();
+
+        //After prep time has ended
+        prepTimer.start(GameConfig.heroPreparationTime, false, () => {
             prepHeroPurchaseTrigger.destroy();
             TimerDialogDisplayBJ(false, prepTimerDialog);
 
@@ -43,11 +48,11 @@ export function setup_heroPurchasing(onPrepTimeEnd: (...args: any[]) => any) {
             forEachPlayer((p) => {
                 p.setTechResearched(UPGRADES.prepTimeEnded, 1);
             });
-        });
 
-        //Create hero choosers for player
-        createHeroChoosers();
-        createSpawnBuilder();
+            delayedTimer(GameConfig.creepControlDelay, () => {
+                researchCreepControl();
+            });
+        });
     });
 }
 
@@ -175,13 +180,8 @@ function moveSingleHeroToStartLocationAndGiveItems(player: MapPlayer) {
             purchasedHero.x = startX;
             purchasedHero.y = startY - 300;
 
-            delayedTimer(3, () => {
-                adjustLumber(player, 99999);
-            });
-
             purchasedHero.removeAbility(ABILITIES.invulnerable);
             purchasedHero.issueImmediateOrder(OrderId.Stop);
-            // setHeroIconForPlayerMultiboardItem(purchasedHero);
 
             const iconPath = BlzGetAbilityIcon(purchasedHero.typeId);
 

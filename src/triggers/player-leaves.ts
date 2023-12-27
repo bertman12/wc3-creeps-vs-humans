@@ -13,7 +13,7 @@ export function setup_playerLeaves() {
         const leaver = MapPlayer.fromHandle(GetTriggerPlayer());
 
         if (leaver) {
-            notifyPlayer(`${ptColor(leaver, leaver.name)} has left. Their remaining resources are split up amongst the remaining players.`);
+            notifyPlayer(`${ptColor(leaver, leaver.name)} has left.`);
         }
     });
 }

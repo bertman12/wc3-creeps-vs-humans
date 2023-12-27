@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-Creep Warlords - 1.02
+Creep Warlords - 1.03
 }
 
 STRING 2
@@ -31,7 +31,7 @@ Player 1
 
 STRING 7
 {
-Creep Warlords - 1.02
+Creep Warlords - 1.03
 }
 
 STRING 8
@@ -780,12 +780,6 @@ STRING 202
 (10%)
 }
 
-STRING 208
-// Abilities: A005 (Bash), EditorSuffix (Editor Suffix)
-{
- (5% - 15 Damage)
-}
-
 STRING 212
 // Abilities: A006 (Slow Poison), EditorSuffix (Editor Suffix)
 {
@@ -840,12 +834,6 @@ STRING 223
 Spawn Info
 }
 
-STRING 224
-// Abilities: A007 (Spawn Info), Ubertip (Tooltip - Normal - Extended)
-{
-Units spawn every 10 seconds.|n|NMax of 110 units at any given time.
-}
-
 STRING 227
 // Abilities: A008 (Cleaving Attack), EditorSuffix (Editor Suffix)
 {
@@ -856,12 +844,6 @@ STRING 228
 // Abilities: A008 (Cleaving Attack), Ubertip (Tooltip - Normal - Extended)
 {
 The creature strikes with such force that 15% of their damage strikes through to enemies near the primary attacked unit.
-}
-
-STRING 229
-// Units: nmbg (Mur'gul Blood-Gill), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Heal |N|n|Cffffcc00Armor|r: Unarmored|N|cffffcc00Attack|r: Magic
 }
 
 STRING 230
@@ -892,12 +874,6 @@ STRING 235
 // Upgrades: Rhac (Improved Masonry,Advanced Masonry,Imbued Masonry), Hotkey (Hotkey)
 {
 A
-}
-
-STRING 236
-// Abilities: A005 (Bash), Ubertip (Tooltip - Normal - Extended)
-{
-Gives a 5% chance that an attack will do 15 bonus damage and stun an opponent for <ACbh,Dur1> seconds.
 }
 
 STRING 240
@@ -946,12 +922,6 @@ STRING 247
 // Abilities: A00A (Summon Inferno), Tip (Tooltip - Normal)
 {
 Summon Inferno
-}
-
-STRING 248
-// Abilities: A00A (Summon Inferno), Ubertip (Tooltip - Normal - Extended)
-{
-Allows you to summon a defensive inferno for 20 seconds.
 }
 
 STRING 249
@@ -1846,12 +1816,6 @@ STRING 430
 - centaur khan
 }
 
-STRING 431
-// Units: E002 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
-{
-- flame archer
-}
-
 STRING 432
 // Units: H007 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
 {
@@ -1919,7 +1883,7 @@ R
 }
 
 STRING 443
-// Upgrades: R002 (Chaos), Hotkey (Hotkey)
+// Units: nssp (Spitting Spider), Hotkey (Hotkey)
 {
 Z
 }
@@ -2333,7 +2297,7 @@ R
 }
 
 STRING 512
-// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+// Abilities: A00B (Control Creeps), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -2512,15 +2476,6 @@ STRING 551
 - Overlord Arachnathid
 }
 
-STRING 552
-// Units: nfgu (Felguard), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Cleaving Attack - 15%
-
-|Cffffcc00Armor|r: Large
-|cffffcc00Attack|r: Normal
-}
-
 STRING 553
 // Units: ninf (Infernal), Ubertip (Tooltip - Extended)
 {
@@ -2575,15 +2530,6 @@ STRING 560
 |cffffcc00Attack|r: Piercing
 }
 
-STRING 561
-// Units: nwlg (Giant Wolf), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Critical Strike
-
-|Cffffcc00Armor|r: Light
-|cffffcc00Attack|r: Normal
-}
-
 STRING 562
 // Units: nubw (Unbroken Darkweaver), Ubertip (Tooltip - Extended)
 {
@@ -2593,37 +2539,10 @@ STRING 562
 |cffffcc00Attack|r: Normal
 }
 
-STRING 563
-// Units: ngna (Gnoll Poacher), Ubertip (Tooltip - Extended)
-{
-|Cffffcc00Armor|r: Light|N|cffffcc00Attack|r: Piercing
-}
-
-STRING 565
-// Units: nmrl (Murloc Tiderunner), Ubertip (Tooltip - Extended)
-{
-10%|cff80ff80 Evasion|r      |N|N|Cffffcc00Armor|R: Unarmored |n|Cffffcc00Attack|r: Normal
-}
-
 STRING 566
 // Units: nspb (Black Spider), Ubertip (Tooltip - Extended)
 {
 |Cffffcc00Slow Poison|R: 20% attack and move slow. 4 damage per second.    |n |n|Cffffcc00Armor|r: Light|N|cffffcc00Attack|r: Piercing
-}
-
-STRING 567
-// Units: nkob (Kobold), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Bash|r - 5% chance, 15 bonus damage, 2 second stun.   |n|N|Cffffcc00Armor|r: Medium|N|cffffcc00Attack|r: Normal
-}
-
-STRING 568
-// Units: nkog (Kobold Geomancer), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Slow
-
-|Cffffcc00Armor|r: Medium
-|cffffcc00Attack|r: Magic
 }
 
 STRING 569
@@ -2833,15 +2752,6 @@ STRING 603
 E
 }
 
-STRING 604
-// Units: ndrs (Draenei Seer), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Brilliance Aura, Healing Wave, Slow
-
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Magic
-}
-
 STRING 606
 // Units: nsqa (Ancient Sasquatch), Ubertip (Tooltip - Extended)
 {
@@ -2940,21 +2850,490 @@ STRING 624
 (20%) item
 }
 
-STRING 626
+STRING 629
+// Abilities: AHfs (Flame Strike), Tip (Tooltip - Normal)
+{
+Flame Strike - [|cffffcc00Level 4|r]
+}
+
+STRING 630
+// Abilities: AHfs (Flame Strike), Tip (Tooltip - Normal)
+{
+Flame Strike - [|cffffcc00Level 5|r]
+}
+
+STRING 631
+// Abilities: AHfs (Flame Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Conjures a pillar of flame that burns ground units for  more damage a second for 4 seconds. As the pillar of flame subsides, units within the fire continue to take moderate damage.
+}
+
+STRING 632
+// Abilities: AHfs (Flame Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Conjures a pillar of flame that burns ground units for more damage a second for 5 seconds. As the pillar of flame subsides, units within the fire continue to take moderate damage.
+}
+
+STRING 634
+// Upgrades: R006 (Chaos), EditorSuffix (Editor Suffix)
+{
+(NULL UPGRADE)
+}
+
+STRING 635
+// Upgrades: R006 (Chaos), Tip (Tooltip)
+{
+90 seconds after game start
+}
+
+STRING 636
+// Upgrades: R006 (Chaos), Ubertip (Tooltip - Extended)
+{
+Allows you to control where your creeps go for the next 6 waves. |n|n|cffffcc00Can be upgraded to increase the duration.|r
+}
+
+STRING 638
+// Upgrades: R007 (Chaos), Name (Name)
+{
+Improved Creep Control
+}
+
+STRING 639
+// Upgrades: R007 (Chaos), EditorSuffix (Editor Suffix)
+{
+(NULL UPGRADE)
+}
+
+STRING 640
+// Upgrades: R007 (Chaos), Tip (Tooltip)
+{
+Reserach Improved Creep Control
+}
+
+STRING 641
+// Upgrades: R007 (Chaos), Ubertip (Tooltip - Extended)
+{
+Increases the number of waves you can control to attack a location.
+}
+
+STRING 642
+// Abilities: A00B (Control Creeps), Name (Name)
+{
+Control Creeps
+}
+
+STRING 643
+// Abilities: A00B (Control Creeps), Tip (Tooltip - Normal)
+{
+Control Creeps
+}
+
+STRING 645
+// Abilities: A00B (Control Creeps), Ubertip (Tooltip - Normal - Extended)
+{
+Creeps will attack the closest valid target near the position of where you used this spell.  |n|n|cffffcc00Valid Targets|r|n-Player Base|n-Gold Mine   |n|n|cffffcc00Can be upgraded to increase the duration.|r
+}
+
+STRING 646
+// Upgrades: R006 (Chaos), Name (Name)
+{
+Creep Control Enabled
+}
+
+STRING 647
+// Upgrades: R004 (Animal War Training), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 648
+// Units: u003 (Skeleton Warrior), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Defend (25% Ranged Damage Reduction)
+
+|Cffffcc00Armor|r: Medium
+|cffffcc00Attack|r: Normal
+}
+
+STRING 650
+// Abilities: Ahrp (Repair), Ubertip (Tooltip - Normal - Extended)
+{
+Repairs mechanical units and structures at the cost of resources.|n|N|cffff0000You cannot repair and attack at the same time.|r
+}
+
+STRING 651
+// Units: u003 (Skeleton Warrior), Hotkey (Hotkey)
+{
+F
+}
+
+STRING 656
+// Items: spsh (Amulet of Spell Shield), Ubertip (Tooltip - Extended)
+{
+Blocks a negative spell that an enemy casts on the Hero once every |cffffcc00<ANss,Cool1> seconds|r.
+}
+
+STRING 657
+// Items: ssil (Staff of Silence), Ubertip (Tooltip - Extended)
+{
+Stops all enemies in a target area from casting spells for |cffffcc00<AIse,Dur1> seconds|r.
+}
+
+STRING 661
+// Items: rwiz (Sobi Mask), Ubertip (Tooltip - Extended)
+{
+Increases the Hero's rate of |cff8080ffmana regeneration|r by |cff8080ff<AIrm,DataA1,%>%|r when worn.
+}
+
+STRING 663
+// Items: tpow (Tome of Knowledge), Ubertip (Tooltip - Extended)
+{
+Permanently increases the |cffff0000Strength|r, |cff00ff00Agility|r and |cff8080ffIntelligence|r of the Hero by |cffffcc001|R when used.
+}
+
+STRING 664
+// Abilities: A007 (Spawn Info), Ubertip (Tooltip - Normal - Extended)
+{
+Units spawn every 10 seconds.|n|NYour base provides |cffffff00+50 gold|r every 10 seconds.       |n|N|cffffcc00Max of 110 units at any given time.|r
+}
+
+STRING 665
 // Items: lhst (The Lion Horn of Stormwind), Ubertip (Tooltip - Extended)
 {
-Grants the Hero and friendly nearby units 4.5 bonus armor. |nDoes not stack with Devotion Aura.
+Grants the Hero and friendly nearby units |cffffcc005 bonus armor|r.   |n|n|cffc0c0c0900 range|r |n|NDoes not stack with Devotion Aura.
 }
 
-STRING 627
+STRING 666
+// Items: sbch (Scourge Bone Chimes), Ubertip (Tooltip - Extended)
+{
+Grants a melee Hero and friendly nearby melee units |cffffcc00life stealing attacks|r which take |cffffcc00<AIav,DataA1,%>%|r of the damage they deal and convert it into life.   |n|n|cffc0c0c0900 range|r |n|NDoes not stack with Vampiric Aura.
+}
+
+STRING 667
 // Items: lgdh (Legion Doom-Horn), Ubertip (Tooltip - Extended)
 {
-Grants the Hero and friendly nearby units 2 life regeneration and 15% increased movement speed. |nDoes not stack with Unholy Aura.
+Grants the Hero and friendly nearby units |cff80ff803.5 life regeneration|r and |cffffcc0015% increased movement speed|r.     |n|n|cffc0c0c0900 range|r|N |nDoes not stack with Unholy Aura.
 }
 
-STRING 628
+STRING 668
+// Items: ajen (Ancient Janggo of Endurance), Ubertip (Tooltip - Extended)
+{
+Grants the Hero and friendly nearby units |cffffcc00<AIae,DataB1,%>% increased attack speed|r and |cffffcc00<AIae,DataA1,%>% movement speed|r.      |n|n|cffc0c0c0900 range|r          |n|nDoes not stack with Endurance Aura.
+}
+
+STRING 669
 // Items: war2 (Warsong Battle Drums), Ubertip (Tooltip - Extended)
 {
-Increases the attack damage of nearby friendly units by 15% when worn. |nDoes not stack with War Drums.
+Increases the |cffffcc00attack damage|r of nearby friendly units by |cffffcc0015%|r when worn.  |n|n|cffc0c0c0900 range|r |n|nDoes not stack with War Drums.
+}
+
+STRING 670
+// Items: bspd (Boots of Speed), Ubertip (Tooltip - Extended)
+{
++60 Movespeed
+}
+
+STRING 671
+// Abilities: A00C (Defend), EditorSuffix (Editor Suffix)
+{
+ (item - 25%)
+}
+
+STRING 672
+// Abilities: Aamk (Attribute Bonus), Researchubertip (Tooltip - Learn - Extended)
+{
+Gives a permanent bonus to Agility, Intelligence, and Strength. |n|n|cffffcc00Level 1|r - Adds three points to all stats.|n|cffffcc00Level 2|r - Adds three additional points.|n|cffffcc00Level 3|r - Adds three additional points.|n|cffffcc00Level 4|r - Adds three additional points. |n|n|cffff0000Hidden from command card.|r
+}
+
+STRING 673
+// Abilities: AImt (Teleport), Name (Name)
+{
+Teleport
+}
+
+STRING 674
+// Abilities: AImt (Teleport), Tip (Tooltip - Normal)
+{
+Teleport
+}
+
+STRING 675
+// Abilities: AImt (Teleport), Ubertip (Tooltip - Normal - Extended)
+{
+Teleports the Hero to the targeted allied land unit or structure.
+}
+
+STRING 676
+// Abilities: AImt (Teleport), Hotkey (Hotkey - Normal)
+{
+T
+}
+
+STRING 677
+// Abilities: AImt (Teleport), Unhotkey (Hotkey - Turn Off)
+{
+T
+}
+
+STRING 678
+// Abilities: Anhe (Heal), Ubertip (Tooltip - Normal - Extended)
+{
+Heals a target friendly non-mechanical wounded unit for |cff80ff8015 health|r.
+}
+
+STRING 679
+// Abilities: Anh1 (Heal), Ubertip (Tooltip - Normal - Extended)
+{
+Heals a target friendly non-mechanical wounded unit for |cff80ff8012 health|r.
+}
+
+STRING 680
+// Abilities: Anh2 (Heal), Ubertip (Tooltip - Normal - Extended)
+{
+Heals a target friendly non-mechanical wounded unit for |cff80ff8025 health|r.
+}
+
+STRING 681
+// Units: nkob (Kobold), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Bash|r - 8% chance, 15 bonus damage, 2 second stun.   |n|N|Cffffcc00Armor|r: Medium|N|cffffcc00Attack|r: Normal
+}
+
+STRING 682
+// Abilities: A005 (Bash), EditorSuffix (Editor Suffix)
+{
+ (8% - 15 Damage)
+}
+
+STRING 683
+// Units: nfgu (Felguard), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Cleaving Attack - 15%
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Normal
+}
+
+STRING 686
+// Abilities: A00D (Critical Strike), EditorSuffix (Editor Suffix)
+{
+(5% - 2x damage)
+}
+
+STRING 687
+// Abilities: A00D (Critical Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a 5% chance to do 2 times total damage on an attack.
+}
+
+STRING 689
+// Abilities: A00C (Defend), Tip (Tooltip - Normal)
+{
+Defend
+}
+
+STRING 690
+// Abilities: A00C (Defend), Ubertip (Tooltip - Normal - Extended)
+{
+Reduces ranged damage by 25% with a 25% chance to reflect back to the attacker.
+}
+
+STRING 692
+// Units: nmrl (Murloc Tiderunner), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: 10%|cff80ff80 Evasion|r, Fast (+50 movespeed)
+
+|Cffffcc00Armor|r: Unarmored
+|cffffcc00Attack|r: Normal
+}
+
+STRING 693
+// Units: nmbg (Mur'gul Blood-Gill), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Heal, 10% |cff80ff80Evasion|r, Fast (+50 movespeed)
+
+|Cffffcc00Armor|r: Unarmored
+|cffffcc00Attack|r: Magic
+}
+
+STRING 694
+// Abilities: A005 (Bash), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a 8% chance that an attack will do 15 bonus damage and stun an opponent for <ACbh,Dur1> seconds.
+}
+
+STRING 695
+// Abilities: Aamk (Attribute Bonus), Tip (Tooltip - Normal)
+{
+Attribute Bonus - [|cffffcc00Level 5|r]
+}
+
+STRING 696
+// Abilities: Aamk (Attribute Bonus), Tip (Tooltip - Normal)
+{
+Attribute Bonus - [|cffffcc00Level 6|r]
+}
+
+STRING 697
+// Abilities: Aamk (Attribute Bonus), Tip (Tooltip - Normal)
+{
+Attribute Bonus - [|cffffcc00Level 7|r]
+}
+
+STRING 698
+// Abilities: Aamk (Attribute Bonus), Tip (Tooltip - Normal)
+{
+Attribute Bonus - [|cffffcc00Level 8|r]
+}
+
+STRING 699
+// Abilities: Aamk (Attribute Bonus), Tip (Tooltip - Normal)
+{
+Attribute Bonus - [|cffffcc00Level 9|r]
+}
+
+STRING 700
+// Abilities: Aamk (Attribute Bonus), Tip (Tooltip - Normal)
+{
+Attribute Bonus - [|cffffcc00Level 10|r]
+}
+
+STRING 701
+// Abilities: Aamk (Attribute Bonus), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a total of <Aamk,DataA5> points to Agility, Intelligence, and Strength
+}
+
+STRING 702
+// Abilities: Aamk (Attribute Bonus), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a total of <Aamk,DataA6> points to Agility, Intelligence, and Strength
+}
+
+STRING 703
+// Abilities: Aamk (Attribute Bonus), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a total of <Aamk,DataA7> points to Agility, Intelligence, and Strength
+}
+
+STRING 704
+// Abilities: Aamk (Attribute Bonus), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a total of <Aamk,DataA8> points to Agility, Intelligence, and Strength
+}
+
+STRING 705
+// Abilities: Aamk (Attribute Bonus), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a total of <Aamk,DataA9> points to Agility, Intelligence, and Strength
+}
+
+STRING 706
+// Abilities: Aamk (Attribute Bonus), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a total of <Aamk,DataA10> points to Agility, Intelligence, and Strength
+}
+
+STRING 708
+// Units: ngna (Gnoll Poacher), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: 
+- Critical Strike (5%, 2x Dmg), 
+
+|Cffffcc00Armor|r: Light
+|cffffcc00Attack|r: Piercing
+}
+
+STRING 710
+// Units: nomg (Ogre Magi), Hotkey (Hotkey)
+{
+Z
+}
+
+STRING 711
+// Abilities: A00E (Slow Poison), EditorSuffix (Editor Suffix)
+{
+(35%)
+}
+
+STRING 712
+// Abilities: A00E (Slow Poison), Ubertip (Tooltip - Normal - Extended)
+{
+A poison attack that deals 8 damage per second, and slows the target enemy's movement by 35% and attack by 35% for 5 seconds.
+}
+
+STRING 713
+// Upgrades: R002 (Chaos), Hotkey (Hotkey)
+{
+Z
+}
+
+STRING 714
+// Units: nomg (Ogre Magi), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Bloodlust (30%)
+
+|Cffffcc00Armor|r: Unarmored
+|cffffcc00Attack|r: Normal
+}
+
+STRING 716
+// Units: nwlg (Giant Wolf), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: |n- Critical Strike (20%, 2x Dmg), |n- Fast (+50 movespeed)
+
+|Cffffcc00Armor|r: Medium
+|cffffcc00Attack|r: Normal
+}
+
+STRING 717
+// Units: nssp (Spitting Spider), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: |n- Slow Poison (35% attack and movespeed slow, 8dps)
+
+|Cffffcc00Armor|r: Unarmored
+|cffffcc00Attack|r: Normal
+}
+
+STRING 718
+// Abilities: A00F (Improved Slow), Name (Name)
+{
+Improved Slow
+}
+
+STRING 719
+// Abilities: A00F (Improved Slow), Ubertip (Tooltip - Normal - Extended)
+{
+Slows enemy unit's attack rate by 40% and movement speed by 60%. Lasts 15 seconds.
+}
+
+STRING 720
+// Units: ndrs (Draenei Seer), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Brilliance Aura, Healing Wave, Slow (40%)
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Magic
+}
+
+STRING 721
+// Units: nkog (Kobold Geomancer), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Slow (25%), Bash (8% chance, 15 damage, 2s stun)
+
+|Cffffcc00Armor|r: Medium
+|cffffcc00Attack|r: Magic
+}
+
+STRING 722
+// Units: E002 (Creep Warlord), EditorSuffix (Name - Editor Suffix)
+{
+- skeletal flame master
+}
+
+STRING 724
+// Abilities: A00A (Summon Inferno), Ubertip (Tooltip - Normal - Extended)
+{
+Allows you to summon a defensive inferno for 30 seconds. |n|n|cffc0c0c01200 Range|r
 }
 

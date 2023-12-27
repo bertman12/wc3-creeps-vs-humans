@@ -60,3 +60,24 @@ set all players allied to neutral player and then give the neutral player shop s
 what i will do is create a region for the player where they can summon or unsummon units, each will take 1 food ; the units here will then be used to determine what units you will be spawning
 
 perhaps add an ability called Take Control that lets players take control of the units that spawned from their base, max of 4 units under your control
+
+======
+could add creep camps too, make them neutral passive and make players enemy to them
+
+let players decide what creeps they want to start with
+change gold mine ownership on damage not attack
+220 gold
+perhaos increase bounty given to player with least mines
+remove necrolyte
+
+every creep kill grants you 5 lumber
+use lumber to buff hero
+that way it doesnt feel bad to buy items for your hero
+success with your spawn also means success with your hero
+perhaps i could have creep camps on the outer edges of the map?
+
+give the weakest player 8gold on their base per gold mine difference of them and the strongest player
+
+maybe add an allied mode?
+
+also make it so gold mines show text above them

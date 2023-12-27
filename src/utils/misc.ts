@@ -1,7 +1,7 @@
 import { Effect, MapPlayer, Timer, Unit } from "w3ts";
 import { playerHexColorMap } from "./color";
 
-type ProperColors = "goldenrod" | "gold" | "green" | "yellow" | "red" | "player1-red" | "player2-blue" | "player3-teal" | "player4-purple" | "player5-yellow" | "player6-orange";
+type ProperColors = "goldenrod" | "magenta" | "green" | "yellow" | "red" | "player1-red" | "player2-blue" | "player3-teal" | "player4-purple" | "player5-yellow" | "player6-orange";
 
 export function tColor(text: string | number, color?: ProperColors, hex?: string, alpha?: string) {
     if (color) {
@@ -25,6 +25,7 @@ const properColorHexes = new Map<ProperColors, string>([
     ["green", "00FF00"],
     ["yellow", "FFFF00"],
     ["red", "FF0000"],
+    ["magenta", "FF00FF"],
     ["player1-red", "ff0303"],
     ["player2-blue", "0042ff"],
     ["player3-teal", "1ce6b9"],
