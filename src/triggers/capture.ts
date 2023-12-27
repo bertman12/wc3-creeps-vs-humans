@@ -1,5 +1,5 @@
 import { UNITS } from "src/shared/enums";
-import { forEachPlayer, isPlayingUser, isUser } from "src/utils/players";
+import { forEachPlayer, isUser } from "src/utils/players";
 import { Trigger, Unit } from "w3ts";
 import { MultiboardColumnIndexMap, adjustMultiboardItemValue } from "./multiboard";
 
@@ -15,7 +15,7 @@ export function setup_capture() {
         if (victim && attacker && victim.typeId === UNITS.goldMine) {
             if (victim.life <= victim.maxLife / 3) {
                 forEachPlayer((p) => {
-                    if (isPlayingUser(p) && p.isPlayerAlly(attacker.owner)) {
+                    if (isUser(p) && p.isPlayerAlly(attacker.owner)) {
                         adjustMultiboardItemValue(p.id, MultiboardColumnIndexMap.PlayerMines, 1);
 
                         if (isUser(victim.owner)) {

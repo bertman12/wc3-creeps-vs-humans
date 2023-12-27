@@ -1,8 +1,11 @@
-import { notifyPlayer, ptColor, tColor } from "src/utils/misc";
-import { adjustLumber, forEachPlayer, forEachUnitOfPlayer, isPlayingUser } from "src/utils/players";
+import { MultiboardColumnIndexMap, multiboardData } from "src/triggers/multiboard";
+import { notifyPlayer, ptColor, tColor, useTempEffect } from "src/utils/misc";
+import { adjustGold, adjustLumber, forEachPlayer, forEachUnitOfPlayer, isPlayingUser, isUser } from "src/utils/players";
 import { SpawnData } from "src/utils/spawnSystem";
-import { FogModifier, MapPlayer, Trigger, Unit } from "w3ts";
-import { UNITS } from "./enums";
+import { createTextTagOnUnit } from "src/utils/textTag";
+import { delayedTimer } from "src/utils/timer";
+import { Effect, FogModifier, MapPlayer, Trigger, Unit } from "w3ts";
+import { ABILITIES, UNITS } from "./enums";
 
 export const playerStates = new Map<number, PlayerState>();
 
@@ -28,33 +31,24 @@ export class PlayerState {
         });
     }
 
-    setup_defeatPlayer(playerBase: Unit) {
-        const t = Trigger.create();
+    checkWinCondition() {
+        let hasWon = true;
 
-        t.registerUnitEvent(playerBase, EVENT_UNIT_DEATH);
+        playerStates.forEach((state) => {
+            //Is my own base alive?
+            if (!this.ownedSpawn?.spawnBase?.isAlive()) {
+                hasWon = false;
+            }
 
-        t.addAction(() => {
-            this.cleanupPlayer();
+            //Are there any other player bases alive?
+            if (state.ownedSpawn?.spawnOwner !== this.player && state.ownedSpawn?.spawnBase?.isAlive()) {
+                hasWon = false;
+            }
+        });
 
-            notifyPlayer(`${ptColor(this.player, this.player.name)} has been ${tColor("defeated", "red")}!`);
-            const clearFogState = FogModifier.create(this.player, FOG_OF_WAR_VISIBLE, 0, 0, 25000, true, true);
-            clearFogState?.start();
-
-            //Check if any other player spawns remain
-            let hasPlayerWon = true;
-
-            playerStates.forEach((state) => {
-                //Check each player's spawn beside your own
-                if (state.ownedSpawn?.spawnBase?.isAlive() && state.ownedSpawn.spawnOwner !== this.player) {
-                    hasPlayerWon = false;
-                }
-
-                if (!this.ownedSpawn?.spawnBase?.isAlive()) {
-                    hasPlayerWon = false;
-                }
-            });
-
-            if (hasPlayerWon) {
+        if (hasWon) {
+            //delay so there is some space between the losing players message
+            delayedTimer(1, () => {
                 notifyPlayer(`${ptColor(this.player, this.player.name)} has won!`);
                 ClearMapMusic();
                 StopMusic(false);
@@ -62,8 +56,82 @@ export class PlayerState {
 
                 const clearFogState = FogModifier.create(this.player, FOG_OF_WAR_VISIBLE, 0, 0, 25000, true, true);
                 clearFogState?.start();
+            });
+        }
+
+        return hasWon;
+    }
+
+    setup_defeatPlayer(playerBase: Unit) {
+        const t = Trigger.create();
+
+        t.registerUnitEvent(playerBase, EVENT_UNIT_DEATH);
+
+        t.addAction(() => {
+            this.cleanupPlayer();
+            notifyPlayer(`${ptColor(this.player, this.player.name)} has been ${tColor("defeated", "red")}!`);
+            const clearFogState = FogModifier.create(this.player, FOG_OF_WAR_VISIBLE, 0, 0, 25000, true, true);
+            clearFogState?.start();
+
+            //Check all players to see if there is a winner.
+            playerStates.forEach((pState) => {
+                if (pState.player !== this.player) {
+                    pState.checkWinCondition();
+                }
+            });
+        });
+    }
+
+    /**
+     * Triggered when a gold mine is captured
+     */
+    adjustBaseGoldIncome() {
+        let mostMines = 0;
+
+        forEachPlayer((p) => {
+            if (isUser(p)) {
+                const mineCount = multiboardData[p.id][MultiboardColumnIndexMap.PlayerMines];
+
+                if (mineCount === undefined) return;
+
+                if (mineCount > mostMines) {
+                    mostMines = mineCount;
+                }
             }
         });
+
+        const playerMineCount = multiboardData[this.player.id][MultiboardColumnIndexMap.PlayerMines];
+        const diff = mostMines - playerMineCount;
+
+        if (diff > 0) {
+            this.baseGoldIncome = 50 + 8 * diff;
+        } else if (diff <= 0) {
+            this.baseGoldIncome = 50;
+        }
+    }
+
+    //Remove logic from spawn class
+    setup_grantBaseIncome(playerBase: Unit) {
+        if (playerBase) {
+            playerBase.startAbilityCooldown(ABILITIES.playerBase_summonInfernal, 120);
+
+            const trig = Trigger.create();
+
+            trig.registerUnitStateEvent(playerBase, UNIT_STATE_MANA, GREATER_THAN_OR_EQUAL, playerBase.maxMana);
+
+            trig.addAction(() => {
+                if (playerBase) {
+                    this.adjustBaseGoldIncome();
+
+                    useTempEffect(Effect.createAttachment("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", playerBase, "overhead"), 3);
+
+                    const goldAwarded = this.baseGoldIncome;
+                    adjustGold(playerBase.owner, goldAwarded);
+                    playerBase.mana = 0;
+                    createTextTagOnUnit(playerBase, tColor(`+${goldAwarded.toFixed(0)}`, "goldenrod"));
+                }
+            });
+        }
     }
 }
 
@@ -77,7 +145,7 @@ export function setupPlayerStateInstances() {
             const state = new PlayerState(p);
             playerStates.set(p.id, state);
             adjustLumber(p, 1000);
-            SetPlayerHandicapXP(p.handle, 0.6);
+            SetPlayerHandicapXP(p.handle, 0.5);
         }
     });
 }

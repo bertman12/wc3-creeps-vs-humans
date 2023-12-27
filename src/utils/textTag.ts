@@ -27,7 +27,7 @@ export function createTextTagOnUnit(unit: Unit, text: string, config?: { duratio
     tag?.setText(text, 10, true);
     tag?.setLifespan(2);
 
-    if (config?.useFade) {
+    if (config?.useFade !== false) {
         tag?.setFadepoint(0.01);
     }
 

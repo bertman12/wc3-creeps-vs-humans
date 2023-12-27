@@ -3,6 +3,7 @@ import { playerStates } from "src/shared/playerState";
 import { notifyPlayer, ptColor, tColor } from "src/utils/misc";
 import { adjustFoodCap, forEachPlayer, isPlayingUser } from "src/utils/players";
 import { MapPlayer, Trigger } from "w3ts";
+import { MultiboardColumnIndexMap, adjustMultiboardItemValue, setMultiboardItemIcon } from "./multiboard";
 
 export function setup_playerGetsUpgrade() {
     //grab the map player who got the upgrade
@@ -32,10 +33,14 @@ export function setup_playerGetsUpgrade() {
 
             if (tech === UPGRADES.tier2Units) {
                 notifyPlayer(`${ptColor(player, player.name)} has unlocked ${tColor("Tier 2", "magenta")} units.`);
+                adjustMultiboardItemValue(player.id, MultiboardColumnIndexMap.PlayerTier, 1);
+                setMultiboardItemIcon(player.id, MultiboardColumnIndexMap.PlayerTier, "ReplaceableTextures\\CommandButtons\\BTNImprovedStrengthOfTheWild.blp");
             }
 
             if (tech === UPGRADES.tier3Units) {
                 notifyPlayer(`${ptColor(player, player.name)} has unlocked ${tColor("Tier 3", "magenta")} units.`);
+                adjustMultiboardItemValue(player.id, MultiboardColumnIndexMap.PlayerTier, 1);
+                setMultiboardItemIcon(player.id, MultiboardColumnIndexMap.PlayerTier, "ReplaceableTextures\\CommandButtons\\BTNAdvancedStrengthOfTheWild.blp");
             }
         }
     });

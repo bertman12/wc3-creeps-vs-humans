@@ -81,3 +81,8 @@ give the weakest player 8gold on their base per gold mine difference of them and
 maybe add an allied mode?
 
 also make it so gold mines show text above them
+
+show tier levels on multiboard
+
+doint require uset to be playing for gold mine capture
+

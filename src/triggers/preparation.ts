@@ -4,7 +4,7 @@ import { playerStates } from "src/shared/playerState";
 import { notifyPlayer, tColor } from "src/utils/misc";
 import { forEachPlayer, isPlayingUser } from "src/utils/players";
 import { delayedTimer } from "src/utils/timer";
-import { MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts";
+import { MapPlayer, Rectangle, Sound, Timer, Trigger, Unit } from "w3ts";
 import { OrderId } from "w3ts/globals";
 import { MultiboardColumnIndexMap, setMultiboardItemIcon } from "./multiboard";
 import { createSpawnBuilder } from "./spawnBuilder";
@@ -38,6 +38,8 @@ export function setup_preparation(onPrepTimeEnd: (...args: any[]) => any) {
         //After prep time has ended
         prepTimer.start(GameConfig.heroPreparationTime, false, () => {
             prepHeroPurchaseTrigger.destroy();
+            Sound.fromHandle(gg_snd_TheHornOfCenarius)?.start();
+
             TimerDialogDisplayBJ(false, prepTimerDialog);
 
             notifyPlayer("Preparation time has ended.");

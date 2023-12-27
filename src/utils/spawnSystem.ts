@@ -1,12 +1,11 @@
 import { ABILITIES, MinimapIconPath, UNITS, UPGRADES, primaryCaptureTargets } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
 import { getPlayerSpawnBuilderRegionMap } from "src/triggers/spawnBuilder";
-import { adjustGold, forEachPlayer, forEachUnitInRectangle, forEachUnitTypeOfPlayer, isPlayingUser } from "src/utils/players";
+import { forEachPlayer, forEachUnitInRectangle, forEachUnitTypeOfPlayer, isPlayingUser } from "src/utils/players";
 import { Effect, MapPlayer, Point, Rectangle, Timer, Trigger, Unit } from "w3ts";
 import { OrderId, Players } from "w3ts/globals";
 import { playerRGBMap } from "./color";
-import { notifyPlayer, ptColor, tColor, useTempEffect } from "./misc";
-import { createTextTagOnUnit } from "./textTag";
+import { notifyPlayer, ptColor, tColor } from "./misc";
 import { delayedTimer } from "./timer";
 
 //30 seconds being the hard spawn, 15 second intervals being the normal spawn difficulty; maybe fr
@@ -148,22 +147,8 @@ export class SpawnData {
 
             if (playerState) {
                 playerState.setup_defeatPlayer(this.spawnBase);
+                playerState.setup_grantBaseIncome(this.spawnBase);
             }
-
-            const trig = Trigger.create();
-
-            trig.registerUnitStateEvent(this.spawnBase, UNIT_STATE_MANA, GREATER_THAN_OR_EQUAL, this.spawnBase.maxMana);
-
-            trig.addAction(() => {
-                if (this.spawnBase) {
-                    useTempEffect(Effect.createAttachment("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", this.spawnBase, "overhead"), 3);
-
-                    const goldAwarded = 50;
-                    adjustGold(this.spawnBase.owner, goldAwarded);
-                    this.spawnBase.mana = 0;
-                    createTextTagOnUnit(this.spawnBase, tColor(`+${goldAwarded.toFixed(0)}`, "goldenrod"));
-                }
-            });
         }
 
         this.setup_removeDeadUnitFromSpawnCount();
@@ -266,7 +251,8 @@ export class SpawnData {
         t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH);
         t.addAction(() => {
             const u = Unit.fromEvent();
-
+            //Summonable units - wards?
+            const invalidUnits = [UNITS.summon_spiritPig, UNITS.summon_treant, UNITS.healingWard];
             if (u && !u.owner.isPlayerAlly(Players[0])) {
                 this.spawnUnitCount--;
             }
@@ -289,7 +275,6 @@ export class SpawnData {
             //Doesn't keep track of a previous target that a previous spawn was attacking only the most recent one, thats why it fails.
             //Condition will fail for past spawns because the current target is no longer the same
             if (u && u === this.currentAttackTarget) {
-                print("Current attack target has had owner converted, choosing new target...");
                 this.orderNewAttack(this.units, false);
             }
 
@@ -491,7 +476,6 @@ export class SpawnData {
                             // const dist = DistanceBetweenPoints(currLoc, locU);
 
                             const distance = Math.sqrt(Math.pow(u.x - currentPoint.x, 2) + Math.pow(u.y - currentPoint.y, 2));
-                            print(distance);
 
                             // //Choose the point closest to the current attack point
 
@@ -499,15 +483,15 @@ export class SpawnData {
                                 shortestDistance = distance;
                                 closestCapturableStructure = u;
 
-                                previousEffect?.setColor(0, 0, 0);
+                                // previousEffect?.setColor(0, 0, 0);
 
-                                const rallyFlag = Effect.create("UI\\Feedback\\RallyPoint\\RallyPoint.mdl", u.x, u.y);
-                                rallyFlag?.setScaleMatrix(2, 2, 2);
-                                rallyFlag?.setColorByPlayer(this.spawnOwner);
+                                // const rallyFlag = Effect.create("UI\\Feedback\\RallyPoint\\RallyPoint.mdl", u.x, u.y);
+                                // rallyFlag?.setScaleMatrix(2, 2, 2);
+                                // rallyFlag?.setColorByPlayer(this.spawnOwner);
 
-                                previousEffect = rallyFlag;
+                                // previousEffect = rallyFlag;
 
-                                print("Shortest Distance: ", distance);
+                                // print("Shortest Distance: ", distance);
                             }
                         });
                     }
@@ -517,9 +501,9 @@ export class SpawnData {
 
         closestCapturableStructure = closestCapturableStructure as unknown as Unit;
 
-        const rallyFlag = Effect.create("UI\\Feedback\\RallyPoint\\RallyPoint.mdl", closestCapturableStructure.x, closestCapturableStructure.y);
-        rallyFlag?.setScaleMatrix(4, 4, 4);
-        rallyFlag?.setColorByPlayer(this.spawnOwner);
+        // const rallyFlag = Effect.create("UI\\Feedback\\RallyPoint\\RallyPoint.mdl", closestCapturableStructure.x, closestCapturableStructure.y);
+        // rallyFlag?.setScaleMatrix(4, 4, 4);
+        // rallyFlag?.setColorByPlayer(this.spawnOwner);
         return closestCapturableStructure;
 
         //If there exists valid attack points in the scanned region, of the valid points, select the closest. Then proceed

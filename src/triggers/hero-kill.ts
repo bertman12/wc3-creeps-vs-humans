@@ -1,6 +1,6 @@
 import { playerStates } from "src/shared/playerState";
 import { notifyPlayer, ptColor, tColor } from "src/utils/misc";
-import { adjustGold, forEachPlayer, isPlayingUser } from "src/utils/players";
+import { adjustGold, forEachPlayer, isUser } from "src/utils/players";
 import { MapPlayer, Sound, Trigger, Unit } from "w3ts";
 import { MultiboardColumnIndexMap, adjustMultiboardItemValue } from "./multiboard";
 
@@ -28,7 +28,7 @@ export function setup_trackPlayerKillCount() {
         let playerToAward: null | MapPlayer = null;
 
         forEachPlayer((p) => {
-            if (p.isPlayerAlly(attacker.owner) && isPlayingUser(p)) {
+            if (p.isPlayerAlly(attacker.owner) && isUser(p)) {
                 adjustMultiboardItemValue(p.id, MultiboardColumnIndexMap.PlayerKills, 1);
                 playerToAward = p;
 
@@ -54,6 +54,8 @@ export function setup_trackPlayerKillCount() {
                 }
 
                 return;
+            } else if (!isUser(attacker.owner) && deadUnit.isHero()) {
+                // notifyPlayer(`${ptColor(deadUnit.owner, deadUnit.owner.name)}'s hero died of unknown means!`);
             }
         });
     });

@@ -16,3 +16,4 @@ declare var gg_snd_FootmanPissed4: sound;
 declare var gg_snd_PeasantPissed3: sound;
 declare var gg_snd_MuradinPissed7: sound;
 declare var gg_snd_WhiteTaurenPissed4: sound;
+declare var gg_snd_TheHornOfCenarius: sound;

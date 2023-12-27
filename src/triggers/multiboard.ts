@@ -1,4 +1,3 @@
-import { UNITS } from "src/shared/enums";
 import { ptColor } from "src/utils/misc";
 import { forEachPlayer, isUser } from "src/utils/players";
 import { delayedTimer } from "src/utils/timer";
@@ -8,6 +7,7 @@ let killCountMultiboard: Multiboard | undefined = undefined;
 
 export enum MultiboardColumnIndexMap {
     PlayerName,
+    PlayerTier,
     PlayerKills,
     PlayerMines,
 }
@@ -43,7 +43,7 @@ export function setup_multiBoard() {
         //Initialization for settings
         killCountMultiboard.title = "Player Info";
         killCountMultiboard.rows = 1;
-        killCountMultiboard.columns = 3;
+        killCountMultiboard.columns = 4;
         // killCountMultiboard.setItemsWidth(0.15);
         killCountMultiboard.setItemsStyle(true, false);
         killCountMultiboard.display(true);
@@ -55,12 +55,17 @@ export function setup_multiBoard() {
         playerNameColumnItem?.setStyle(true, false);
         playerNameColumnItem?.setWidth(0.2);
 
-        const killCountColumnItem = killCountMultiboard?.createItem(1, 2);
+        const tierLevelColumnItem = killCountMultiboard?.createItem(1, 2);
+        tierLevelColumnItem?.setValue(`Tier`);
+        tierLevelColumnItem?.setStyle(true, false);
+        tierLevelColumnItem?.setWidth(0.05);
+
+        const killCountColumnItem = killCountMultiboard?.createItem(1, 3);
         killCountColumnItem?.setValue(`Kills`);
         killCountColumnItem?.setStyle(true, false);
         killCountColumnItem?.setWidth(0.05);
 
-        const mineCountColumnItem = killCountMultiboard?.createItem(1, 3);
+        const mineCountColumnItem = killCountMultiboard?.createItem(1, 4);
         mineCountColumnItem?.setValue(`Mines`);
         mineCountColumnItem?.setStyle(true, false);
         mineCountColumnItem?.setWidth(0.05);
@@ -79,21 +84,27 @@ export function setup_multiBoard() {
                 playerNameItem?.setStyle(true, true);
                 playerNameItem?.setWidth(0.2);
 
-                const killCountItem = killCountMultiboard.createItem(p.id + 2, 2);
+                const tierLevelItem = killCountMultiboard.createItem(p.id + 2, 2);
+                tierLevelItem?.setIcon(`ReplaceableTextures\\CommandButtons\\BTNStrengthOfTheWild.blp`);
+                tierLevelItem?.setValue("1");
+                tierLevelItem?.setStyle(true, true);
+                tierLevelItem?.setWidth(0.05);
+
+                const killCountItem = killCountMultiboard.createItem(p.id + 2, 3);
                 killCountItem?.setIcon(`ReplaceableTextures\\CommandButtons\\BTNCorpseExplode.blp`);
                 killCountItem?.setValue("0");
                 killCountItem?.setStyle(true, true);
                 killCountItem?.setWidth(0.05);
 
-                const mineCountItem = killCountMultiboard.createItem(p.id + 2, 3);
+                const mineCountItem = killCountMultiboard.createItem(p.id + 2, 4);
                 mineCountItem?.setIcon(`ReplaceableTextures\\CommandButtons\\BTNGoldMine.blp`);
                 mineCountItem?.setValue("0");
                 mineCountItem?.setStyle(true, true);
                 mineCountItem?.setWidth(0.05);
 
                 //Initializing multiboard items for the player
-                multiboardItems.push([playerNameItem, killCountItem, mineCountItem]);
-                multiboardData.push([`${ptColor(p, p.name)}`, 0, 0]);
+                multiboardItems.push([playerNameItem, tierLevelItem, killCountItem, mineCountItem]);
+                multiboardData.push([`${ptColor(p, p.name)}`, 1, 0, 0]);
             }
         });
     });
@@ -144,18 +155,3 @@ export function setMultiboardItemIcon(row: number, column: number, iconPath: str
 
     playerMultiboardItems[column]?.setIcon(iconPath);
 }
-
-const heroIconsMap = new Map<number, string>([
-    [UNITS.hero_makuraLord, "ReplaceableTextures\\CommandButtons\\BTNLobstrokkBlue.blp"],
-    [UNITS.hero_overlordArachnathid, "ReplaceableTextures\\CommandButtons\\BTNArachnathidpurple.blp"],
-    [UNITS.hero_shadowDemon, "ReplaceableTextures\\CommandButtons\\BTNSpiritOfVengeance.blp"],
-    [UNITS.hero_centaurKhan, "ReplaceableTextures\\CommandButtons\\BTNCentaurKhan.blp"],
-    [UNITS.hero_skeletalFlameMaster, "ReplaceableTextures\\CommandButtons\\BTNSkeletonArcher.blp"],
-    [UNITS.hero_gnollWarden, "ReplaceableTextures\\CommandButtons\\BTNGnollWarden.blp"],
-    [UNITS.hero_murlocKing, "ReplaceableTextures\\CommandButtons\\BTNMurlocNightCrawler.blp"],
-    [UNITS.hero_revenant, "ReplaceableTextures\\CommandButtons\\BTNRevenant.blp"],
-    [UNITS.hero_salamander, "ReplaceableTextures\\CommandButtons\\BTNThunderLizardSalamander.blp"],
-    [UNITS.hero_satyr, "ReplaceableTextures\\CommandButtons\\BTNSatyr.blp"],
-    [UNITS.hero_spiderBroodMaster, "ReplaceableTextures\\CommandButtons\\BTNnerubianSpiderLord.blp"],
-    [UNITS.hero_ursa, "ReplaceableTextures\\CommandButtons\\BTNPolarFurbolgElder.blp"],
-]);

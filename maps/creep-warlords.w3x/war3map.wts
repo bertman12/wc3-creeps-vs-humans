@@ -1,16 +1,16 @@
 ﻿STRING 1
 {
-Creep Warlords - 1.03
+Creep Warlords - 1.05
 }
 
 STRING 2
 {
-6
+2 or 3 or 4 or 6
 }
 
 STRING 3
 {
-Capture Gold Mines to increase your income.
+|cffffcc0018 slots to prevent stutter step lag from ai.|r
 Customize your creep spawn.
 Build towers to defend your mines.
 Fight with creeps to attack players.
@@ -31,7 +31,7 @@ Player 1
 
 STRING 7
 {
-Creep Warlords - 1.03
+Creep Warlords - 1.05
 }
 
 STRING 8
@@ -720,30 +720,6 @@ STRING 184
 Increase Food +5
 }
 
-STRING 185
-// Upgrades: R001 (Chaos), Tip (Tooltip)
-{
-Research Increase Food +2
-}
-
-STRING 186
-// Upgrades: R001 (Chaos), Tip (Tooltip)
-{
-Research Increase Food +3
-}
-
-STRING 187
-// Upgrades: R001 (Chaos), Tip (Tooltip)
-{
-Research Increase Food +4
-}
-
-STRING 188
-// Upgrades: R001 (Chaos), Tip (Tooltip)
-{
-Research Increase Food +5
-}
-
 STRING 193
 // Units: E001 (Creep Warlord), Propernames (Proper Names)
 {
@@ -1108,96 +1084,6 @@ STRING 295
 // Units: nits (Ice Troll Berserker), Hotkey (Hotkey)
 {
 W
-}
-
-STRING 297
-// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
-{
-Increases unit |cffffcc00health|R by 5%.
-}
-
-STRING 298
-// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
-{
-Increases unit |cffffcc00health|R by 5%.
-}
-
-STRING 299
-// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
-{
-Increases unit |cffffcc00health|R by 5%.
-}
-
-STRING 300
-// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
-{
-Increases unit |cffffcc00health|R by 5%.
-}
-
-STRING 301
-// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
-{
-Increases unit |cffffcc00health|R by 5%.
-}
-
-STRING 302
-// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
-{
-Increases unit |cffffcc00health|R by 5%.
-}
-
-STRING 303
-// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
-{
-Increases unit |cffffcc00health|R by 5%.
-}
-
-STRING 304
-// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
-{
-Increases unit |cffffcc00health|R by 5%.
-}
-
-STRING 305
-// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
-{
-Increases unit |cffffcc00health|R by 5%.
-}
-
-STRING 306
-// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
-{
-Increases unit |cffffcc00health|R by 5%.
-}
-
-STRING 307
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
-{
-|cffffcc00+1 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
-}
-
-STRING 308
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
-{
-|cffffcc00+2 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
-}
-
-STRING 309
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
-{
-|cffffcc00+3 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
-}
-
-STRING 310
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
-{
-|cffffcc00+4 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
-}
-
-STRING 311
-// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
-{
-|cffffcc00+5 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
 }
 
 STRING 312
@@ -1912,12 +1798,6 @@ STRING 447
 Can learn |cffffcc00Chain Lightning|r, |cffffcc00Divine Shield|r, |cffffcc00Life Drain|r, and |cffffcc00Stampede|r.       |N|N|cff8080ffIntelligence|r
 }
 
-STRING 448
-// Units: H005 (Creep Warlord), Ubertip (Tooltip - Extended)
-{
-Can learn |cffffcc00Impale|r, |cffffcc00Mana Burn|r, |cffffcc00Siphon Mana|r, |cffffcc00Locust Swarm|r.       |N|N|cff8080ffIntelligence|r
-}
-
 STRING 449
 // Units: H007 (Creep Warlord), Ubertip (Tooltip - Extended)
 {
@@ -2237,13 +2117,13 @@ Q
 }
 
 STRING 502
-// Abilities: ANhs (Healing Spray), Researchhotkey (Hotkey - Learn)
+// Abilities: ANdh (Drunken Haze), Researchhotkey (Hotkey - Learn)
 {
 W
 }
 
 STRING 503
-// Abilities: ANhs (Healing Spray), Hotkey (Hotkey - Normal)
+// Abilities: ANdh (Drunken Haze), Hotkey (Hotkey - Normal)
 {
 W
 }
@@ -2279,7 +2159,7 @@ Q
 }
 
 STRING 509
-// Abilities: ANdh (Drunken Haze), Researchhotkey (Hotkey - Learn)
+// Abilities: A00A (Summon Inferno), Hotkey (Hotkey - Normal)
 {
 W
 }
@@ -2572,12 +2452,6 @@ STRING 573
 |cffffcc00Attack|r: Normal
 }
 
-STRING 574
-// Units: O001 (Creep Warlord), Ubertip (Tooltip - Extended)
-{
-Can learn |cffffcc00Breath of Fire|r, |cffffcc00Thorns Aura|r, |cffffcc00Healing Spray|r and |cffffcc00Reincarnation|r.   |N|N|cffff0000Strength|r
-}
-
 STRING 575
 // Upgrades: Rhme (Iron Forged Swords,Steel Forged Swords,Mithril Forged Swords), Hotkey (Hotkey)
 {
@@ -2627,13 +2501,13 @@ Q
 }
 
 STRING 583
-// Abilities: ANdh (Drunken Haze), Hotkey (Hotkey - Normal)
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
 {
 W
 }
 
 STRING 584
-// Abilities: A00A (Summon Inferno), Hotkey (Hotkey - Normal)
+// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
 {
 W
 }
@@ -2832,18 +2706,6 @@ STRING 621
 Can learn |cffffcc00Hex|R, |cffffcc00Shadow Strike|r, |cffffcc00Drunken Haze|r, |cffffcc00Avatar of Vengance|r.    |N|N|cff00ff00Agility|r
 }
 
-STRING 622
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
-{
-W
-}
-
-STRING 623
-// Upgrades: Rhar (Iron Plating,Steel Plating,Mithril Plating), Hotkey (Hotkey)
-{
-W
-}
-
 STRING 624
 // Abilities: AIav (), EditorSuffix (Editor Suffix)
 {
@@ -2989,12 +2851,6 @@ STRING 663
 // Items: tpow (Tome of Knowledge), Ubertip (Tooltip - Extended)
 {
 Permanently increases the |cffff0000Strength|r, |cff00ff00Agility|r and |cff8080ffIntelligence|r of the Hero by |cffffcc001|R when used.
-}
-
-STRING 664
-// Abilities: A007 (Spawn Info), Ubertip (Tooltip - Normal - Extended)
-{
-Units spawn every 10 seconds.|n|NYour base provides |cffffff00+50 gold|r every 10 seconds.       |n|N|cffffcc00Max of 110 units at any given time.|r
 }
 
 STRING 665
@@ -3335,5 +3191,173 @@ STRING 724
 // Abilities: A00A (Summon Inferno), Ubertip (Tooltip - Normal - Extended)
 {
 Allows you to summon a defensive inferno for 30 seconds. |n|n|cffc0c0c01200 Range|r
+}
+
+STRING 725
+// Abilities: A007 (Spawn Info), Ubertip (Tooltip - Normal - Extended)
+{
+Units spawn every 10 seconds.|n|NYour base provides |cffffff00+50 gold|r every 10 seconds. |n|NIf the leading enemy has more mines than you, you get |cffffff00+8 gold |rextra per mine difference.       |n|N|cffffcc00Max of 110 units at any given time.|r
+}
+
+STRING 726
+// Units: H005 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Impale|r, |cffffcc00Shockwave|r, |cffffcc00Siphon Mana|r, |cffffcc00Locust Swarm|r.       |N|N|cff8080ffIntelligence|r
+}
+
+STRING 727
+// Units: O001 (Creep Warlord), Ubertip (Tooltip - Extended)
+{
+Can learn |cffffcc00Breath of Fire|r, |cffffcc00Mana Burn|r, |cffffcc00Healing Spray|r and |cffffcc00Reincarnation|r.   |N|N|cffff0000Strength|r
+}
+
+STRING 731
+// Items: phea (Potion of Healing), Ubertip (Tooltip - Extended)
+{
+Heals |cff80ff80<AIh1,DataA1> hit points|r when used. |n|nContains 2 charges. |n|n|cffffcc00Max stacks: 2|r
+}
+
+STRING 732
+// Items: pinv (Potion of Invisibility), Ubertip (Tooltip - Extended)
+{
+|cff87ceebNon-Combat Consumable|r|nRenders the Hero|cffffcc00 invisible|R for |cffffcc00<AIv1,Dur1> seconds|R when used. |n|nAn invisible Hero is untargetable by the enemy unless detected. If the Hero attacks, uses an ability, or casts a spell, the invisibility effect is lost.
+}
+
+STRING 733
+// Items: pnvl (Potion of Lesser Invulnerability), Ubertip (Tooltip - Extended)
+{
+Makes the Hero |cffffcc00invulnerable|r to damage for |cffffcc00<AIvl,Dur1> seconds|r when used. An invulnerable Hero may not be the target of spells or effects.
+}
+
+STRING 734
+// Items: pman (Potion of Mana), Ubertip (Tooltip - Extended)
+{
+Restores|cff8080ff <AIm1,DataA1> mana|r when used.     |n|nContains 2 charges. |n|n|cffffcc00Max stacks: 2|r
+}
+
+STRING 735
+// Items: vamp (Vampiric Potion), Ubertip (Tooltip - Extended)
+{
+Adds |cffffcc00<AIpv,DataA1> bonus damage|R and |cffffcc0075% life steal|r to the Hero.|n |nLasts <AIpv,Dur1> seconds.
+}
+
+STRING 736
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Food +1
+}
+
+STRING 737
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Food +1
+}
+
+STRING 738
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Food +1
+}
+
+STRING 739
+// Upgrades: R001 (Chaos), Tip (Tooltip)
+{
+Research Increase Food +1
+}
+
+STRING 740
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc00+1 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
+}
+
+STRING 741
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc00+2 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
+}
+
+STRING 742
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc00+3 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
+}
+
+STRING 743
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc00+4 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
+}
+
+STRING 744
+// Upgrades: R001 (Chaos), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc00+5 Food|R |N|NKeep in mind, you can only have |cffffcc00110|R units from your spawn at any given time.|n|n|cffffcc00Helps to recover and reach your spawn limit faster.|r
+}
+
+STRING 745
+// Items: afac (Alleria's Flute of Accuracy), Ubertip (Tooltip - Extended)
+{
+Increases nearby |cffffcc00ranged units' damage|r by |cffffcc0015%|r. |n|N|cffc0c0c0900 Range   |r|n|nDoes not stack with Trueshot Aura.
+}
+
+STRING 746
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc005%|r  |n|NIncreases unit |cffffcc00health|R by 5%.
+}
+
+STRING 747
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc0010%|r  |n|NIncreases unit |cffffcc00health|R by 5%.
+}
+
+STRING 748
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc0015%|r  |n|NIncreases unit |cffffcc00health|R by 5%.
+}
+
+STRING 749
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc0020%|r  |n|NIncreases unit |cffffcc00health|R by 5%.
+}
+
+STRING 750
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc0025%|r  |n|NIncreases unit |cffffcc00health|R by 5%.
+}
+
+STRING 751
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc0030%|r  |n|NIncreases unit |cffffcc00health|R by 5%.
+}
+
+STRING 752
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc0035%|r  |n|NIncreases unit |cffffcc00health|R by 5%.
+}
+
+STRING 753
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc0040%|r  |n|NIncreases unit |cffffcc00health|R by 5%.
+}
+
+STRING 754
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc0045%|r  |n|NIncreases unit |cffffcc00health|R by 5%.
+}
+
+STRING 755
+// Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Total: |cffffcc0050%|r  |n|NIncreases unit |cffffcc00health|R by 5%.
 }
 

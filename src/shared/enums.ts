@@ -26,6 +26,10 @@ export enum UNITS {
     hero_satyr = FourCC("O000"),
     hero_spiderBroodMaster = FourCC("E004"),
     hero_ursa = FourCC("H006"),
+
+    summon_spiritPig = FourCC("nspp"),
+    summon_treant = FourCC("efon"),
+    healingWard = FourCC("ohwd"),
 }
 
 export enum ABILITIES {

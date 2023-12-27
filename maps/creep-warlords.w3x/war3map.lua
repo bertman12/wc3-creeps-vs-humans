@@ -16,6 +16,7 @@ gg_snd_FootmanPissed4 = nil
 gg_snd_PeasantPissed3 = nil
 gg_snd_MuradinPissed7 = nil
 gg_snd_WhiteTaurenPissed4 = nil
+gg_snd_TheHornOfCenarius = nil
 function InitGlobals()
 end
 
@@ -62,6 +63,10 @@ SetSoundChannel(gg_snd_WhiteTaurenPissed4, 0)
 SetSoundVolume(gg_snd_WhiteTaurenPissed4, 127)
 SetSoundDistances(gg_snd_WhiteTaurenPissed4, 100000.0, 100000.0)
 SetSoundDistanceCutoff(gg_snd_WhiteTaurenPissed4, 3000.0)
+gg_snd_TheHornOfCenarius = CreateSound("Sound/Ambient/DoodadEffects/TheHornOfCenarius.flac", false, false, false, 0, 0, "DefaultEAXON")
+SetSoundParamsFromLabel(gg_snd_TheHornOfCenarius, "HornOfCenariusSound")
+SetSoundDuration(gg_snd_TheHornOfCenarius, 12120)
+SetSoundVolume(gg_snd_TheHornOfCenarius, 127)
 end
 
 function CreateNeutralHostileBuildings()
@@ -100,6 +105,7 @@ local life
 
 u = BlzCreateUnitWithSkin(p, FourCC("n000"), -6400.0, -7040.0, 270.000, FourCC("n000"))
 SetUnitColor(u, ConvertPlayerColor(0))
+u = BlzCreateUnitWithSkin(p, FourCC("n003"), 448.0, 128.0, 270.000, FourCC("n003"))
 end
 
 function CreatePlayerBuildings()
