@@ -4,7 +4,7 @@ import { setup_preventMassTeleportGrief } from "./triggers/anti-grief";
 import { setup_capture } from "./triggers/capture";
 import { setup_fixSpawns } from "./triggers/fixSpawns";
 import { setup_GoldMineEco } from "./triggers/goldMineEconomy";
-import { setup_trackPlayerKillCount } from "./triggers/hero-kill";
+import { setup_trackPlayerKillCount } from "./triggers/kill-count";
 import { setup_createTextForItemCast, setup_createTextForSpellCast } from "./triggers/heroSpellCastTag";
 import { setup_multiBoard } from "./triggers/multiboard";
 import { setup_playerLeaves } from "./triggers/player-leaves";

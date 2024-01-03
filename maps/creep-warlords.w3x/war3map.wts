@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-Creep Warlords - 1.05
+Creep Warlords - 1.06
 }
 
 STRING 2
@@ -31,7 +31,7 @@ Player 1
 
 STRING 7
 {
-Creep Warlords - 1.05
+Creep Warlords - 1.06
 }
 
 STRING 8
@@ -1370,15 +1370,6 @@ STRING 360
 
 |Cffffcc00Armor|r: Medium
 |cffffcc00Attack|r: Normal
-}
-
-STRING 361
-// Units: nsrn (Stormreaver Necrolyte), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Bloodlust, Chain Lightning
-
-|Cffffcc00Armor|r: Unarmored
-|cffffcc00Attack|r: Piercing
 }
 
 STRING 363
@@ -2931,12 +2922,6 @@ STRING 677
 T
 }
 
-STRING 678
-// Abilities: Anhe (Heal), Ubertip (Tooltip - Normal - Extended)
-{
-Heals a target friendly non-mechanical wounded unit for |cff80ff8015 health|r.
-}
-
 STRING 679
 // Abilities: Anh1 (Heal), Ubertip (Tooltip - Normal - Extended)
 {
@@ -3359,5 +3344,20 @@ STRING 755
 // Upgrades: R004 (Animal War Training), Ubertip (Tooltip - Extended)
 {
 Total: |cffffcc0050%|r  |n|NIncreases unit |cffffcc00health|R by 5%.
+}
+
+STRING 756
+// Units: nsrn (Stormreaver Necrolyte), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Bloodlust (40%), Chain Lightning
+
+|Cffffcc00Armor|r: Unarmored
+|cffffcc00Attack|r: Piercing
+}
+
+STRING 757
+// Abilities: Anhe (Heal), Ubertip (Tooltip - Normal - Extended)
+{
+Heals a target friendly non-mechanical wounded unit for |cff80ff8020 health|r.
 }
 

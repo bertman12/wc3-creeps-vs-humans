@@ -20,6 +20,7 @@ export function setup_createTextForSpellCast() {
         }
     });
 }
+
 export function setup_createTextForItemCast() {
     const t = Trigger.create();
 

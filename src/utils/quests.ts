@@ -21,7 +21,7 @@ export function setup_quests() {
             false
         );
 
-        addQuest("|cffffcc00Creep Warlords - 1.04|r", "Created by JediMindTrix/NihilismIsDeath", "ReplaceableTextures\\CommandButtons\\BTNClayFigurine.blp", false);
+        addQuest("|cffffcc00Creep Warlords - 1.06|r", "Created by JediMindTrix/NihilismIsDeath", "ReplaceableTextures\\CommandButtons\\BTNClayFigurine.blp", false);
     });
 }
 

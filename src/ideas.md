@@ -86,3 +86,5 @@ show tier levels on multiboard
 
 doint require uset to be playing for gold mine capture
 
+lower upgrades, change reincarnation? change reussurectoin?
+fix stacking for inferno stone

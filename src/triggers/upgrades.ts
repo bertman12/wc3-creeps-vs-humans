@@ -53,5 +53,6 @@ export function researchCreepControl() {
         }
     });
 
-    notifyPlayer("Players may now use the |cffffcc00Creep Control|r ability on their base to control where their creeps attack for a limited time.");
+    // notifyPlayer("Players may now use the |cffffcc00Creep Control|r ability on their base to control where their creeps attack for a limited time.");
 }
+//When the fox is jumping across the river i will follow it. if it crosses the mountain, i will climb, if dives into the sea, i will swim and if it soars to the sky i will die

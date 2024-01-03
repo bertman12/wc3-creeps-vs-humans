@@ -44,37 +44,12 @@ export function setup_playerCreepSpawns() {
     notifyPlayer(`${tColor("Objective", "goldenrod")} - Kill enemy player bases.`);
 }
 
-type UnitCategory = "infantry" | "missile" | "caster" | "siege" | "hero" | "all";
-
-enum SpawnDifficulty {
-    normal,
-    hard,
-    boss,
-    final,
-}
-
 export class SpawnData {
     public spawnRec: Rectangle | undefined;
     /**
      * Determines whether or not to show effects and minimap icons for the spawn.
      */
     public hideUI: boolean = false;
-    //This will determine the wave interval timer, which thus determines units spawned per wave
-    public spawnDifficulty = 0;
-    //random number from the array;
-    private spawnAmountPerWave = 1;
-    /**
-     * @unit_comp_distribution
-     * how many of each type of unit are we going to choose?
-     */
-    private unitCompData = new Map<UnitCategory, number>([
-        ["infantry", 1],
-        ["missile", 1],
-        ["caster", 1],
-        ["siege", 1],
-        ["hero", 1],
-    ]);
-
     private units: Unit[] = [];
     public waveTimer: Timer | undefined;
     public currentAttackTarget: Unit | undefined;
@@ -118,16 +93,6 @@ export class SpawnData {
         this.spawnOwner = owner;
         this.spawnType = spawnType;
         this.spawnRec = Rectangle.fromHandle(spawn);
-
-        //Maybe would use?
-        this.spawnAmountPerWave = this.calculateUnitCountSpawnedPerWave();
-
-        this.unitCompData = new Map<UnitCategory, number>([
-            ["infantry", Math.ceil(1 * this.spawnAmountPerWave)],
-            ["missile", Math.ceil(0.108 * this.spawnAmountPerWave)],
-            ["caster", Math.ceil(0.108 * this.spawnAmountPerWave)],
-            ["siege", Math.ceil(0.025 * this.spawnAmountPerWave)],
-        ]);
 
         this.spawnIcon = CreateMinimapIcon(
             this.spawnRec?.centerX ?? 0,
@@ -183,6 +148,7 @@ export class SpawnData {
                 }
             });
         });
+
         this.trackPlayerUsesCreepControl();
     }
 
@@ -227,10 +193,6 @@ export class SpawnData {
                 });
             }
         });
-    }
-
-    private calculateUnitCountSpawnedPerWave() {
-        return 3;
     }
 
     private getNextAlliedComputerPlayer() {
