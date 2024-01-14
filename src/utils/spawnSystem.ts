@@ -214,8 +214,8 @@ export class SpawnData {
         t.addAction(() => {
             const u = Unit.fromEvent();
             //Summonable units - wards?
-            const invalidUnits = [UNITS.summon_spiritPig, UNITS.summon_treant, UNITS.healingWard];
-            if (u && !u.owner.isPlayerAlly(Players[0])) {
+            const invalidUnits = [UNITS.summon_spiritPig, UNITS.summon_treant, UNITS.healingWard, UNITS.infernal];
+            if (u && !u.owner.isPlayerAlly(Players[0]) && !invalidUnits.includes(u.typeId)) {
                 this.spawnUnitCount--;
             }
         });

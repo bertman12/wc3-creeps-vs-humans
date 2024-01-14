@@ -4,8 +4,8 @@ import { setup_preventMassTeleportGrief } from "./triggers/anti-grief";
 import { setup_capture } from "./triggers/capture";
 import { setup_fixSpawns } from "./triggers/fixSpawns";
 import { setup_GoldMineEco } from "./triggers/goldMineEconomy";
-import { setup_trackPlayerKillCount } from "./triggers/kill-count";
 import { setup_createTextForItemCast, setup_createTextForSpellCast } from "./triggers/heroSpellCastTag";
+import { setup_trackPlayerKillCount } from "./triggers/kill-count";
 import { setup_multiBoard } from "./triggers/multiboard";
 import { setup_playerLeaves } from "./triggers/player-leaves";
 import { setup_preparation } from "./triggers/preparation";
@@ -34,6 +34,8 @@ compiletime(({ objectData, constants }) => {
 
 function tsMain() {
     try {
+        // Units.Abomination
+
         print(`Build: ${BUILD_DATE}`);
         print(`Typescript: v${TS_VERSION}`);
         print(`Transpiler: v${TSTL_VERSION}`);

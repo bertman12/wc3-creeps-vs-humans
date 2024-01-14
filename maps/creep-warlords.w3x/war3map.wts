@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-Creep Warlords - 1.06
+Creep Warlords - 1.07
 }
 
 STRING 2
@@ -31,7 +31,7 @@ Player 1
 
 STRING 7
 {
-Creep Warlords - 1.06
+Creep Warlords - 1.07
 }
 
 STRING 8
@@ -3359,5 +3359,11 @@ STRING 757
 // Abilities: Anhe (Heal), Ubertip (Tooltip - Normal - Extended)
 {
 Heals a target friendly non-mechanical wounded unit for |cff80ff8020 health|r.
+}
+
+STRING 758
+// Units: n003 (Special Shop), Name (Name)
+{
+Special Shop
 }
 

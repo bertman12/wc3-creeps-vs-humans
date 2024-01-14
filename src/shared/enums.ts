@@ -5,7 +5,7 @@ export enum UNITS {
     goldMine = FourCC("h001"),
 
     murloc_baseUnit = FourCC("nmrl"),
-
+    infernal = FourCC("ninf"),
     heroChooser = FourCC("e000"),
     itemShop = FourCC("h003"),
     upgradeShop = FourCC("h004"),
