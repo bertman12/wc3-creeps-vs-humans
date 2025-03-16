@@ -21,6 +21,7 @@ export enum WTS_Units{
 	CreepWarlord_E004 = FourCC("E004"),
 	CreepWarlord_O001 = FourCC("O001"),
 	SpecialShop = FourCC("n003"),
+	T1Demolisher = FourCC("o002"),
 }
 
 export enum WTS_Abilities{
@@ -34,6 +35,7 @@ export enum WTS_Abilities{
 	ControlCreeps = FourCC("A00B"),
 	Teleport = FourCC("AImt"),
 	ImprovedSlow = FourCC("A00F"),
+	Berserk_Structure = FourCC("A00G"),
 }
 
 export enum WTS_Upgrades{
@@ -83,4 +85,5 @@ export enum WTS_Upgrades{
 	PreparationTimeEnded = FourCC("R005"),
 	ImprovedCreepControl = FourCC("R007"),
 	CreepControlEnabled = FourCC("R006"),
+	FiveMinutesGameTime = FourCC("R008"),
 }

@@ -88,3 +88,7 @@ doint require uset to be playing for gold mine capture
 
 lower upgrades, change reincarnation? change reussurectoin?
 fix stacking for inferno stone
+
+/********\*\*\*\*********
+
+Make it so the creeps will spawn outward into 3 directions and also make the map more symmetrical so its more balanced

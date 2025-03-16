@@ -32,7 +32,7 @@ export function setup_trackPlayerKillCount() {
                 adjustMultiboardItemValue(p.id, MultiboardColumnIndexMap.PlayerKills, 1);
                 playerToAward = p;
 
-                if (deadUnit.isHero() && playerToAward) {
+                if (deadUnit.isHero() && !deadUnit.isIllusion() && playerToAward) {
                     const state = playerStates.get(playerToAward.id);
 
                     if (!state || !state.playerHero) return;

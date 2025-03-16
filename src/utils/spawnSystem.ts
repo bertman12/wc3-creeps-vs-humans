@@ -62,7 +62,7 @@ export class SpawnData {
     public spawnBase: Unit | undefined;
     private preSpawnFunctions: ((...args: any) => void)[] = [];
     private onCleanupFunctions: ((...args: any) => void)[] = [];
-    private spawnUnitCount: number = 0;
+    private aliveUnitsCount: number = 0;
     private waveIntervalSeconds = 10;
     private defaultSpawnTargetX = 0;
     private defaultSpawnTargetY = 0;
@@ -87,6 +87,7 @@ export class SpawnData {
      */
     private wavesCreated: number = 0;
     private lastUsedPlayerIndex = 0;
+    public bonusUnitsSpawned: number = 0;
 
     constructor(spawn: rect, owner: MapPlayer, hideUI: boolean = false, spawnBoss: boolean = false, spawnType: "simple" | "tiered") {
         this.hideUI = hideUI;
@@ -216,7 +217,7 @@ export class SpawnData {
             //Summonable units - wards?
             const invalidUnits = [UNITS.summon_spiritPig, UNITS.summon_treant, UNITS.healingWard, UNITS.infernal];
             if (u && !u.owner.isPlayerAlly(Players[0]) && !invalidUnits.includes(u.typeId)) {
-                this.spawnUnitCount--;
+                this.aliveUnitsCount--;
             }
         });
     }
@@ -368,14 +369,14 @@ export class SpawnData {
         const unitsCreatedThisWave: Unit[] = [];
 
         this.simpleUnitSpawnPool.forEach((spawnUnit) => {
-            if (this.spawnUnitCount >= this.MAX_SPAWN_COUNT) {
+            if (this.aliveUnitsCount >= this.MAX_SPAWN_COUNT) {
                 return undefined;
             }
 
             const u = Unit.create(this.getNextAlliedComputerPlayer(), spawnUnit.typeId, this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0);
 
             if (u) {
-                this.spawnUnitCount++;
+                this.aliveUnitsCount++;
                 u.owner.name = ptColor(this.spawnOwner, this.spawnOwner.name);
                 u.color = this.spawnOwner.color;
 
@@ -387,6 +388,29 @@ export class SpawnData {
                 unitsCreatedThisWave.push(u);
             }
         });
+
+        for (let x = 0; x < this.bonusUnitsSpawned; x++) {
+            if (this.aliveUnitsCount >= this.MAX_SPAWN_COUNT) {
+                break;
+            }
+
+            const randomUnitIndex = Math.floor(math.random(0, this.simpleUnitSpawnPool.length));
+            const spawnUnit = this.simpleUnitSpawnPool[randomUnitIndex];
+            const u = Unit.create(this.getNextAlliedComputerPlayer(), spawnUnit.typeId, this.spawnRec?.centerX ?? 0, this.spawnRec?.centerY ?? 0);
+
+            if (u) {
+                this.aliveUnitsCount++;
+                u.owner.name = ptColor(this.spawnOwner, this.spawnOwner.name);
+                u.color = this.spawnOwner.color;
+
+                u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_BASE, 25);
+                u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_NUMBER_OF_DICE, 1);
+                u.setField(UNIT_IF_GOLD_BOUNTY_AWARDED_SIDES_PER_DIE, 2);
+
+                this.units.push(u);
+                unitsCreatedThisWave.push(u);
+            }
+        }
 
         this.lastCreatedWaveUnits = unitsCreatedThisWave;
     }

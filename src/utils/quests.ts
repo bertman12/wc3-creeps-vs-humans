@@ -12,6 +12,7 @@ export function setup_quests() {
         );
 
         // \n${tColor("-fixSpawns", "goldenrod")}: Player 1 can only use this. This will fix add all player's spawn units to their corresponding spawn pool.
+
         addQuest(
             "Commands",
             `
@@ -21,7 +22,7 @@ export function setup_quests() {
             false
         );
 
-        addQuest("|cffffcc00Creep Warlords - 1.07|r", "Created by JediMindTrix/NihilismIsDeath", "ReplaceableTextures\\CommandButtons\\BTNClayFigurine.blp", false);
+        addQuest("|cffffcc00Creep Warlords - 1.08|r", "Created by JediMindTrix/NihilismIsDeath", "ReplaceableTextures\\CommandButtons\\BTNClayFigurine.blp", false);
     });
 }
 

@@ -25,15 +25,15 @@ gg_snd_PH1 = "PH1"
 gg_snd_NightElfX1 = "NightElfX1"
 gg_snd_MuradinTaunt1 = CreateSound("Sound/Dialogue/Extra/MuradinTaunt1.flac", false, false, false, 1, 1, "DefaultEAXON")
 SetSoundParamsFromLabel(gg_snd_MuradinTaunt1, "MuradinTaunt1")
-SetSoundDuration(gg_snd_MuradinTaunt1, 2324)
+SetSoundDuration(gg_snd_MuradinTaunt1, 2298)
 SetSoundVolume(gg_snd_MuradinTaunt1, 120)
 gg_snd_MuradinTaunt2 = CreateSound("Sound/Dialogue/Extra/MuradinTaunt2.flac", false, false, false, 1, 1, "DefaultEAXON")
 SetSoundParamsFromLabel(gg_snd_MuradinTaunt2, "MuradinTaunt2")
-SetSoundDuration(gg_snd_MuradinTaunt2, 2533)
+SetSoundDuration(gg_snd_MuradinTaunt2, 2507)
 SetSoundVolume(gg_snd_MuradinTaunt2, 120)
 gg_snd_KelThuzadDeath1 = CreateSound("Sound/Dialogue/Extra/KelThuzadDeath1.flac", false, false, false, 0, 0, "DefaultEAXON")
 SetSoundParamsFromLabel(gg_snd_KelThuzadDeath1, "KelThuzadDeath1")
-SetSoundDuration(gg_snd_KelThuzadDeath1, 4388)
+SetSoundDuration(gg_snd_KelThuzadDeath1, 4362)
 SetSoundVolume(gg_snd_KelThuzadDeath1, 120)
 gg_snd_FootmanPissed4 = CreateSound("Units/Human/Footman/FootmanPissed4.flac", false, true, true, 1, 1, "DefaultEAXON")
 SetSoundParamsFromLabel(gg_snd_FootmanPissed4, "FootmanPissed")
@@ -67,26 +67,6 @@ gg_snd_TheHornOfCenarius = CreateSound("Sound/Ambient/DoodadEffects/TheHornOfCen
 SetSoundParamsFromLabel(gg_snd_TheHornOfCenarius, "HornOfCenariusSound")
 SetSoundDuration(gg_snd_TheHornOfCenarius, 12120)
 SetSoundVolume(gg_snd_TheHornOfCenarius, 127)
-end
-
-function CreateUnitsForPlayer0()
-local p = Player(0)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("nmgd"), -2306.0, 5333.9, 106.980, FourCC("nmgd"))
-end
-
-function CreateUnitsForPlayer1()
-local p = Player(1)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("Edem"), -1220.5, 5657.7, 2.055, FourCC("Edem"))
 end
 
 function CreateNeutralHostileBuildings()
@@ -132,8 +112,6 @@ function CreatePlayerBuildings()
 end
 
 function CreatePlayerUnits()
-CreateUnitsForPlayer0()
-CreateUnitsForPlayer1()
 end
 
 function CreateAllUnits()

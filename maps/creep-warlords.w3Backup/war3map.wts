@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-Creep Warlords - 1.08
+Creep Warlords - 1.07
 }
 
 STRING 2
@@ -10,6 +10,7 @@ STRING 2
 
 STRING 3
 {
+|cffffcc0018 slots to prevent stutter step lag from ai.|r
 Customize your creep spawn.
 Build towers to defend your mines.
 Fight with creeps to attack players.
@@ -30,7 +31,7 @@ Player 1
 
 STRING 7
 {
-Creep Warlords - 1.08
+Creep Warlords - 1.07
 }
 
 STRING 8
@@ -882,7 +883,7 @@ Unlock Tier 3 Units
 }
 
 STRING 245
-// Units: h000 (Creep Camp), EditorSuffix (Name - Editor Suffix)
+// Abilities: A00A (Summon Inferno), EditorSuffix (Editor Suffix)
 {
 (Player Base)
 }
@@ -1411,6 +1412,15 @@ STRING 369
 // Units: nsgb (Sea Giant Behemoth), Hotkey (Hotkey)
 {
 F
+}
+
+STRING 374
+// Units: nina (Infernal Juggernaut), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Inferno
+
+|Cffffcc00Armor|r: Heavy
+|cffffcc00Attack|r: Chaos
 }
 
 STRING 380
@@ -2364,6 +2374,15 @@ STRING 555
 |cffffcc00Attack|r: Magic
 }
 
+STRING 557
+// Units: nmgd (Magnataur Destroyer), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Abilities|r: Slam, Frost Bolt, Spell Immunity
+
+|Cffffcc00Armor|r: Light
+|cffffcc00Attack|r: Chaos
+}
+
 STRING 559
 // Units: nggr (Granite Golem), Ubertip (Tooltip - Extended)
 {
@@ -3159,6 +3178,12 @@ STRING 724
 Allows you to summon a defensive inferno for 30 seconds. |n|n|cffc0c0c01200 Range|r
 }
 
+STRING 725
+// Abilities: A007 (Spawn Info), Ubertip (Tooltip - Normal - Extended)
+{
+Units spawn every 10 seconds.|n|NYour base provides |cffffff00+50 gold|r every 10 seconds. |n|NIf the leading enemy has more mines than you, you get |cffffff00+8 gold |rextra per mine difference.       |n|N|cffffcc00Max of 110 units at any given time.|r
+}
+
 STRING 726
 // Units: H005 (Creep Warlord), Ubertip (Tooltip - Extended)
 {
@@ -3359,57 +3384,5 @@ STRING 761
 // Upgrades: R003 (Chaos), Hotkey (Hotkey)
 {
 X
-}
-
-STRING 762
-// Abilities: A007 (Spawn Info), Ubertip (Tooltip - Normal - Extended)
-{
-Units spawn every 10 seconds.|n|NYour base provides |cffffff00+50 gold|r every 10 seconds. |n|NIf the leading enemy has more mines than you, you get |cffffff00+8 gold |rextra per mine difference. |n|NYou will also get more units spawned if the leading player has 4 more mines than you.      |n|N|cffffcc00Max of 110 units at any given time.|r
-}
-
-STRING 763
-// Abilities: A00G (Berserk - Structure), Name (Name)
-{
-Berserk - Structure
-}
-
-STRING 766
-// Upgrades: R008 (Chaos), EditorSuffix (Editor Suffix)
-{
-(NULL UPGRADE)
-}
-
-STRING 768
-// Upgrades: R008 (Chaos), Name (Name)
-{
-Five Minutes Game Time
-}
-
-STRING 771
-// Units: nmgd (Magnataur Destroyer), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Abilities|r: Slam, Frost Bolt
-
-|Cffffcc00Armor|r: Light
-|cffffcc00Attack|r: Chaos
-}
-
-STRING 772
-// Abilities: A00A (Summon Inferno), EditorSuffix (Editor Suffix)
-{
-(Player Base)
-}
-
-STRING 773
-// Abilities: A00G (Berserk - Structure), Ubertip (Tooltip - Normal - Extended)
-{
-Causes this unit to attack 700% faster for 12 seconds without taking bonus damage. |N|N|cffffcc0090 second cooldown|r
-}
-
-STRING 774
-// Units: nina (Infernal Juggernaut), Ubertip (Tooltip - Extended)
-{
-|Cffffcc00Armor|r: Heavy
-|cffffcc00Attack|r: Chaos
 }
 

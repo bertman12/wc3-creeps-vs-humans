@@ -1,3 +1,4 @@
+import { WTS_Upgrades } from "src/WTS Generated Enums/WTS_Enums";
 import { GameConfig } from "src/shared/GameConfig";
 import { ABILITIES, UNITS, UPGRADES } from "src/shared/enums";
 import { playerStates } from "src/shared/playerState";
@@ -49,6 +50,9 @@ export function setup_preparation(onPrepTimeEnd: (...args: any[]) => any) {
 
             forEachPlayer((p) => {
                 p.setTechResearched(UPGRADES.prepTimeEnded, 1);
+                delayedTimer(60 * 5, () => {
+                    p.setTechResearched(WTS_Upgrades.FiveMinutesGameTime, 1);
+                });
             });
 
             delayedTimer(GameConfig.creepControlDelay, () => {

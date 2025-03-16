@@ -17,6 +17,7 @@ export class PlayerState {
     playerHero: Unit | undefined;
     ownedSpawn: SpawnData | undefined;
     baseGoldIncome = 50;
+    bonusUnitsSpawned = 0;
 
     constructor(player: MapPlayer) {
         this.player = player;
@@ -107,6 +108,13 @@ export class PlayerState {
             this.baseGoldIncome = 50 + 8 * diff;
         } else if (diff <= 0) {
             this.baseGoldIncome = 50;
+        }
+
+        //if the leading player has more than 4 mines than you, you get bonus units spawned in your wave.
+        if (this.ownedSpawn && diff > 4) {
+            this.ownedSpawn.bonusUnitsSpawned = Math.floor((diff - 4) / 2);
+        } else if (this.ownedSpawn) {
+            this.ownedSpawn.bonusUnitsSpawned = 0;
         }
     }
 
